@@ -1,54 +1,30 @@
 import { MapPin } from 'lucide-react'
-import { useState } from 'react'
 import { site } from '~/content/site'
 
 /**
- * Click-to-load Google Map. The iframe pulls in heavy third-party scripts, so it is only
- * loaded when the visitor asks for it (faster page, and no request to Google without consent).
+ * Google Map of the Abuja office with the address overlaid. The iframe is lazy-loaded,
+ * so it only loads as the visitor scrolls towards it (keeps the page fast).
  */
 export function MapEmbed() {
-  const [show, setShow] = useState(false)
-  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address.lines.join(', '))}`
-
-  if (show) {
-    return (
+  return (
+    <div className="relative size-full">
       <iframe
         title="Map of the Zest Partners Abuja office"
         src={site.mapEmbed}
-        className="size-full grayscale"
+        loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
+        className="size-full grayscale"
       />
-    )
-  }
-
-  return (
-    <div className="flex size-full flex-col items-center justify-center gap-6 px-4 text-center">
-      <MapPin className="size-8 text-brass" aria-hidden />
-      <address className="font-display text-2xl not-italic">
-        {site.address.lines.map((l) => (
-          <span key={l} className="block">
-            {l}
-          </span>
-        ))}
+      <address className="pointer-events-none absolute top-14 left-4 flex max-w-[calc(100%-2rem)] gap-3 bg-ink/90 p-5 text-sm leading-relaxed text-paper not-italic shadow-lg sm:top-6 sm:right-6 sm:left-auto sm:p-6">
+        <MapPin className="mt-0.5 size-5 shrink-0 text-brass" aria-hidden />
+        <span>
+          {site.address.lines.map((l) => (
+            <span key={l} className="block">
+              {l}
+            </span>
+          ))}
+        </span>
       </address>
-      <div className="flex flex-wrap justify-center gap-3">
-        <button
-          type="button"
-          onClick={() => setShow(true)}
-          className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-green"
-        >
-          Show map
-        </button>
-        <a
-          href={directions}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold transition-colors hover:border-ink hover:bg-ink hover:text-paper"
-        >
-          Open in Google Maps
-        </a>
-      </div>
-      <p className="max-w-sm text-xs text-muted">Loading the map connects to Google.</p>
     </div>
   )
 }

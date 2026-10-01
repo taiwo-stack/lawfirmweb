@@ -132,7 +132,7 @@ function Contact() {
           </Reveal>
         </div>
       </Section>
-      <div className="h-[420px] border-t border-line bg-paper-deep">
+      <div className="h-[420px] border-t border-line bg-paper-deep sm:h-[480px]">
         <MapEmbed />
       </div>
     </>
