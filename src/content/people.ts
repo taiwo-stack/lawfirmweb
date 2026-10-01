@@ -72,7 +72,7 @@ export const people: Person[] = [
     ],
     // TODO: replace with the new studio portrait once confirmed.
     photo: '/images/people/chinedu-obienu.jpg',
-    email: 'chineduobienu@yahoo.com',
+    email: 'chinedu@zestpartnersng.com',
     credentials: ['PhD (Law)', 'MCIArb (UK)', 'FICMC'],
     focus: ['Corporate & commercial', 'Energy', 'Taxation', 'Government compliance', 'Litigation', 'Dispute resolution'],
     highlights: [

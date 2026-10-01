@@ -120,7 +120,7 @@ Each page is built from these blocks. Adding a practice area or a partner means 
 ### Phase 0 — Accounts & decisions (you)
 - [ ] GitHub account/org and repo name (e.g. `zestpartners/website`)
 - [ ] Confirm the domain registrar and who has DNS access
-- [ ] Confirm who uses `@zestpartnersng.com` email (mail is on the current host)
+- [x] Site email is now chinedu@zestpartnersng.com. **This mailbox is hosted on the current server (MX → mail.zestpartnersng.com), so the DNS switch in Phase 7 must keep the mail records exactly as they are.**
 - [ ] Send: vector logo, the partners' names and bios, real contact details, social URLs, any documents or brochures
 
 ### Phase 1 — Content (done → `content/`)

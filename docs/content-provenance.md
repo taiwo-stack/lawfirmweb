@@ -13,7 +13,8 @@ Every factual statement on the site comes from one of three sources:
 | Content | File | Source |
 |---|---|---|
 | Firm founding (2006), vision, mission, "who we are", experience list, documents prepared | `site.ts`, `about.index.tsx` | OLD |
-| Address, phones, emails, WhatsApp | `site.ts` | OLD |
+| Address, phones, WhatsApp | `site.ts` | OLD |
+| Email: chinedu@zestpartnersng.com (the only address on the site) | `site.ts`, `people.ts` | Instructed by the firm, 1 Oct 2026. Replaces the old site's zestpartners@yahoo.com and chineduobienu@yahoo.com |
 | Lagos office | `site.ts`, contact FAQ | OLD (Edwin Nneamaka Uzoma "personally runs the Lagos office") |
 | Practice-area text (all 19 pages) | `practices.ts` | OLD. Details about the Managing Partner come from CV |
 | Criminal Law page | `practices.ts` | OLD (criminal law listed as a field; "criminal and civil litigation") + CV (Plateau ACJL, FREP Rules) |
