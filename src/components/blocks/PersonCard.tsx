@@ -3,7 +3,8 @@ import { Img } from '~/components/ui/Img'
 import { displayName, type Person } from '~/content/people'
 import { practiceBySlug } from '~/content/practices'
 
-export function PersonCard({ person }: { person: Person }) {
+/** `compact` shows only the photo and name (used on the home page). */
+export function PersonCard({ person, compact = false }: { person: Person; compact?: boolean }) {
   const areas = (person.practices ?? []).map(practiceBySlug).filter((p) => p !== undefined)
   return (
     <Link to="/people/$slug/" params={{ slug: person.slug }} className="group block">
@@ -15,12 +16,14 @@ export function PersonCard({ person }: { person: Person }) {
           className="size-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
         />
       </div>
-      <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-brass uppercase">{person.role}</p>
-      <h3 className="mt-2 text-2xl group-hover:text-green">{displayName(person)}</h3>
+      {!compact && <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-brass uppercase">{person.role}</p>}
+      <h3 className={`${compact ? 'mt-5' : 'mt-2'} text-2xl group-hover:text-green`}>{displayName(person)}</h3>
+      {!compact && (
       <p className="mt-1 text-sm text-muted">
         {[person.office && `${person.office} office`, person.credentials?.join(' · ')].filter(Boolean).join(' · ')}
       </p>
-      {areas.length > 0 && (
+      )}
+      {!compact && areas.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {areas.slice(0, 3).map((a) => (
             <li key={a.slug} className="rounded-full border border-line px-3 py-1 text-xs text-ink/75">

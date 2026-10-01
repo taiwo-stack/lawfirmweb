@@ -384,7 +384,7 @@ function Home() {
                 {people
                   .filter((p) => p.group !== 'Principal')
                   .map((p) => (
-                    <PersonCard key={p.slug} person={p} />
+                    <PersonCard key={p.slug} person={p} compact />
                   ))}
               </div>
             </div>
