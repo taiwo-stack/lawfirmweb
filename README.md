@@ -27,7 +27,7 @@ Copy lives in typed data files, not in page components:
 | Firm history timeline | `src/content/history.ts` |
 | Insight topics and auto-tagging rules | `src/content/topics.ts` |
 | Navigation (menus, mega menu, tabs) | `src/content/site.ts` → `nav` |
-| Images | `public/images/…` |
+| Images | `public/images/…` — then run `python scripts/optimize-images.py` and use `<Img src="/images/…">` |
 
 To **add a practice area**, add an entry to `practices.ts`. Its page, card, sitemap entry and links are generated automatically.
 To **add a partner**, add an entry to `people.ts` and put the photo in `public/images/people/`.
@@ -52,6 +52,7 @@ scripts/
   postbuild.ts       404.html, legacy WordPress redirects, sitemap cleanup, .nojekyll
   content-audit.py   checks every old-site sentence against the new source
   check-links.py     fails the build if any internal link or #anchor is broken (runs in CI)
+  optimize-images.py makes responsive WebP variants + src/content/images.json (re-run after adding images)
 docs/
   PLAN.md                    rebuild plan & launch checklist
   content-audit.md           proof that all legacy content was carried over

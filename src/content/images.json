@@ -1,0 +1,264 @@
+{
+ "/images/brand/afba-conference.jpg": {
+  "w": 563,
+  "h": 1000,
+  "variants": [
+   480,
+   563
+  ]
+ },
+ "/images/brand/library-tall.jpg": {
+  "w": 608,
+  "h": 1080,
+  "variants": [
+   480,
+   608
+  ]
+ },
+ "/images/brand/library-wide.jpg": {
+  "w": 1280,
+  "h": 720,
+  "variants": [
+   480,
+   960,
+   1280
+  ]
+ },
+ "/images/brand/logo.jpg": {
+  "w": 1068,
+  "h": 549,
+  "variants": [
+   120,
+   240,
+   360
+  ]
+ },
+ "/images/brand/portrait.jpg": {
+  "w": 1280,
+  "h": 1280,
+  "variants": [
+   480,
+   960,
+   1280
+  ]
+ },
+ "/images/office/exterior-1.jpg": {
+  "w": 563,
+  "h": 1000,
+  "variants": [
+   480,
+   563
+  ]
+ },
+ "/images/office/exterior-2.jpg": {
+  "w": 563,
+  "h": 1000,
+  "variants": [
+   480,
+   563
+  ]
+ },
+ "/images/office/library-1.jpg": {
+  "w": 563,
+  "h": 1000,
+  "variants": [
+   480,
+   563
+  ]
+ },
+ "/images/office/library-2.jpg": {
+  "w": 541,
+  "h": 837,
+  "variants": [
+   480,
+   541
+  ]
+ },
+ "/images/office/library-3.jpg": {
+  "w": 563,
+  "h": 1000,
+  "variants": [
+   480,
+   563
+  ]
+ },
+ "/images/office/library-4.jpg": {
+  "w": 744,
+  "h": 992,
+  "variants": [
+   480,
+   744
+  ]
+ },
+ "/images/people/chinedu-obienu.jpg": {
+  "w": 744,
+  "h": 992,
+  "variants": [
+   480,
+   744
+  ]
+ },
+ "/images/people/edwin-nneamaka-uzoma.jpg": {
+  "w": 744,
+  "h": 992,
+  "variants": [
+   480,
+   744
+  ]
+ },
+ "/images/practice/aviation.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/banking.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/company-law.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/contracts.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/corporate-compliance.jpg": {
+  "w": 662,
+  "h": 662,
+  "variants": [
+   480,
+   662
+  ]
+ },
+ "/images/practice/criminal.jpg": {
+  "w": 800,
+  "h": 534,
+  "variants": [
+   480,
+   800
+  ]
+ },
+ "/images/practice/debt-recovery.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/election.jpg": {
+  "w": 1667,
+  "h": 1667,
+  "variants": [
+   480,
+   960,
+   1600
+  ]
+ },
+ "/images/practice/foreign-documents.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/human-rights.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/ip.jpg": {
+  "w": 1200,
+  "h": 800,
+  "variants": [
+   480,
+   960,
+   1200
+  ]
+ },
+ "/images/practice/legislative.jpg": {
+  "w": 615,
+  "h": 409,
+  "variants": [
+   480,
+   615
+  ]
+ },
+ "/images/practice/litigation.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/matrimonial.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/petroleum.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/probate.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/property.jpg": {
+  "w": 512,
+  "h": 329,
+  "variants": [
+   480,
+   512
+  ]
+ },
+ "/images/practice/taxation.jpg": {
+  "w": 500,
+  "h": 500,
+  "variants": [
+   480,
+   500
+  ]
+ },
+ "/images/practice/training.jpg": {
+  "w": 2016,
+  "h": 1344,
+  "variants": [
+   480,
+   960,
+   1600
+  ]
+ }
+}

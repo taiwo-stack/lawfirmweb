@@ -1,4 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { Mail } from 'lucide-react'
 import { Breadcrumbs } from '~/components/blocks/Breadcrumbs'
 import type { ReactNode } from 'react'
@@ -7,7 +8,7 @@ import { Reveal } from '~/components/ui/Reveal'
 import { CTASection } from '~/components/blocks/CTASection'
 import { displayName, personBySlug, type Person, type Talk } from '~/content/people'
 import { site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/people/$slug')({
   loader: ({ params }) => {
@@ -170,7 +171,7 @@ function PersonPage() {
           <Breadcrumbs items={[{ label: 'Our People', to: '/people/' }, { label: name }]} />
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="rise lg:col-span-5">
-              <img src={asset(person.photo)} alt={name} className="aspect-[4/5] w-full object-cover object-top" />
+              <Img src={person.photo} alt={name} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover object-top" />
             </div>
             <div className="rise lg:col-span-7">
               <p className="eyebrow">{person.role}</p>

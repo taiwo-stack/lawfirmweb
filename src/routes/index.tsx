@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { ArrowUpRight } from 'lucide-react'
 import { ButtonLink } from '~/components/ui/Button'
 import { Container, Section } from '~/components/ui/Container'
@@ -11,7 +12,7 @@ import { groupId, groups, practices } from '~/content/practices'
 import { people } from '~/content/people'
 import { insights } from '~/content/insights'
 import { site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/')({
   head: () => seo({ path: '/' }),
@@ -58,20 +59,20 @@ function Home() {
     <>
       {/* Hero */}
       <section className="relative isolate overflow-hidden bg-ink text-paper">
-        <img
-          src={asset('/images/brand/library-wide.jpg')}
+        <Img
+          src={'/images/brand/library-wide.jpg'}
           alt=""
           className="absolute inset-0 -z-20 size-full object-cover opacity-40"
-          fetchPriority="high"
+          priority
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
         <Container className="flex min-h-[min(86svh,900px)] flex-col justify-end pt-28 pb-14 sm:pb-20">
           <div className="rise">
             <p className="eyebrow">Welcome to Zest Partners · Est. {site.founded}</p>
             <h1 className="mt-8 max-w-5xl text-5xl leading-[1.04] font-light sm:text-7xl lg:text-8xl">
-              Counsel for{' '}
+              Counsel for
               <RotatingText
-                className="text-brass-soft italic"
+                className="block text-brass-soft italic"
                 items={['business.', 'disputes.', 'energy.', 'families.', 'justice.']}
               />
             </h1>
@@ -161,10 +162,9 @@ function Home() {
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-5">
             <div className="relative">
-              <img
-                src={asset('/images/brand/library-tall.jpg')}
+              <Img
+                src={'/images/brand/library-tall.jpg'}
                 alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
-                loading="lazy"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute -bottom-6 -left-6 hidden bg-green p-6 text-paper sm:block">
@@ -260,11 +260,11 @@ function Home() {
           </Reveal>
           <Reveal delay={0.1} className="grid grid-cols-3 gap-3 lg:col-span-7">
             {['/images/office/exterior-1.jpg', '/images/office/library-1.jpg', '/images/office/library-3.jpg'].map((src, i) => (
-              <img
+              <Img
                 key={src}
-                src={asset(src)}
+                src={src}
                 alt={i === 0 ? 'The Zest Partners office, Abuja' : 'The Zest Partners law library'}
-                loading="lazy"
+                sizes="(min-width: 1024px) 20vw, 33vw"
                 className={`aspect-[3/5] w-full object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
               />
             ))}
@@ -290,10 +290,9 @@ function Home() {
               params={{ slug: 'afba-2025-accra' }}
               className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper"
             >
-              <img
-                src={asset('/images/brand/afba-conference.jpg')}
+              <Img
+                src={'/images/brand/afba-conference.jpg'}
                 alt=""
-                loading="lazy"
                 className="absolute inset-0 size-full object-cover object-top opacity-60 transition duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />

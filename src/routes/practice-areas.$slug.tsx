@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { ArrowLeft, ArrowRight, Check, Mail, Phone } from 'lucide-react'
 import { Container, Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
@@ -10,7 +11,7 @@ import { groupId, practiceBySlug, practices } from '~/content/practices'
 import { displayName, personBySlug } from '~/content/people'
 import { insightsForTopics } from '~/content/insights'
 import { site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/practice-areas/$slug')({
   loader: ({ params }) => {
@@ -53,7 +54,7 @@ function PracticePage() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-ink text-paper">
-        <img src={asset(practice.image)} alt="" className="absolute inset-0 -z-20 size-full object-cover opacity-25" />
+        <Img src={practice.image} alt="" priority className="absolute inset-0 -z-20 size-full object-cover opacity-25" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/85 to-ink/50" />
         <Container className="pt-10 pb-20 sm:pb-24">
           <Breadcrumbs
@@ -118,7 +119,7 @@ function PracticePage() {
                 <div className="border border-line bg-paper-deep p-8">
                   <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Key contact</p>
                   <Link to="/people/$slug/" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
-                    <img src={asset(lead.photo)} alt="" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
+                    <Img src={lead.photo} alt="" sizes="80px" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
                     <span>
                       <span className="block font-display text-xl group-hover:text-green">{displayName(lead)}</span>
                       <span className="mt-1 block text-sm text-muted">{lead.role}</span>

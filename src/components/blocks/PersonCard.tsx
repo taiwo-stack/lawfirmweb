@@ -1,15 +1,15 @@
 import { Link } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { displayName, type Person } from '~/content/people'
-import { asset } from '~/lib/utils'
 
 export function PersonCard({ person }: { person: Person }) {
   return (
     <Link to="/people/$slug/" params={{ slug: person.slug }} className="group block">
       <div className="aspect-[4/5] overflow-hidden bg-paper-deep">
-        <img
-          src={asset(person.photo)}
+        <Img
+          src={person.photo}
           alt={displayName(person)}
-          loading="lazy"
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="size-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
         />
       </div>

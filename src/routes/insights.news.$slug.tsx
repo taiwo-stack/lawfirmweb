@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { Container, Section } from '~/components/ui/Container'
 import { Breadcrumbs } from '~/components/blocks/Breadcrumbs'
 import { InsightCard } from '~/components/blocks/InsightCard'
@@ -9,7 +10,7 @@ import { insights } from '~/content/insights'
 import { personBySlug } from '~/content/people'
 import { topics } from '~/content/topics'
 import { site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/insights/news/$slug')({
   loader: ({ params }) => {
@@ -72,7 +73,7 @@ function NewsPage() {
       <Section>
         <article className="mx-auto max-w-3xl">
           {item.image && (
-            <img src={asset(item.image)} alt={item.imageAlt ?? ''} className="mb-12 aspect-[16/10] w-full object-cover object-top" />
+            <Img src={item.image} alt={item.imageAlt ?? ''} sizes="(min-width: 768px) 768px, 100vw" className="mb-12 aspect-[16/10] w-full object-cover object-top" />
           )}
           <div className="prose-firm">
             {item.body.map((p) => (

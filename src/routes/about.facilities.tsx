@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { BookOpen, Building2, MonitorSmartphone } from 'lucide-react'
 import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
@@ -6,7 +7,7 @@ import { PageHeader } from '~/components/blocks/PageHeader'
 import { SectionTabs } from '~/components/blocks/SectionTabs'
 import { CTASection } from '~/components/blocks/CTASection'
 import { firmTabs, site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/about/facilities')({
   head: () =>
@@ -77,10 +78,10 @@ function Facilities() {
         <div className="mt-12 grid auto-rows-[220px] gap-4 sm:grid-cols-3 sm:auto-rows-[260px]">
           {gallery.map((g) => (
             <figure key={g.src} className={`group overflow-hidden bg-paper ${g.span}`}>
-              <img
-                src={asset(g.src)}
+              <Img
+                src={g.src}
                 alt={g.alt}
-                loading="lazy"
+                sizes="(min-width: 640px) 33vw, 100vw"
                 className="size-full object-cover transition duration-700 group-hover:scale-[1.04]"
               />
             </figure>

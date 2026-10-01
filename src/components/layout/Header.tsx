@@ -1,16 +1,18 @@
 import { Link, useRouterState } from '@tanstack/react-router'
 import { ArrowRight, ChevronDown, Menu, Phone, Search, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { nav, site, type NavItem } from '~/content/site'
 import { groupId, groups, practices } from '~/content/practices'
 import { cn } from '~/lib/utils'
 import { Container } from '~/components/ui/Container'
 import { ButtonLink } from '~/components/ui/Button'
-import { SearchDialog } from '~/components/blocks/SearchDialog'
 import { Logo } from './Logo'
 
 // Dropdown panels open on hover or keyboard focus. The ::before strip bridges the gap
 // between the menu link and the panel so the pointer can travel without the menu closing.
+// Loaded on first open so its content index (insights, people) stays out of the main bundle.
+const SearchDialog = lazy(() => import('~/components/blocks/SearchDialog').then((m) => ({ default: m.SearchDialog })))
+
 const panel =
   "invisible absolute top-full z-50 translate-y-1 opacity-0 transition-[opacity,transform,visibility] duration-200 before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-[''] group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
 
@@ -284,7 +286,11 @@ export function Header() {
         </div>
       )}
 
-      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchOpen && (
+        <Suspense fallback={null}>
+          <SearchDialog open onClose={() => setSearchOpen(false)} />
+        </Suspense>
+      )}
     </header>
   )
 }

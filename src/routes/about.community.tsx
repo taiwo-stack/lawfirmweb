@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { ButtonLink } from '~/components/ui/Button'
@@ -7,7 +8,7 @@ import { SectionTabs } from '~/components/blocks/SectionTabs'
 import { CTASection } from '~/components/blocks/CTASection'
 import { personBySlug } from '~/content/people'
 import { firmTabs } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/about/community')({
   head: () =>
@@ -75,10 +76,9 @@ function Community() {
           <Reveal className="lg:col-span-4">
             <p className="eyebrow">Service to the profession</p>
             <h2 className="mt-6 text-4xl leading-tight">Serving the Bar.</h2>
-            <img
-              src={asset('/images/brand/afba-conference.jpg')}
+            <Img
+              src={'/images/brand/afba-conference.jpg'}
               alt="Speaking at the African Bar Association conference"
-              loading="lazy"
               className="mt-10 hidden aspect-[4/5] w-full object-cover object-top lg:block"
             />
           </Reveal>

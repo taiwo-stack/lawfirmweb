@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { Img } from '~/components/ui/Img'
 import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { ButtonLink } from '~/components/ui/Button'
@@ -7,7 +8,7 @@ import { SectionTabs } from '~/components/blocks/SectionTabs'
 import { CTASection } from '~/components/blocks/CTASection'
 import { groupId, groups, practices } from '~/content/practices'
 import { firmTabs, site } from '~/content/site'
-import { asset, seo } from '~/lib/utils'
+import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/about/')({
   head: () =>
@@ -83,10 +84,10 @@ function About() {
       <Section tone="deep">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
-            <img
-              src={asset('/images/office/library-4.jpg')}
+            <Img
+              src={'/images/office/library-4.jpg'}
               alt="Inside the Zest Partners law library"
-              loading="lazy"
+              sizes="(min-width: 1024px) 40vw, 100vw"
               className="aspect-[4/5] w-full object-cover lg:sticky lg:top-40"
             />
           </Reveal>

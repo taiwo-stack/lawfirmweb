@@ -1,8 +1,8 @@
 import { ButtonAnchor, ButtonLink } from '~/components/ui/Button'
+import { Img } from '~/components/ui/Img'
 import { Container } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { site } from '~/content/site'
-import { asset } from '~/lib/utils'
 
 export function CTASection({
   title = 'Tell us what you are facing.',
@@ -13,10 +13,10 @@ export function CTASection({
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-ink text-paper">
-      <img
-        src={asset('/images/brand/library-wide.jpg')}
+      <Img
+        src={'/images/brand/library-wide.jpg'}
         alt=""
-        loading="lazy"
+       
         className="absolute inset-0 -z-10 size-full object-cover opacity-20"
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
