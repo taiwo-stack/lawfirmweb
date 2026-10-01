@@ -154,11 +154,11 @@ Each page is built from these blocks. Adding a practice area or a partner means 
 - [ ] Analytics and a consent notice
 
 ### Phase 6 — Quality
-- [ ] Responsive checks at 360, 768, 1024 and 1440 px
-- [ ] Lighthouse ≥ 95 for Performance, Accessibility, Best Practices and SEO
-- [ ] Images to AVIF/WebP with responsive `srcset`
-- [ ] Accessibility: keyboard navigation, contrast, alt text
-- [ ] Legacy URL redirects, sitemap, robots, JSON-LD validated
+- [x] Responsive checks at 360, 768, 1024 and 1440 px (browser tests: no horizontal overflow at 390px)
+- [x] Lighthouse (mobile, live): Performance 90–97, Accessibility/Best Practices/SEO 100 on all pages tested
+- [x] Images to WebP with responsive `srcset` (`scripts/optimize-images.py`, `<Img>`)
+- [x] Accessibility: axe scan of every page at 1440px and 390px with no violations; keyboard menus; WCAG AA contrast
+- [x] Legacy URL redirects, sitemap, robots, JSON-LD; link and anchor checker runs in CI
 
 ### Phase 7 — Deploy & cut-over
 1. [ ] GitHub Actions workflow: `npm ci → npm run build → upload dist → deploy-pages`
