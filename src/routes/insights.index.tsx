@@ -42,7 +42,6 @@ function Insights() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'Insights' }]}
         eyebrow="News & insights"
         title="Ideas from the Bar, the boardroom and the classroom."
         intro={`${counts.news} firm announcements, ${counts.talk} papers presented at conferences and trainings, and ${counts.publication} books, articles and theses.`}

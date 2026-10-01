@@ -56,7 +56,6 @@ function About() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'The Firm' }]}
         eyebrow="The firm"
         title={
           <>

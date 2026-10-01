@@ -48,7 +48,6 @@ function Contact() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'Contact' }]}
         eyebrow="Contact"
         title="Feel free to ask. We are here."
         intro="Send us a message, call, or reach us on WhatsApp. A member of the firm will respond promptly."

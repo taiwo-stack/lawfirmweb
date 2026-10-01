@@ -31,7 +31,6 @@ function PracticeAreas() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'Expertise' }]}
         eyebrow="Expertise"
         title="We are here to fight against any violation, with experience."
         intro={`${practices.length} practice areas in five groups. Lawyers work across groups so every client has an integrated team.`}
