@@ -18,11 +18,14 @@ import { Route as AboutCommunityRouteImport } from './routes/about.community'
 import { Route as AboutFacilitiesRouteImport } from './routes/about.facilities'
 import { Route as AboutHistoryRouteImport } from './routes/about.history'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
-import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as InsightsPublicationsRouteImport } from './routes/insights.publications'
+import { Route as InsightsTalksRouteImport } from './routes/insights.talks'
 import { Route as PeopleIndexRouteImport } from './routes/people.index'
 import { Route as PeopleSlugRouteImport } from './routes/people.$slug'
 import { Route as PracticeAreasIndexRouteImport } from './routes/practice-areas.index'
 import { Route as PracticeAreasSlugRouteImport } from './routes/practice-areas.$slug'
+import { Route as InsightsNewsIndexRouteImport } from './routes/insights.news.index'
+import { Route as InsightsNewsSlugRouteImport } from './routes/insights.news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -69,9 +72,14 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/insights/$slug',
-  path: '/insights/$slug',
+const InsightsPublicationsRoute = InsightsPublicationsRouteImport.update({
+  id: '/insights/publications',
+  path: '/insights/publications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsTalksRoute = InsightsTalksRouteImport.update({
+  id: '/insights/talks',
+  path: '/insights/talks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PeopleIndexRoute = PeopleIndexRouteImport.update({
@@ -94,6 +102,16 @@ const PracticeAreasSlugRoute = PracticeAreasSlugRouteImport.update({
   path: '/practice-areas/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsNewsIndexRoute = InsightsNewsIndexRouteImport.update({
+  id: '/insights/news/',
+  path: '/insights/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsNewsSlugRoute = InsightsNewsSlugRouteImport.update({
+  id: '/insights/news/$slug',
+  path: '/insights/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -103,13 +121,16 @@ export interface FileRoutesByFullPath {
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
-  '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/publications': typeof InsightsPublicationsRoute
+  '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
   '/practice-areas/$slug': typeof PracticeAreasSlugRoute
   '/about/': typeof AboutIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/people/': typeof PeopleIndexRoute
   '/practice-areas/': typeof PracticeAreasIndexRoute
+  '/insights/news/$slug': typeof InsightsNewsSlugRoute
+  '/insights/news/': typeof InsightsNewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -119,13 +140,16 @@ export interface FileRoutesByTo {
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
-  '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/publications': typeof InsightsPublicationsRoute
+  '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
   '/practice-areas/$slug': typeof PracticeAreasSlugRoute
   '/about': typeof AboutIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/people': typeof PeopleIndexRoute
   '/practice-areas': typeof PracticeAreasIndexRoute
+  '/insights/news/$slug': typeof InsightsNewsSlugRoute
+  '/insights/news': typeof InsightsNewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -136,13 +160,16 @@ export interface FileRoutesById {
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
-  '/insights/$slug': typeof InsightsSlugRoute
+  '/insights/publications': typeof InsightsPublicationsRoute
+  '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
   '/practice-areas/$slug': typeof PracticeAreasSlugRoute
   '/about/': typeof AboutIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/people/': typeof PeopleIndexRoute
   '/practice-areas/': typeof PracticeAreasIndexRoute
+  '/insights/news/$slug': typeof InsightsNewsSlugRoute
+  '/insights/news/': typeof InsightsNewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -154,13 +181,16 @@ export interface FileRouteTypes {
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
-    | '/insights/$slug'
+    | '/insights/publications'
+    | '/insights/talks'
     | '/people/$slug'
     | '/practice-areas/$slug'
     | '/about/'
     | '/insights/'
     | '/people/'
     | '/practice-areas/'
+    | '/insights/news/$slug'
+    | '/insights/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -170,13 +200,16 @@ export interface FileRouteTypes {
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
-    | '/insights/$slug'
+    | '/insights/publications'
+    | '/insights/talks'
     | '/people/$slug'
     | '/practice-areas/$slug'
     | '/about'
     | '/insights'
     | '/people'
     | '/practice-areas'
+    | '/insights/news/$slug'
+    | '/insights/news'
   id:
     | '__root__'
     | '/'
@@ -186,13 +219,16 @@ export interface FileRouteTypes {
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
-    | '/insights/$slug'
+    | '/insights/publications'
+    | '/insights/talks'
     | '/people/$slug'
     | '/practice-areas/$slug'
     | '/about/'
     | '/insights/'
     | '/people/'
     | '/practice-areas/'
+    | '/insights/news/$slug'
+    | '/insights/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -203,13 +239,16 @@ export interface RootRouteChildren {
   AboutCommunityRoute: typeof AboutCommunityRoute
   AboutFacilitiesRoute: typeof AboutFacilitiesRoute
   AboutHistoryRoute: typeof AboutHistoryRoute
-  InsightsSlugRoute: typeof InsightsSlugRoute
+  InsightsPublicationsRoute: typeof InsightsPublicationsRoute
+  InsightsTalksRoute: typeof InsightsTalksRoute
   PeopleSlugRoute: typeof PeopleSlugRoute
   PracticeAreasSlugRoute: typeof PracticeAreasSlugRoute
   AboutIndexRoute: typeof AboutIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   PeopleIndexRoute: typeof PeopleIndexRoute
   PracticeAreasIndexRoute: typeof PracticeAreasIndexRoute
+  InsightsNewsSlugRoute: typeof InsightsNewsSlugRoute
+  InsightsNewsIndexRoute: typeof InsightsNewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -277,11 +316,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/$slug': {
-      id: '/insights/$slug'
-      path: '/insights/$slug'
-      fullPath: '/insights/$slug'
-      preLoaderRoute: typeof InsightsSlugRouteImport
+    '/insights/publications': {
+      id: '/insights/publications'
+      path: '/insights/publications'
+      fullPath: '/insights/publications'
+      preLoaderRoute: typeof InsightsPublicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/talks': {
+      id: '/insights/talks'
+      path: '/insights/talks'
+      fullPath: '/insights/talks'
+      preLoaderRoute: typeof InsightsTalksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/people/': {
@@ -312,6 +358,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PracticeAreasSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/news/': {
+      id: '/insights/news/'
+      path: '/insights/news'
+      fullPath: '/insights/news/'
+      preLoaderRoute: typeof InsightsNewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/news/$slug': {
+      id: '/insights/news/$slug'
+      path: '/insights/news/$slug'
+      fullPath: '/insights/news/$slug'
+      preLoaderRoute: typeof InsightsNewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -323,13 +383,16 @@ const rootRouteChildren: RootRouteChildren = {
   AboutCommunityRoute: AboutCommunityRoute,
   AboutFacilitiesRoute: AboutFacilitiesRoute,
   AboutHistoryRoute: AboutHistoryRoute,
-  InsightsSlugRoute: InsightsSlugRoute,
+  InsightsPublicationsRoute: InsightsPublicationsRoute,
+  InsightsTalksRoute: InsightsTalksRoute,
   PeopleSlugRoute: PeopleSlugRoute,
   PracticeAreasSlugRoute: PracticeAreasSlugRoute,
   AboutIndexRoute: AboutIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   PeopleIndexRoute: PeopleIndexRoute,
   PracticeAreasIndexRoute: PracticeAreasIndexRoute,
+  InsightsNewsSlugRoute: InsightsNewsSlugRoute,
+  InsightsNewsIndexRoute: InsightsNewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

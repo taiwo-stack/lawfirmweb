@@ -39,7 +39,7 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <Link to="/people" className="hover:text-paper">
+              <Link to="/people/" className="hover:text-paper">
                 Our people
               </Link>
             </li>
@@ -50,7 +50,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             {groups.map((g) => (
               <li key={g.name}>
-                <Link to="/practice-areas" hash={groupId(g.name)} className="hover:text-paper">
+                <Link to="/practice-areas/" hash={groupId(g.name)} className="hover:text-paper">
                   {g.name}
                 </Link>
               </li>
@@ -67,11 +67,6 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link to="/contact" className="hover:text-paper">
-                Contact
-              </Link>
-            </li>
           </ul>
         </div>
         <address className="not-italic lg:col-span-2">
@@ -95,13 +90,16 @@ export function Footer() {
               </a>
             ))}
           </p>
+          <Link to="/contact/" className="mt-5 inline-block text-sm font-semibold text-paper underline underline-offset-4 hover:text-brass-soft">
+            Contact us
+          </Link>
         </address>
       </Container>
       <div className="border-t border-paper/10">
         <Container className="flex flex-col gap-2 py-6 text-xs sm:flex-row sm:justify-between">
           <p>© {year} Zest Partners. All rights reserved.</p>
           <p className="flex gap-6">
-            <Link to="/privacy" className="hover:text-paper">
+            <Link to="/privacy/" className="hover:text-paper">
               Privacy notice
             </Link>
             <span>Nothing on this website constitutes legal advice.</span>

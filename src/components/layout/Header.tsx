@@ -1,5 +1,5 @@
 import { Link, useRouterState } from '@tanstack/react-router'
-import { ChevronDown, Menu, Phone, Search, X } from 'lucide-react'
+import { ArrowRight, ChevronDown, Menu, Phone, Search, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { nav, site, type NavItem } from '~/content/site'
 import { groupId, groups, practices } from '~/content/practices'
@@ -9,27 +9,34 @@ import { ButtonLink } from '~/components/ui/Button'
 import { SearchDialog } from '~/components/blocks/SearchDialog'
 import { Logo } from './Logo'
 
+// Dropdown panels open on hover or keyboard focus. The ::before strip bridges the gap
+// between the menu link and the panel so the pointer can travel without the menu closing.
 const panel =
-  'invisible absolute top-full z-50 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100'
+  "invisible absolute top-full z-50 translate-y-1 opacity-0 transition-[opacity,transform,visibility] duration-200 before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-[''] group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+
+const linkClass =
+  'relative inline-flex h-full items-center gap-1 text-sm font-medium text-ink/70 transition-colors hover:text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:scale-x-0 after:bg-brass after:transition-transform'
+const activeLink = { className: 'text-ink after:scale-x-100' }
+
+function Chevron() {
+  return <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden />
+}
 
 function DesktopItem({ item }: { item: NavItem }) {
-  const linkClass = 'inline-flex items-center gap-1 py-6 text-sm font-medium text-ink/75 transition-colors hover:text-ink'
-  const active = { className: 'text-ink' }
-
   if (item.mega) {
     return (
-      <li className="group">
-        <Link to={item.to} className={linkClass} activeProps={active}>
-          {item.label} <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" aria-hidden />
+      <li className="group flex h-full">
+        <Link to={item.to} className={linkClass} activeProps={activeLink} aria-haspopup="true">
+          {item.label} <Chevron />
         </Link>
         <div className={cn(panel, 'inset-x-0 border-y border-line bg-paper shadow-xl shadow-ink/5')}>
-          <Container className="grid grid-cols-5 gap-8 py-10">
+          <Container className="grid grid-cols-5 gap-8 pt-10 pb-8">
             {groups.map((g, i) => (
               <div key={g.name}>
                 <Link
-                  to="/practice-areas"
+                  to="/practice-areas/"
                   hash={groupId(g.name)}
-                  className="block border-b border-line pb-3 font-display text-lg hover:text-green"
+                  className="block border-b border-line pb-3 font-display text-lg leading-tight hover:text-green"
                 >
                   <span className="mr-2 text-xs text-brass">{String(i + 1).padStart(2, '0')}</span>
                   {g.name}
@@ -40,9 +47,10 @@ function DesktopItem({ item }: { item: NavItem }) {
                     .map((p) => (
                       <li key={p.slug}>
                         <Link
-                          to="/practice-areas/$slug"
+                          to="/practice-areas/$slug/"
                           params={{ slug: p.slug }}
                           className="text-sm text-ink/70 transition-colors hover:text-ink"
+                          activeProps={{ className: '!text-ink font-semibold' }}
                         >
                           {p.title}
                         </Link>
@@ -52,6 +60,19 @@ function DesktopItem({ item }: { item: NavItem }) {
               </div>
             ))}
           </Container>
+          <div className="border-t border-line bg-paper-deep">
+            <Container className="flex items-center justify-between py-4 text-sm">
+              <Link to="/practice-areas/" className="inline-flex items-center gap-2 font-semibold hover:text-green">
+                View all {practices.length} practice areas <ArrowRight className="size-4" aria-hidden />
+              </Link>
+              <span className="text-muted">
+                Not sure where your matter fits?{' '}
+                <Link to="/contact/" className="font-semibold text-ink underline underline-offset-4 hover:text-green">
+                  Ask us
+                </Link>
+              </span>
+            </Container>
+          </div>
         </div>
       </li>
     )
@@ -59,15 +80,21 @@ function DesktopItem({ item }: { item: NavItem }) {
 
   if (item.children) {
     return (
-      <li className="group relative">
-        <Link to={item.to} className={linkClass} activeProps={active}>
-          {item.label} <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" aria-hidden />
+      <li className="group relative flex h-full">
+        <Link to={item.to} className={linkClass} activeProps={activeLink} aria-haspopup="true">
+          {item.label} <Chevron />
         </Link>
         <div className={cn(panel, '-left-6 w-80 border border-line bg-paper p-3 shadow-xl shadow-ink/5')}>
           <ul>
             {item.children.map((c) => (
               <li key={c.label}>
-                <Link to={c.to} search={c.search} className="block rounded px-4 py-3 transition-colors hover:bg-paper-deep">
+                <Link
+                  to={c.to}
+                  search={c.search}
+                  activeOptions={{ exact: true, includeSearch: !!c.search }}
+                  className="block rounded px-4 py-3 transition-colors hover:bg-paper-deep"
+                  activeProps={{ className: 'bg-paper-deep' }}
+                >
                   <span className="block text-sm font-semibold">{c.label}</span>
                   <span className="mt-0.5 block text-xs text-muted">{c.description}</span>
                 </Link>
@@ -80,8 +107,8 @@ function DesktopItem({ item }: { item: NavItem }) {
   }
 
   return (
-    <li>
-      <Link to={item.to} className={linkClass} activeProps={active}>
+    <li className="flex h-full">
+      <Link to={item.to} className={linkClass} activeProps={activeLink}>
         {item.label}
       </Link>
     </li>
@@ -89,6 +116,8 @@ function DesktopItem({ item }: { item: NavItem }) {
 }
 
 function MobileNav() {
+  const sub = 'block py-1.5 text-ink/80'
+  const overview = 'mt-1 inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-green'
   return (
     <nav aria-label="Mobile" className="flex flex-col">
       {nav.map((item) =>
@@ -98,32 +127,50 @@ function MobileNav() {
               {item.label}
               <ChevronDown className="size-5 transition-transform group-open:rotate-180" aria-hidden />
             </summary>
-            <ul className="space-y-3 pb-5">
-              {item.mega
-                ? groups.map((g) => (
-                    <li key={g.name}>
-                      <p className="mt-2 text-xs font-semibold tracking-[0.15em] text-brass uppercase">{g.name}</p>
-                      <ul className="mt-2 space-y-2 border-l border-line pl-4">
+            <div className="pb-5">
+              {item.mega ? (
+                <>
+                  {groups.map((g) => (
+                    <div key={g.name} className="mt-3">
+                      <Link to="/practice-areas/" hash={groupId(g.name)} className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">
+                        {g.name}
+                      </Link>
+                      <ul className="mt-1 border-l border-line pl-4">
                         {practices
                           .filter((p) => p.group === g.name)
                           .map((p) => (
                             <li key={p.slug}>
-                              <Link to="/practice-areas/$slug" params={{ slug: p.slug }} className="text-ink/80">
+                              <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className={sub}>
                                 {p.title}
                               </Link>
                             </li>
                           ))}
                       </ul>
-                    </li>
-                  ))
-                : item.children!.map((c) => (
+                    </div>
+                  ))}
+                  <Link to="/practice-areas/" className={cn(overview, 'mt-4')}>
+                    All practice areas <ArrowRight className="size-4" aria-hidden />
+                  </Link>
+                </>
+              ) : (
+                <ul>
+                  {item.children!.map((c) => (
                     <li key={c.label}>
-                      <Link to={c.to} search={c.search} className="text-ink/80">
+                      <Link to={c.to} search={c.search} className={sub}>
                         {c.label}
                       </Link>
                     </li>
                   ))}
-            </ul>
+                  {item.to === '/insights/' && (
+                    <li>
+                      <Link to="/insights/" className={overview}>
+                        All insights <ArrowRight className="size-4" aria-hidden />
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              )}
+            </div>
           </details>
         ) : (
           <Link key={item.label} to={item.to} className="border-b border-line py-4 font-display text-2xl">
@@ -144,7 +191,7 @@ export function Header() {
   useEffect(() => {
     setOpen(false)
     setSearchOpen(false)
-    // Close hover menus after navigating by moving focus out of them.
+    // Close hover/focus menus after navigating by moving focus out of them.
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur()
   }, [location])
 
@@ -155,6 +202,7 @@ export function Header() {
         e.preventDefault()
         setSearchOpen((v) => !v)
       }
+      if (e.key === 'Escape' && document.activeElement instanceof HTMLElement) document.activeElement.blur()
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -176,8 +224,8 @@ export function Header() {
         scrolled || open ? 'border-b border-line bg-paper/95 backdrop-blur-md' : 'bg-paper',
       )}
     >
-      <div className="hidden bg-ink text-paper/75 md:block">
-        <Container className="flex h-9 items-center justify-between text-xs">
+      <div className="hidden h-9 bg-ink text-paper/75 md:block">
+        <Container className="flex h-full items-center justify-between text-xs">
           <span>{site.descriptor}</span>
           <div className="flex items-center gap-6">
             <span>Abuja · Lagos · Est. {site.founded}</span>
@@ -187,10 +235,10 @@ export function Header() {
           </div>
         </Container>
       </div>
-      <Container className="flex items-center justify-between gap-6">
-        <Logo className="py-3" />
-        <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-8">
+      <Container className="flex h-16 items-center justify-between gap-6 sm:h-18">
+        <Logo />
+        <nav aria-label="Main" className="hidden h-full lg:block">
+          <ul className="flex h-full items-stretch gap-8">
             {nav.map((item) => (
               <DesktopItem key={item.label} item={item} />
             ))}
@@ -208,7 +256,7 @@ export function Header() {
             <kbd className="hidden rounded border border-line px-1.5 text-[10px] text-muted lg:inline">Ctrl K</kbd>
           </button>
           <div className="hidden xl:block">
-            <ButtonLink to="/contact" className="px-5 py-2.5">
+            <ButtonLink to="/contact/" className="px-5 py-2.5">
               Book a consultation
             </ButtonLink>
           </div>
@@ -226,10 +274,10 @@ export function Header() {
       </Container>
 
       {open && (
-        <div id="mobile-nav" className="h-[calc(100dvh-64px)] overflow-y-auto border-t border-line bg-paper lg:hidden">
+        <div id="mobile-nav" className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-paper sm:h-[calc(100dvh-4.5rem)] lg:hidden">
           <Container className="pt-4 pb-12">
             <MobileNav />
-            <ButtonLink to="/contact" className="mt-8 w-full justify-center">
+            <ButtonLink to="/contact/" className="mt-8 w-full justify-center">
               Book a consultation
             </ButtonLink>
           </Container>

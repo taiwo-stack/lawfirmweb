@@ -28,20 +28,20 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
         kind: 'Practice',
         title: p.title,
         detail: `${p.group} · ${p.summary} ${p.services?.join(' ') ?? ''}`,
-        go: () => navigate({ to: '/practice-areas/$slug', params: { slug: p.slug } }),
+        go: () => navigate({ to: '/practice-areas/$slug/', params: { slug: p.slug } }),
       })),
       ...people.map((p) => ({
         kind: 'Person',
         title: displayName(p),
         detail: `${p.role} ${p.credentials?.join(' ') ?? ''}`,
-        go: () => navigate({ to: '/people/$slug', params: { slug: p.slug } }),
+        go: () => navigate({ to: '/people/$slug/', params: { slug: p.slug } }),
       })),
       ...pages,
       ...insights.map((i) => ({
         kind: i.label,
         title: i.title,
         detail: `${i.when} · ${i.detail}`,
-        go: () => (i.href ? navigate(i.href) : navigate({ to: '/insights' })),
+        go: () => (i.href ? navigate(i.href) : navigate({ to: '/insights/' })),
       })),
     ]
   }, [navigate])

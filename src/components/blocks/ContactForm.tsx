@@ -46,7 +46,7 @@ export function ContactForm() {
     return (
       <div className="border border-line bg-paper p-8" role="status">
         <h3 className="text-2xl">Thank you. Your message has been received.</h3>
-        <p className="mt-3 text-muted">A member of the firm will be in touch shortly.</p>
+        <p className="mt-3 text-muted">A member of the firm will be in touch.</p>
       </div>
     )
   }

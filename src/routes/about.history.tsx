@@ -13,7 +13,7 @@ export const Route = createFileRoute('/about/history')({
     seo({
       title: 'Our History',
       description: `Milestones of Zest Partners since ${site.founded}: legislation, scholarship, training and service to the Bar.`,
-      path: '/about/history',
+      path: '/about/history/',
     }),
   component: History,
 })
@@ -22,7 +22,7 @@ function History() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'The Firm', link: { to: '/about' }, path: '/about' }, { label: 'Our history' }]}
+        crumbs={[{ label: 'The Firm', to: '/about/' }, { label: 'Our history' }]}
         eyebrow="Our history"
         title={`${new Date().getFullYear() - site.founded} years of practice, scholarship and service.`}
         intro="From our founding in 2006 to a seat on the Governing Council of the Legal Aid Council of Nigeria: the milestones that shaped the firm and its leadership."

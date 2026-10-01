@@ -6,7 +6,7 @@ import { asset } from '~/lib/utils'
 
 export function CTASection({
   title = 'Tell us what you are facing.',
-  body = 'Speak with a partner about your matter. We respond promptly and in confidence.',
+  body = 'Call, email, WhatsApp or send us a message to speak with a partner about your matter.',
 }: {
   title?: string
   body?: string
@@ -26,7 +26,7 @@ export function CTASection({
           <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">{title}</h2>
           <p className="mt-6 text-lg text-paper/70">{body}</p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink to="/contact" variant="light">
+            <ButtonLink to="/contact/" variant="light">
               Contact the firm
             </ButtonLink>
             <ButtonAnchor

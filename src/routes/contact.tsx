@@ -12,7 +12,7 @@ export const Route = createFileRoute('/contact')({
     seo({
       title: 'Contact',
       description: `Contact Zest Partners in Kaura District, Abuja. Call ${site.phones[0]} or send us a message.`,
-      path: '/contact',
+      path: '/contact/',
     }),
   component: Contact,
 })
@@ -20,7 +20,7 @@ export const Route = createFileRoute('/contact')({
 const faqs = [
   {
     q: 'How do I book a consultation?',
-    a: `Send us a message using the form, call ${site.phones.join(' or ')}, email ${site.emails[0]}, or message us on WhatsApp. A member of the firm will respond promptly.`,
+    a: `Send us a message using the form, call ${site.phones.join(' or ')}, email ${site.emails[0]}, or message us on WhatsApp.`,
   },
   {
     q: 'Where are your offices?',
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: 'Is information I send through this website confidential?',
-    a: 'We treat enquiries with discretion, but please do not send confidential details until we have confirmed that we can act for you. Contacting us does not by itself create a lawyer–client relationship.',
+    a: 'Please do not send confidential details until we have confirmed that we can act for you. Contacting us does not by itself create a lawyer–client relationship.',
   },
 ]
 
@@ -50,7 +50,7 @@ function Contact() {
       <PageHeader
         eyebrow="Contact"
         title="Feel free to ask. We are here."
-        intro="Send us a message, call, or reach us on WhatsApp. A member of the firm will respond promptly."
+        intro="Send us a message, call, email or reach us on WhatsApp."
       />
       <Section>
         <div className="grid gap-16 lg:grid-cols-12">

@@ -4,7 +4,7 @@ import { asset } from '~/lib/utils'
 
 export function PersonCard({ person }: { person: Person }) {
   return (
-    <Link to="/people/$slug" params={{ slug: person.slug }} className="group block">
+    <Link to="/people/$slug/" params={{ slug: person.slug }} className="group block">
       <div className="aspect-[4/5] overflow-hidden bg-paper-deep">
         <img
           src={asset(person.photo)}

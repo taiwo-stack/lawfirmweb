@@ -13,7 +13,7 @@ export const Route = createFileRoute('/about/facilities')({
     seo({
       title: 'Facilities & Library',
       description: 'The Zest Partners office in Kaura District, Abuja: our law library, reports collection and modern IT facilities.',
-      path: '/about/facilities',
+      path: '/about/facilities/',
     }),
   component: Facilities,
 })
@@ -50,10 +50,10 @@ function Facilities() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'The Firm', link: { to: '/about' }, path: '/about' }, { label: 'Facilities & library' }]}
+        crumbs={[{ label: 'The Firm', to: '/about/' }, { label: 'Facilities & library' }]}
         eyebrow="Facilities & library"
         title="The infrastructure behind our advice."
-        intro="A dedicated law library, modern technology and a purpose-built office in Abuja."
+        intro="An in-house law library, modern IT facilities and our office in Kaura District, Abuja."
       />
       <SectionTabs items={firmTabs} label="The Firm" />
 

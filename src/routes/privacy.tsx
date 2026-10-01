@@ -5,7 +5,7 @@ import { site } from '~/content/site'
 import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/privacy')({
-  head: () => seo({ title: 'Privacy Notice', path: '/privacy' }),
+  head: () => seo({ title: 'Privacy Notice', path: '/privacy/' }),
   component: Privacy,
 })
 

@@ -51,9 +51,11 @@ src/
 scripts/
   postbuild.ts       404.html, legacy WordPress redirects, sitemap cleanup, .nojekyll
   content-audit.py   checks every old-site sentence against the new source
+  check-links.py     fails the build if any internal link or #anchor is broken (runs in CI)
 docs/
   PLAN.md                    rebuild plan & launch checklist
   content-audit.md           proof that all legacy content was carried over
+  content-provenance.md      source for every piece of content, and items awaiting the firm
   legacy-site-content.md     content scraped from the old WordPress site
 ```
 

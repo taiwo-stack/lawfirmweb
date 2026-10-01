@@ -15,7 +15,7 @@ export const Route = createFileRoute('/about/community')({
       title: 'Pro Bono & Community',
       description:
         'Free legal services for indigent citizens, public interest litigation, legal aid and service to the Nigerian Bar Association.',
-      path: '/about/community',
+      path: '/about/community/',
     }),
   component: Community,
 })
@@ -27,7 +27,7 @@ function Community() {
   return (
     <>
       <PageHeader
-        crumbs={[{ label: 'The Firm', link: { to: '/about' }, path: '/about' }, { label: 'Pro bono & community' }]}
+        crumbs={[{ label: 'The Firm', to: '/about/' }, { label: 'Pro bono & community' }]}
         eyebrow="Pro bono & community"
         title="Justice should not depend on the ability to pay."
         intro="Public interest litigation is our corporate social responsibility and how we promote good governance and the rule of law in Nigeria."
@@ -49,7 +49,7 @@ function Community() {
                 resources to pursue their grievances in the appropriate forum.
               </p>
             </div>
-            <ButtonLink to="/practice-areas/$slug" params={{ slug: 'human-rights' }} variant="ghost">
+            <ButtonLink to="/practice-areas/$slug/" params={{ slug: 'human-rights' }} variant="ghost">
               Human rights practice
             </ButtonLink>
           </Reveal>
@@ -61,9 +61,9 @@ function Community() {
             </p>
             <p className="mt-6 text-paper/70">
               He was also a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules, and has
-              trained pro bono lawyers for the Public and Private Development Centre (PPDC).
+              presented at a training for pro bono lawyers organised by the Public and Private Development Centre (PPDC).
             </p>
-            <ButtonLink to="/insights/$slug" params={{ slug: 'lacon-governing-council-inauguration' }} variant="light" className="mt-8">
+            <ButtonLink to="/insights/news/$slug/" params={{ slug: 'lacon-governing-council-inauguration' }} variant="light" className="mt-8">
               Read the news
             </ButtonLink>
           </Reveal>

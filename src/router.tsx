@@ -6,6 +6,8 @@ export function getRouter() {
   return createRouter({
     routeTree,
     scrollRestoration: true,
+    // GitHub Pages serves every page as <path>/index.html, so canonical URLs end in a slash.
+    trailingSlash: 'always',
     defaultPreload: 'intent',
     defaultNotFoundComponent: NotFound,
   })

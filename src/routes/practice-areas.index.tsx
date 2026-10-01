@@ -15,7 +15,7 @@ export const Route = createFileRoute('/practice-areas/')({
       title: 'Expertise',
       description:
         'Corporate and commercial, finance and energy, dispute resolution, private client, and rights and advisory. Explore the practice areas of Zest Partners.',
-      path: '/practice-areas',
+      path: '/practice-areas/',
     }),
   component: PracticeAreas,
 })
@@ -33,7 +33,7 @@ function PracticeAreas() {
       <PageHeader
         eyebrow="Expertise"
         title="We are here to fight against any violation, with experience."
-        intro={`${practices.length} practice areas in five groups. Lawyers work across groups so every client has an integrated team.`}
+        intro={`${practices.length} practice areas in five groups.`}
       >
         <div className="mt-10 flex max-w-xl items-center gap-3 border-b-2 border-ink pb-2">
           <Search className="size-5 text-muted" aria-hidden />
@@ -74,7 +74,7 @@ function PracticeAreas() {
         const list = practices.filter((p) => p.group === g.name && matches(p))
         if (!list.length) return null
         return (
-          <Section key={g.name} id={groupId(g.name)} tone={gi % 2 ? 'deep' : 'paper'} className="scroll-mt-24">
+          <Section key={g.name} id={groupId(g.name)} tone={gi % 2 ? 'deep' : 'paper'}>
             <Reveal className="grid gap-6 md:grid-cols-12">
               <span className="font-display text-5xl text-brass/70 md:col-span-2">{String(gi + 1).padStart(2, '0')}</span>
               <div className="md:col-span-10">

@@ -11,7 +11,7 @@ import { topics } from '~/content/topics'
 import { site } from '~/content/site'
 import { asset, seo } from '~/lib/utils'
 
-export const Route = createFileRoute('/insights/$slug')({
+export const Route = createFileRoute('/insights/news/$slug')({
   loader: ({ params }) => {
     const item = newsBySlug(params.slug)
     if (!item) throw notFound()
@@ -20,7 +20,7 @@ export const Route = createFileRoute('/insights/$slug')({
   head: ({ loaderData }) =>
     loaderData
       ? {
-          ...seo({ title: loaderData.title, description: loaderData.summary, image: loaderData.image, path: `/insights/${loaderData.slug}` }),
+          ...seo({ title: loaderData.title, description: loaderData.summary, image: loaderData.image, path: `/insights/news/${loaderData.slug}/` }),
           scripts: [
             {
               type: 'application/ld+json',
@@ -51,7 +51,7 @@ function NewsPage() {
     <>
       <section className="border-b border-line bg-paper">
         <Container className="pt-10 pb-14">
-          <Breadcrumbs items={[{ label: 'Insights', link: { to: '/insights' }, path: '/insights' }, { label: 'Firm news' }]} />
+          <Breadcrumbs items={[{ label: 'Insights', to: '/insights/' }, { label: 'Firm news', to: '/insights/news/' }, { label: item.title }]} />
           <div className="rise mx-auto mt-14 max-w-3xl">
             <p className="eyebrow">Firm news · {item.when}</p>
             <h1 className="mt-6 text-4xl leading-[1.08] sm:text-5xl">{item.title}</h1>
@@ -59,7 +59,7 @@ function NewsPage() {
             <ul className="mt-8 flex flex-wrap gap-2">
               {item.topics.map((t) => (
                 <li key={t}>
-                  <Link to="/insights" search={{ topic: t }} className="rounded-full border border-line px-3 py-1 text-xs hover:border-ink">
+                  <Link to="/insights/" search={{ topic: t }} className="rounded-full border border-line px-3 py-1 text-xs hover:border-ink">
                     {topics[t]}
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ function NewsPage() {
           )}
           <nav aria-label="More news" className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-2">
             {newer ? (
-              <Link to="/insights/$slug" params={{ slug: newer.slug }} className="group">
+              <Link to="/insights/news/$slug/" params={{ slug: newer.slug }} className="group">
                 <span className="text-xs text-muted">← Newer</span>
                 <span className="mt-1 block font-display text-lg group-hover:text-green">{newer.title}</span>
               </Link>
@@ -100,7 +100,7 @@ function NewsPage() {
               <span />
             )}
             {older && (
-              <Link to="/insights/$slug" params={{ slug: older.slug }} className="group sm:text-right">
+              <Link to="/insights/news/$slug/" params={{ slug: older.slug }} className="group sm:text-right">
                 <span className="text-xs text-muted">Older →</span>
                 <span className="mt-1 block font-display text-lg group-hover:text-green">{older.title}</span>
               </Link>

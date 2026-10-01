@@ -8,7 +8,7 @@ import { people } from '~/content/people'
 import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/people/')({
-  head: () => seo({ title: 'Our People', description: 'Meet the partners of Zest Partners in Abuja and Lagos.', path: '/people' }),
+  head: () => seo({ title: 'Our People', description: 'Meet the partners of Zest Partners in Abuja and Lagos.', path: '/people/' }),
   component: People,
 })
 
@@ -17,8 +17,8 @@ function People() {
     <>
       <PageHeader
         eyebrow="Our people"
-        title="Lawyers of outstanding training and experience."
-        intro="Our partners lead teams that combine courtroom advocacy with commercial insight."
+        title="Our people."
+        intro="A unique selection of lawyers with outstanding training and experience."
       />
       <Section>
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">

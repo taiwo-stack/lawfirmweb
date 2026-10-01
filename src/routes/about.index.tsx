@@ -14,7 +14,7 @@ export const Route = createFileRoute('/about/')({
     seo({
       title: 'About the Firm',
       description: `Established in Nigeria in ${site.founded}, Zest Partners is a full-service corporate practice and litigation firm.`,
-      path: '/about',
+      path: '/about/',
     }),
   component: About,
 })
@@ -59,7 +59,7 @@ function About() {
         eyebrow="The firm"
         title={
           <>
-            Established {site.founded}. <span className="text-muted">Built for what comes next.</span>
+            Established {site.founded}. <span className="text-muted">Corporate practice and litigation.</span>
           </>
         }
         intro="Zest Partners is a full-service corporate practice and litigation law firm established in Nigeria, with a selection of lawyers of outstanding training and experience."
@@ -112,7 +112,7 @@ function About() {
                 sound, professional legal advice and services as both solicitors and advocates.
               </p>
             </div>
-            <ButtonLink to="/about/history" variant="ghost" className="mt-2">
+            <ButtonLink to="/about/history/" variant="ghost" className="mt-2">
               Our history
             </ButtonLink>
           </Reveal>
@@ -143,7 +143,7 @@ function About() {
             <div className="mt-8 space-y-6">
               {groups.map((g) => (
                 <div key={g.name}>
-                  <Link to="/practice-areas" hash={groupId(g.name)} className="text-xs font-semibold tracking-[0.15em] text-brass uppercase hover:text-green">
+                  <Link to="/practice-areas/" hash={groupId(g.name)} className="text-xs font-semibold tracking-[0.15em] text-brass uppercase hover:text-green">
                     {g.name}
                   </Link>
                   <p className="mt-2 leading-relaxed">
@@ -151,7 +151,7 @@ function About() {
                       .filter((p) => p.group === g.name)
                       .map((p, i, arr) => (
                         <span key={p.slug}>
-                          <Link to="/practice-areas/$slug" params={{ slug: p.slug }} className="underline decoration-line underline-offset-4 hover:decoration-ink">
+                          <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="underline decoration-line underline-offset-4 hover:decoration-ink">
                             {p.title}
                           </Link>
                           {i < arr.length - 1 ? ', ' : ''}

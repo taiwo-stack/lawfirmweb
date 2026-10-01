@@ -5,7 +5,7 @@ import type { Practice } from '~/content/practices'
 export function PracticeCard({ practice, index }: { practice: Practice; index?: number }) {
   return (
     <Link
-      to="/practice-areas/$slug"
+      to="/practice-areas/$slug/"
       params={{ slug: practice.slug }}
       className="group relative flex h-full flex-col justify-between gap-10 border border-line bg-paper p-6 transition-colors duration-300 hover:bg-ink hover:text-paper sm:p-8"
     >

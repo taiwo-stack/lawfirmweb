@@ -167,7 +167,7 @@ function PersonPage() {
     <>
       <section className="border-b border-line bg-paper">
         <Container className="pt-10 pb-16 sm:pt-14 sm:pb-20">
-          <Breadcrumbs items={[{ label: 'Our People', link: { to: '/people' }, path: '/people' }, { label: name }]} />
+          <Breadcrumbs items={[{ label: 'Our People', to: '/people/' }, { label: name }]} />
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="rise lg:col-span-5">
               <img src={asset(person.photo)} alt={name} className="aspect-[4/5] w-full object-cover object-top" />
@@ -243,7 +243,7 @@ function PersonPage() {
       </Section>
 
       {blocks.map((b, i) => (
-        <Section key={b.id} id={b.id} tone={i % 2 ? 'paper' : 'deep'} className="scroll-mt-24">
+        <Section key={b.id} id={b.id} tone={i % 2 ? 'paper' : 'deep'}>
           <div className="grid gap-10 lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <p className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</p>

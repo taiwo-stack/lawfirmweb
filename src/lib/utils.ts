@@ -10,7 +10,7 @@ type SeoInput = { title?: string; description?: string; image?: string; path?: s
 
 export function seo({ title, description = site.description, image = '/images/brand/og.jpg', path = '/' }: SeoInput) {
   const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Law Firm in Abuja & Lagos, Nigeria`
-  const url = site.url + path
+  const url = site.url + path.replace(/\/?$/, '/')
   const img = site.url + image
   return {
     meta: [

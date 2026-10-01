@@ -25,7 +25,6 @@ const sectors = [
   'Commercial & investment banks',
   'Insurance & finance companies',
   'Private investment funds',
-  'Oil & gas operators',
   'Public & private companies',
   'Government agencies',
   'Regulators & public institutions',
@@ -34,11 +33,24 @@ const sectors = [
   'Indigent citizens (pro bono)',
 ]
 
-const steps = [
-  { title: 'Listen', body: 'We start by understanding your objectives, your business and the facts, in confidence.' },
-  { title: 'Assess', body: 'We analyse the law, the risks and the options, and tell you candidly where you stand.' },
-  { title: 'Act', body: 'We negotiate, draft, file or advocate, as solicitors or in court, with minimum expenditure of time and resources.' },
-  { title: 'Resolve', body: 'We see matters through to resolution and keep you informed of developments that affect your objectives.' },
+// Every point is drawn from the old website or the Managing Partner's profile document.
+const reasons = [
+  {
+    title: 'Solicitors and advocates',
+    body: 'We prepare contracts, agreements, debentures, mortgages, powers of attorney and leases, and we litigate civil and criminal matters across Nigeria.',
+  },
+  {
+    title: 'Recognised expertise',
+    body: 'Led by a Managing Partner with a PhD in law, MCIArb (UK) and FICMC, who has presented more than twenty papers to bar associations, regulators and public institutions.',
+  },
+  {
+    title: 'Modern, real-time practice',
+    body: 'Modern, up-to-date IT facilities and real-time legal services, backed by an in-house law library.',
+  },
+  {
+    title: 'Committed to the rule of law',
+    body: 'Free services for poor and indigent citizens through our Human Rights and Public Interest Litigation department.',
+  },
 ]
 
 function Home() {
@@ -68,11 +80,11 @@ function Home() {
               Nigeria from Abuja and Lagos.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink to="/contact" variant="light">
+              <ButtonLink to="/contact/" variant="light">
                 Book a consultation
               </ButtonLink>
               <ButtonLink
-                to="/practice-areas"
+                to="/practice-areas/"
                 variant="ghost"
                 className="border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink"
               >
@@ -85,7 +97,7 @@ function Home() {
             {groups.map((g, i) => (
               <li key={g.name}>
                 <Link
-                  to="/practice-areas"
+                  to="/practice-areas/"
                   hash={groupId(g.name)}
                   className="group flex items-center justify-between gap-2 border-r border-paper/15 py-5 pr-4 text-sm text-paper/70 last:border-r-0 hover:text-paper"
                 >
@@ -123,7 +135,7 @@ function Home() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-7">
             <p className="eyebrow">About us</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Built on the conviction that good law is good business.</h2>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Corporate practice and litigation, since {site.founded}.</h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               <div className="border-t-2 border-ink pt-5">
                 <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Our vision</p>
@@ -143,7 +155,7 @@ function Home() {
                 experience.
               </p>
             </div>
-            <ButtonLink to="/about" variant="ghost" className="mt-2">
+            <ButtonLink to="/about/" variant="ghost" className="mt-2">
               Read more about the firm
             </ButtonLink>
           </Reveal>
@@ -169,9 +181,9 @@ function Home() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
             <p className="eyebrow">Expertise</p>
-            <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">Five practice groups. One integrated team.</h2>
+            <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">Five practice groups. {practices.length} practice areas.</h2>
           </Reveal>
-          <ButtonLink to="/practice-areas" variant="ghost">
+          <ButtonLink to="/practice-areas/" variant="ghost">
             View all {practices.length} practice areas
           </ButtonLink>
         </div>
@@ -179,7 +191,7 @@ function Home() {
           {groups.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.06} className="bg-paper-deep">
               <div className="flex h-full flex-col gap-6 p-6">
-                <Link to="/practice-areas" hash={groupId(g.name)} className="group">
+                <Link to="/practice-areas/" hash={groupId(g.name)} className="group">
                   <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-4 text-2xl leading-tight group-hover:text-green">{g.name}</h3>
                 </Link>
@@ -189,7 +201,7 @@ function Home() {
                     .filter((p) => p.group === g.name)
                     .map((p) => (
                       <li key={p.slug}>
-                        <Link to="/practice-areas/$slug" params={{ slug: p.slug }} className="hover:text-green">
+                        <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="hover:text-green">
                           {p.title}
                         </Link>
                       </li>
@@ -216,9 +228,9 @@ function Home() {
             </ul>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="eyebrow">How we work</p>
+            <p className="eyebrow">Why Zest Partners</p>
             <ol className="mt-8 space-y-px">
-              {steps.map((s, i) => (
+              {reasons.map((s, i) => (
                 <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-paper/15 py-6">
                   <span className="font-display text-2xl text-brass">{String(i + 1).padStart(2, '0')}</span>
                   <div>
@@ -242,7 +254,7 @@ function Home() {
               Our in-house library holds Nigerian and English law reports and authorities, and our modern IT facilities let us
               deliver legal services in real time.
             </p>
-            <ButtonLink to="/about/facilities" variant="ghost" className="mt-8">
+            <ButtonLink to="/about/facilities/" variant="ghost" className="mt-8">
               Facilities & library
             </ButtonLink>
           </Reveal>
@@ -267,14 +279,14 @@ function Home() {
             <p className="eyebrow">News & insights</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A voice in Africa’s legal conversation.</h2>
           </Reveal>
-          <ButtonLink to="/insights" variant="ghost">
+          <ButtonLink to="/insights/" variant="ghost">
             All insights
           </ButtonLink>
         </div>
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
           <Reveal className="lg:row-span-2">
             <Link
-              to="/insights/$slug"
+              to="/insights/news/$slug/"
               params={{ slug: 'afba-2025-accra' }}
               className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper"
             >
@@ -286,7 +298,7 @@ function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
               <div className="relative">
-                <p className="text-xs font-semibold tracking-[0.15em] text-brass-soft uppercase">Featured · October 2025</p>
+                <p className="text-xs font-semibold tracking-[0.15em] text-brass-soft uppercase">Featured</p>
                 <h3 className="mt-4 font-display text-2xl leading-snug">
                   A paper at the African Bar Association Annual Conference, Accra
                 </h3>
@@ -312,7 +324,7 @@ function Home() {
             <p className="eyebrow">Our people</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Meet the partners.</h2>
           </Reveal>
-          <ButtonLink to="/people" variant="ghost">
+          <ButtonLink to="/people/" variant="ghost">
             Our people
           </ButtonLink>
         </div>

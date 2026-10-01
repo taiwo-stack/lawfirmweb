@@ -1,6 +1,6 @@
-import { Link, type LinkProps } from '@tanstack/react-router'
+import { createLink } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
-import type { ReactNode } from 'react'
+import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from 'react'
 import { cn } from '~/lib/utils'
 
 type Variant = 'primary' | 'ghost' | 'light'
@@ -25,29 +25,18 @@ function Inner({ children, arrow }: Pick<Common, 'children' | 'arrow'>) {
   )
 }
 
-export function ButtonLink({ variant = 'primary', className, children, arrow = true, ...link }: Common & LinkProps) {
-  return (
-    <Link {...link} className={cn(base, styles[variant], className)}>
-      <Inner arrow={arrow}>{children}</Inner>
-    </Link>
-  )
-}
-
-export function ButtonAnchor({
-  variant = 'primary',
-  className,
-  children,
-  arrow = true,
-  href,
-  external,
-}: Common & { href: string; external?: boolean }) {
-  return (
-    <a
-      href={href}
-      className={cn(base, styles[variant], className)}
-      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    >
+const ButtonAnchorBase = forwardRef<HTMLAnchorElement, Common & AnchorHTMLAttributes<HTMLAnchorElement>>(
+  ({ variant = 'primary', className, children, arrow = true, ...rest }, ref) => (
+    <a ref={ref} {...rest} className={cn(base, styles[variant], className)}>
       <Inner arrow={arrow}>{children}</Inner>
     </a>
-  )
+  ),
+)
+
+/** Router link styled as a button; accepts every typed `<Link>` prop (to, params, hash, search). */
+export const ButtonLink = createLink(ButtonAnchorBase)
+
+/** External or non-route link styled as a button. */
+export function ButtonAnchor({ external, ...props }: Common & { href: string; external?: boolean }) {
+  return <ButtonAnchorBase {...props} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} />
 }

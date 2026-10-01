@@ -23,7 +23,7 @@ export const news: NewsItem[] = [
       'Our Managing Partner was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of LACON.',
     body: [
       'On Wednesday, 5 August 2026, Dr. Chinedu Obienu, Principal and Managing Partner of Zest Partners, was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of the Legal Aid Council of Nigeria (LACON).',
-      'The appointment reflects a long commitment to access to justice. Through its Human Rights and Public Interest Litigation department, Zest Partners offers free legal services to poor and indigent citizens whose rights have been grossly infringed.',
+      'Through its Human Rights and Public Interest Litigation department, Zest Partners offers free legal services to poor and indigent citizens whose rights have been grossly infringed.',
       'Dr. Obienu also chairs the NBA Abuja Branch 2026 Law Week Planning Committee.',
     ],
     image: '/images/people/chinedu-obienu.jpg',

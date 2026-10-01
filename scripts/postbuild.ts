@@ -16,10 +16,10 @@ rmSync(join(out, '404'), { recursive: true })
 rmSync(join(out, 'pages.json'), { force: true })
 writeFileSync(join(out, '.nojekyll'), '')
 
-// The crawler records /404, #hash and ?filter links, and trailing-slash duplicates; keep one clean URL per page.
+// The crawler records /404, #hash and ?filter links, and slash/no-slash duplicates; keep one canonical URL per page.
 const sitemapPath = join(out, 'sitemap.xml')
 const locs = [...readFileSync(sitemapPath, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
-const clean = [...new Set(locs.filter((u) => !/[#?]/.test(u) && !u.endsWith('/404')).map((u) => (new URL(u).pathname === '/' ? u : u.replace(/\/$/, ''))))]
+const clean = [...new Set(locs.filter((u) => !/[#?]/.test(u) && !u.endsWith('/404')).map((u) => u.replace(/\/?$/, '/')))]
 writeFileSync(
   sitemapPath,
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${clean
@@ -28,12 +28,12 @@ writeFileSync(
 )
 
 const redirects: Record<string, string> = {
-  'practice-area': 'practice-areas',
-  'our-team': 'people',
+  'practice-area': 'practice-areas/',
+  'our-team': 'people/',
   blog: '',
   'sample-page': '',
 }
-for (const p of practices) for (const old of p.legacy) redirects[old] = `practice-areas/${p.slug}`
+for (const p of practices) for (const old of p.legacy) redirects[old] = `practice-areas/${p.slug}/`
 
 const page = (to: string) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">

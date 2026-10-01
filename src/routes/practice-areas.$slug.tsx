@@ -59,8 +59,8 @@ function PracticePage() {
           <Breadcrumbs
             tone="dark"
             items={[
-              { label: 'Expertise', link: { to: '/practice-areas' }, path: '/practice-areas' },
-              { label: practice.group, link: { to: '/practice-areas', hash: groupId(practice.group) } },
+              { label: 'Expertise', to: '/practice-areas/' },
+              { label: practice.group, to: '/practice-areas/', hash: groupId(practice.group) },
               { label: practice.title },
             ]}
           />
@@ -117,7 +117,7 @@ function PracticePage() {
               {lead && (
                 <div className="border border-line bg-paper-deep p-8">
                   <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Key contact</p>
-                  <Link to="/people/$slug" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
+                  <Link to="/people/$slug/" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
                     <img src={asset(lead.photo)} alt="" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
                     <span>
                       <span className="block font-display text-xl group-hover:text-green">{displayName(lead)}</span>
@@ -135,7 +135,7 @@ function PracticePage() {
                       </a>
                     )}
                   </div>
-                  <ButtonLink to="/contact" className="mt-6 w-full justify-center">
+                  <ButtonLink to="/contact/" className="mt-6 w-full justify-center">
                     Book a consultation
                   </ButtonLink>
                 </div>
@@ -147,7 +147,7 @@ function PracticePage() {
                     {related.map((p) => (
                       <li key={p.slug}>
                         <Link
-                          to="/practice-areas/$slug"
+                          to="/practice-areas/$slug/"
                           params={{ slug: p.slug }}
                           className="flex items-center justify-between gap-4 py-3 text-sm hover:text-green"
                         >
@@ -170,7 +170,7 @@ function PracticePage() {
               <p className="eyebrow">Thought leadership</p>
               <h2 className="mt-6 text-3xl sm:text-4xl">Related talks & publications</h2>
             </div>
-            <ButtonLink to="/insights" search={{ topic: practice.topics[0] }} variant="ghost">
+            <ButtonLink to="/insights/" search={{ topic: practice.topics[0] }} variant="ghost">
               More insights
             </ButtonLink>
           </div>
@@ -184,7 +184,7 @@ function PracticePage() {
 
       <nav aria-label="Practice areas" className="border-t border-line bg-paper">
         <Container className="grid sm:grid-cols-2">
-          <Link to="/practice-areas/$slug" params={{ slug: prev.slug }} className="group flex items-center gap-4 border-line py-8 sm:border-r sm:pr-8">
+          <Link to="/practice-areas/$slug/" params={{ slug: prev.slug }} className="group flex items-center gap-4 border-line py-8 sm:border-r sm:pr-8">
             <ArrowLeft className="size-5 shrink-0 text-brass transition-transform group-hover:-translate-x-1" aria-hidden />
             <span>
               <span className="block text-xs text-muted">Previous</span>
@@ -192,7 +192,7 @@ function PracticePage() {
             </span>
           </Link>
           <Link
-            to="/practice-areas/$slug"
+            to="/practice-areas/$slug/"
             params={{ slug: next.slug }}
             className="group flex items-center justify-end gap-4 border-t border-line py-8 text-right sm:border-t-0 sm:pl-8"
           >

@@ -37,6 +37,11 @@ jobs:
           BASE_PATH: ${{ vars.CUSTOM_DOMAIN && '/' || format('/{0}/', github.event.repository.name) }}
           VITE_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
 
+      - name: Check internal links and anchors
+        run: python3 scripts/check-links.py
+        env:
+          BASE_PATH: ${{ vars.CUSTOM_DOMAIN && '/' || format('/{0}/', github.event.repository.name) }}
+
       - name: Add CNAME
         if: ${{ vars.CUSTOM_DOMAIN }}
         run: echo "${{ vars.CUSTOM_DOMAIN }}" > dist/client/CNAME

@@ -1,4 +1,4 @@
-import type { FileRoutesByTo } from '~/routeTree.gen'
+import type { LinkProps } from '@tanstack/react-router'
 
 export const site = {
   name: 'Zest Partners',
@@ -27,37 +27,37 @@ export const site = {
     'https://www.google.com/maps?q=Prince+and+Princess+Estate,+Kaura+District,+Abuja&output=embed',
 } as const
 
-export type RoutePath = keyof FileRoutesByTo
+export type RoutePath = NonNullable<LinkProps['to']>
 export type NavChild = { label: string; to: RoutePath; description: string; search?: Record<string, string> }
 export type NavItem = { label: string; to: RoutePath; children?: NavChild[]; mega?: boolean }
 
 export const nav: NavItem[] = [
   {
     label: 'The Firm',
-    to: '/about',
+    to: '/about/',
     children: [
-      { label: 'About the firm', to: '/about', description: 'Who we are, our vision and mission' },
-      { label: 'Our history', to: '/about/history', description: 'Milestones since 2006' },
-      { label: 'Facilities & library', to: '/about/facilities', description: 'Our office, law library and technology' },
-      { label: 'Pro bono & community', to: '/about/community', description: 'Legal aid, public interest and service to the Bar' },
+      { label: 'About the firm', to: '/about/', description: 'Who we are, our vision and mission' },
+      { label: 'Our history', to: '/about/history/', description: 'Milestones since 2006' },
+      { label: 'Facilities & library', to: '/about/facilities/', description: 'Our office, law library and technology' },
+      { label: 'Pro bono & community', to: '/about/community/', description: 'Legal aid, public interest and service to the Bar' },
     ],
   },
-  { label: 'Expertise', to: '/practice-areas', mega: true },
-  { label: 'Our People', to: '/people' },
+  { label: 'Expertise', to: '/practice-areas/', mega: true },
+  { label: 'Our People', to: '/people/' },
   {
     label: 'Insights',
-    to: '/insights',
+    to: '/insights/',
     children: [
-      { label: 'Firm news', to: '/insights', search: { type: 'news' }, description: 'Appointments, events and announcements' },
-      { label: 'Talks & papers', to: '/insights', search: { type: 'talk' }, description: 'Papers presented at conferences and trainings' },
-      { label: 'Publications', to: '/insights', search: { type: 'publication' }, description: 'Books, articles and academic work' },
+      { label: 'Firm news', to: '/insights/news/', description: 'Appointments, events and announcements' },
+      { label: 'Talks & papers', to: '/insights/talks/', description: 'Papers presented at conferences and trainings' },
+      { label: 'Publications', to: '/insights/publications/', description: 'Books, articles and academic work' },
     ],
   },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Contact', to: '/contact/' },
 ]
 
 export const firmTabs = nav.find((n) => n.label === 'The Firm')!.children!
 export const insightTabs: NavChild[] = [
-  { label: 'All', to: '/insights', description: 'Everything' },
+  { label: 'All insights', to: '/insights/', description: 'News, talks and publications' },
   ...nav.find((n) => n.label === 'Insights')!.children!,
 ]

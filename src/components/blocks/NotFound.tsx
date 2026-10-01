@@ -11,7 +11,7 @@ export function NotFound() {
       </p>
       <div className="mt-10 flex flex-wrap gap-4">
         <ButtonLink to="/">Home</ButtonLink>
-        <ButtonLink to="/practice-areas" variant="ghost">
+        <ButtonLink to="/practice-areas/" variant="ghost">
           Practice areas
         </ButtonLink>
       </div>

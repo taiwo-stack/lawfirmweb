@@ -10,6 +10,12 @@ export const kindLabels: Record<InsightKind, string> = {
   publication: 'Publications',
 }
 
+export const kindRoutes = {
+  news: '/insights/news/',
+  talk: '/insights/talks/',
+  publication: '/insights/publications/',
+} as const satisfies Record<InsightKind, string>
+
 export type Insight = {
   id: string
   kind: InsightKind
@@ -22,7 +28,7 @@ export type Insight = {
   topics: Topic[]
   author?: string
   /** Internal link for items that have their own page. */
-  href?: { to: '/insights/$slug'; params: { slug: string } } | { to: '/people/$slug'; params: { slug: string }; hash: string }
+  href?: { to: '/insights/news/$slug/'; params: { slug: string } } | { to: '/people/$slug/'; params: { slug: string }; hash: string }
 }
 
 const yearOf = (s: string) => s.match(/(19|20)\d{2}(?!.*(19|20)\d{2})/)?.[0] ?? '0000'
@@ -37,12 +43,12 @@ function build(): Insight[] {
     date: n.date,
     when: n.when,
     topics: n.topics,
-    href: { to: '/insights/$slug', params: { slug: n.slug } },
+    href: { to: '/insights/news/$slug/', params: { slug: n.slug } },
   }))
 
   for (const p of people) {
     const author = displayName(p)
-    const profile = (hash: string) => ({ to: '/people/$slug' as const, params: { slug: p.slug }, hash })
+    const profile = (hash: string) => ({ to: '/people/$slug/' as const, params: { slug: p.slug }, hash })
     p.talks?.forEach((t, i) =>
       items.push({
         id: `talk-${p.slug}-${i}`,
