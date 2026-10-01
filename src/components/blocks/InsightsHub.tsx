@@ -11,7 +11,7 @@ import { SectionTabs } from './SectionTabs'
 import { InsightCard } from './InsightCard'
 import { PublicationList, TalkTimeline } from './InsightLists'
 import { CTASection } from './CTASection'
-import { byKind, kindLabels, kindRoutes, type Insight, type InsightKind } from '~/content/insights'
+import { byKind, kindLabels, kindRoutes, type InsightKind } from '~/content/insights'
 import { news } from '~/content/news'
 import { insightTabs } from '~/content/site'
 import { topics, type Topic } from '~/content/topics'
@@ -54,25 +54,6 @@ function Heading({ title, to, count }: { title: string; to: (typeof kindRoutes)[
   )
 }
 
-/** Publications beside a photo of the firm's law library (decorative; not a book cover). */
-function PublicationsWithImage({ items }: { items: Insight[] }) {
-  return (
-    <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-12">
-      <div className="md:col-span-4">
-        <Img
-          src="/images/brand/library-tall.jpg"
-          alt="Law reports in the Zest Partners library"
-          sizes="(min-width: 768px) 30vw, 100vw"
-          className="aspect-[4/3] w-full object-cover md:sticky md:top-40 md:aspect-[3/4]"
-        />
-      </div>
-      <div className="md:col-span-8">
-        <PublicationList items={items} />
-      </div>
-    </div>
-  )
-}
-
 /** Landing page: featured news, then each collection with a link to its full page. */
 function Landing() {
   const [featured, ...moreNews] = byKind('news')
@@ -100,9 +81,6 @@ function Landing() {
           <div className="flex flex-col gap-4 lg:col-span-5">
             {moreNews.slice(0, 3).map((n) => (
               <Link key={n.id} {...n.href} className={`group flex flex-1 items-center gap-5 border border-line p-4 ${cardSurface}`}>
-                {n.image && (
-                  <Img src={n.image} alt="" sizes="96px" className="size-20 shrink-0 object-cover object-[center_30%] sm:size-24" />
-                )}
                 <span>
                   <span className={`block text-xs ${cardMuted}`}>{n.when}</span>
                   <span className="mt-1 block font-display text-lg leading-snug">{n.title}</span>
@@ -118,7 +96,9 @@ function Landing() {
 
       <Section tone="deep">
         <Heading title="Publications" to="/insights/publications/" count={byKind('publication').length} />
-        <PublicationsWithImage items={byKind('publication')} />
+        <div className="mt-10">
+          <PublicationList items={byKind('publication')} />
+        </div>
         <MobileViewAll to="/insights/publications/" count={byKind('publication').length} />
       </Section>
 
@@ -189,7 +169,7 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
             </div>
           )}
           {kind === 'talk' && <TalkTimeline items={list} showSpeaker />}
-          {kind === 'publication' && <PublicationsWithImage items={list} />}
+          {kind === 'publication' && <PublicationList items={list} />}
         </Section>
       )}
 

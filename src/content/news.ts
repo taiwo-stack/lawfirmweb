@@ -58,9 +58,6 @@ export const news: NewsItem[] = [
       'On 6 and 7 October 2025, Zest Partners facilitated a two-day training for staff of the Federal Airports Authority of Nigeria (FAAN) at the FAAN Training School, Ikeja, Lagos. The theme was “Conflict and Dispute Resolution Mechanisms and Strategies in Labour, Trade, Human Resources and Industrial Relations”.',
       'Dr. Chinedu Obienu presented three papers: “Appraising the Trade and Workplace Dispute Resolution Mechanism in Nigeria”, “Negotiation Strategies and Practical Skills for Labour and Industrial Dispute Resolution”, and “Arbitration as an Alternative Dispute Resolution Mechanism”.',
     ],
-    // Illustrative: a library photo from the firm (no photo of the training was supplied).
-    image: '/images/office/library-1.jpg',
-    imageAlt: 'Law reports in the Zest Partners library',
     topics: ['adr'],
     people: ['chinedu-obienu'],
   },
@@ -75,9 +72,6 @@ export const news: NewsItem[] = [
       'The Bar, Bench and Good Governance in Africa: Legal Essays in Honour of Afam Osigwe, SAN was published in 2025 by IHCDCE, Port Harcourt. It was edited by O.B. Akinola and Chinedu Obienu.',
       'The collection includes Dr. Obienu’s chapter “Building a Trans-Generational Law Practice: The Pros and Cons” (pages 36–45). He also presented a paper on the subject at the CLASFON Regional Conference in Makurdi, Benue State, in August 2025.',
     ],
-    // Illustrative: a library photo from the firm (no photo of the book was supplied).
-    image: '/images/brand/library-tall.jpg',
-    imageAlt: 'Law reports in the Zest Partners library',
     topics: ['profession'],
     people: ['chinedu-obienu'],
   },
