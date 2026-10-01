@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { Shape } from '~/components/ui/Shape'
 import { ChipRow } from '~/components/ui/ChipRow'
 import { Marquee } from '~/components/ui/Marquee'
 import { ExpandText } from '~/components/ui/ExpandText'
@@ -189,12 +190,14 @@ function Home() {
           </Reveal>
           <Reveal delay={0.15} className="order-first md:order-none md:col-span-5">
             <div className="relative">
-              <Img
-                src={'/images/brand/library-tall.jpg'}
-                alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="aspect-[4/3] w-full object-cover md:aspect-[4/5]"
-              />
+              <Shape variant="leaf">
+                <Img
+                  src={'/images/brand/library-tall.jpg'}
+                  alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="aspect-[4/3] w-full object-cover md:aspect-[4/5]"
+                />
+              </Shape>
               <div className="absolute bottom-0 left-0 bg-green px-5 py-4 text-paper md:-bottom-6 md:-left-6 md:p-6">
                 <p className="font-display text-3xl md:text-4xl">{site.founded}</p>
                 <p className="mt-1 text-xs tracking-[0.2em] uppercase">Established</p>
@@ -302,7 +305,7 @@ function Home() {
                 src={src}
                 alt={i === 0 ? 'The Zest Partners office, Abuja' : 'The Zest Partners law library'}
                 sizes="(min-width: 1024px) 20vw, 33vw"
-                className={`aspect-[3/5] w-full object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
+                className={`aspect-[3/5] w-full rounded-t-[999px] object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
               />
             ))}
           </Reveal>
@@ -384,7 +387,7 @@ function Home() {
                 {people
                   .filter((p) => p.group !== 'Principal')
                   .map((p) => (
-                    <PersonCard key={p.slug} person={p} compact />
+                    <PersonCard key={p.slug} person={p} />
                   ))}
               </div>
             </div>

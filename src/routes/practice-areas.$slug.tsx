@@ -120,7 +120,7 @@ function PracticePage() {
                     <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Key contact</p>
                     {contacts.map((lead) => (
                       <Link key={lead.slug} to="/people/$slug/" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
-                        <Img src={lead.photo} alt="" sizes="80px" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
+                        <Img src={lead.photo} alt="" sizes="80px" className="size-20 shrink-0 rounded-full object-cover object-top grayscale group-hover:grayscale-0" />
                         <span>
                           <span className="block font-display text-xl group-hover:text-green">{displayName(lead)}</span>
                           <span className="mt-1 block text-sm text-muted">{lead.role}</span>

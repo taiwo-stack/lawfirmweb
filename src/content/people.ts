@@ -244,9 +244,9 @@ export const people: Person[] = [
     group: 'Partners',
     office: 'Lagos',
     photo: '/images/people/edwin-nneamaka-uzoma.jpg',
+    // Old website, About page ("Our Team").
     bio: [
-      'Edwin Nneamaka Uzoma is a Partner at Zest Partners and runs the firm’s Lagos office.',
-      'Before joining Zest Partners she worked with BOMS & BOMS, a firm of legal practitioners based in Port Harcourt, and with Equatorial Trust Bank.',
+      'Edwin Nneamaka Uzoma has worked with BOMS and BOMS, a firm of Legal Practitioners based in Port Harcourt, and Equatorial Trust Bank before joining Zest Partners. She personally runs the Lagos office.',
     ],
   },
 ]

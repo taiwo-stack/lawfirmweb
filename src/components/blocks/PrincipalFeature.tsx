@@ -1,4 +1,5 @@
 import { Mail } from 'lucide-react'
+import { Shape } from '~/components/ui/Shape'
 import { Email } from '~/components/ui/Email'
 import { ButtonLink } from '~/components/ui/Button'
 import { Img } from '~/components/ui/Img'
@@ -10,12 +11,14 @@ export function PrincipalFeature({ person }: { person: Person }) {
   return (
     <article className="grid gap-10 md:grid-cols-12 md:gap-10 lg:gap-16">
       <div className="md:col-span-5">
-        <Img
-          src={person.photo}
-          alt={name}
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="aspect-[4/5] w-full object-cover object-top"
-        />
+        <Shape variant="arch" frame>
+          <Img
+            src={person.photo}
+            alt={name}
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="aspect-[4/5] w-full object-cover object-top"
+          />
+        </Shape>
       </div>
       <div className="flex flex-col justify-center md:col-span-7">
         <p className="eyebrow">{person.role}</p>

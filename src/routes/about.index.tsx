@@ -88,7 +88,7 @@ function About() {
               src={'/images/office/library-4.jpg'}
               alt="Inside the Zest Partners law library"
               sizes="(min-width: 1024px) 40vw, 100vw"
-              className="aspect-[4/5] w-full object-cover lg:sticky lg:top-40"
+              className="aspect-[4/5] w-full rounded-tl-[6rem] rounded-br-[6rem] object-cover lg:sticky lg:top-40"
             />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7">
