@@ -83,14 +83,12 @@ export const practices: Practice[] = [
     body: [
       'The firm has contract specialists who are responsible for every phase of contract development, from researching the applicable legal regulations to negotiating the terms and preparing the final document. Our excellence shows in negotiation, document preparation and bid evaluation.',
       'Our specialists work as part of a legal team or independently to evaluate bids and draft documents, and they help clients terminate contracts on favourable terms.',
-      'Our commercial specialists also work as analysts for clients, helping identify business opportunities and supplying the data that informs commercial strategy.',
       'As solicitors we prepare general contracts, agreements, debentures, mortgages, powers of attorney and lease agreements, and we advise on arbitration, receivership and allied matters.',
     ],
     services: [
       'Negotiation',
       'Drafting & review',
       'Bid evaluation',
-      'Commercial analysis',
       'Debentures & mortgages',
       'Powers of attorney',
       'Lease agreements',
@@ -103,22 +101,12 @@ export const practices: Practice[] = [
   },
   {
     // Added on the firm's instruction (1 Oct 2026); not on the old site or in the CV.
-    // TODO: firm to confirm the description and services list.
+    // TODO: firm to supply a description.
     slug: 'risk-data-protection',
     title: 'Enterprise Risk Management & Data Protection',
     group: 'Corporate & Commercial',
-    summary: 'Identifying and managing legal and regulatory risk, and complying with Nigeria’s data protection law.',
-    body: [
-      'Zest Partners advises on enterprise risk management and data protection.',
-      'We help organisations identify and manage their legal and regulatory risks, and comply with the Nigeria Data Protection Act 2023 in how they collect, use and protect personal data.',
-    ],
-    services: [
-      'Enterprise risk assessment',
-      'Compliance frameworks & policies',
-      'Data protection compliance (NDPA 2023)',
-      'Privacy notices & policies',
-      'Data processing agreements',
-    ],
+    summary: 'Zest Partners advises on enterprise risk management and data protection.',
+    body: ['Zest Partners advises on enterprise risk management and data protection.'],
     image: '/images/practice/risk-data-protection.jpg',
     topics: [],
     legacy: [],
@@ -190,7 +178,6 @@ export const practices: Practice[] = [
       'Our aviation team offers a strong blend of legal acumen and industry knowledge, built on an extensive background in aviation-related legal matters.',
       // TODO: the firm should confirm these team claims, carried over from the old website.
       'A number of our aviation lawyers have degrees in engineering, experience as pilots, or have worked in other areas of the industry. Several team members have experience in government regulatory and investigative agencies, are invited to speak at international aviation conferences, and hold leadership positions in the aviation sections of bar associations and industry organisations.',
-      'In October 2025, Zest Partners facilitated a two-day training on conflict and dispute resolution for staff of the Federal Airports Authority of Nigeria (FAAN).',
     ],
     image: '/images/practice/aviation.jpg',
     topics: ['adr'],
