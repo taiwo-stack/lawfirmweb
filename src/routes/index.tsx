@@ -226,19 +226,19 @@ function Home() {
           className="-mx-4 mt-10 flex w-0 min-w-[calc(100%+2rem)] snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] md:mx-0 md:mt-14 md:grid md:w-auto md:min-w-0 md:grid-cols-2 md:gap-px md:overflow-visible md:border md:border-line md:bg-line md:p-0 lg:grid-cols-5"
         >
           {groups.map((g, i) => (
-            <div key={g.name} className="w-[82%] shrink-0 snap-start border border-line bg-paper-deep md:w-auto md:border-0">
+            <div key={g.name} className="card-interactive group/card w-[82%] shrink-0 snap-start border border-line bg-paper-deep transition-colors duration-300 hover:bg-ink hover:text-paper focus-within:bg-ink focus-within:text-paper md:w-auto md:border-0">
               <div className="flex h-full flex-col gap-6 p-6">
                 <Link to="/practice-areas/" hash={groupId(g.name)} className="group">
                   <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="mt-4 text-2xl leading-tight group-hover:text-green">{g.name}</h3>
+                  <h3 className="mt-4 text-2xl leading-tight decoration-1 underline-offset-4 group-hover:underline">{g.name}</h3>
                 </Link>
-                <p className="text-sm leading-relaxed text-muted">{g.blurb}</p>
-                <ul className="mt-auto space-y-1.5 border-t border-line pt-5 text-sm">
+                <p className="text-sm leading-relaxed text-muted transition-colors group-hover/card:text-paper/70 group-focus-within/card:text-paper/70">{g.blurb}</p>
+                <ul className="mt-auto space-y-1.5 border-t border-line pt-5 text-sm transition-colors group-hover/card:border-paper/20 group-focus-within/card:border-paper/20">
                   {practices
                     .filter((p) => p.group === g.name)
                     .map((p) => (
                       <li key={p.slug}>
-                        <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="-my-1 block py-1 hover:text-green">
+                        <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="-my-1 block py-1 decoration-1 underline-offset-4 hover:underline">
                           {p.title}
                         </Link>
                       </li>

@@ -76,6 +76,11 @@
   .bg-ink {
     --color-brass: #c9a66b;
   }
+  .card-interactive:hover,
+  .card-interactive:focus-visible,
+  .card-interactive:focus-within {
+    --color-brass: #c9a66b;
+  }
   ::selection {
     @apply bg-brass-soft text-ink;
   }

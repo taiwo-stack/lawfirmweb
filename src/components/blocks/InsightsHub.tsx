@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { cardMuted, cardSurface } from '~/lib/card'
 import { ScrollRow } from '~/components/ui/ChipRow'
 import { ArrowUpRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
@@ -98,13 +99,13 @@ function Landing() {
           </Link>
           <div className="flex flex-col gap-4 lg:col-span-5">
             {moreNews.slice(0, 3).map((n) => (
-              <Link key={n.id} {...n.href} className="group flex flex-1 items-center gap-5 border border-line p-4 transition-colors hover:bg-paper-deep">
+              <Link key={n.id} {...n.href} className={`group flex flex-1 items-center gap-5 border border-line p-4 ${cardSurface}`}>
                 {n.image && (
                   <Img src={n.image} alt="" sizes="96px" className="size-20 shrink-0 object-cover object-[center_30%] sm:size-24" />
                 )}
                 <span>
-                  <span className="block text-xs text-muted">{n.when}</span>
-                  <span className="mt-1 block font-display text-lg leading-snug group-hover:text-green">{n.title}</span>
+                  <span className={`block text-xs ${cardMuted}`}>{n.when}</span>
+                  <span className="mt-1 block font-display text-lg leading-snug">{n.title}</span>
                 </span>
               </Link>
             ))}

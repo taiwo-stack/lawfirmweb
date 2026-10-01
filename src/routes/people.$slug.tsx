@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { cardArrow, cardMuted, cardSurface } from '~/lib/card'
 import { Email } from '~/components/ui/Email'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import type { ReactNode } from 'react'
@@ -100,13 +101,13 @@ function blocksFor(p: Person): Block[] {
               <Link
                 to="/practice-areas/$slug/"
                 params={{ slug: a.slug }}
-                className="group flex h-full items-center justify-between gap-4 p-5 transition-colors hover:bg-paper-deep"
+                className={`group flex h-full items-center justify-between gap-4 p-5 ${cardSurface}`}
               >
                 <span>
-                  <span className="block text-xs text-muted">{a.group}</span>
-                  <span className="mt-1 block font-display text-xl group-hover:text-green">{a.title}</span>
+                  <span className={`block text-xs ${cardMuted}`}>{a.group}</span>
+                  <span className="mt-1 block font-display text-xl">{a.title}</span>
                 </span>
-                <ArrowRight className="size-4 shrink-0 text-ink/30 group-hover:text-brass" aria-hidden />
+                <ArrowRight className={`size-4 shrink-0 ${cardArrow}`} aria-hidden />
               </Link>
             </li>
           ))}
