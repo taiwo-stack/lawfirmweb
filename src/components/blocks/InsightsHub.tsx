@@ -72,7 +72,7 @@ function Landing() {
                 <h3 className="mt-2 font-display text-xl leading-snug group-hover:text-green">{n.title}</h3>
               </Link>
             ))}
-            <Link to="/insights/news/" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-green">
+            <Link to="/insights/news/" className="inline-flex items-center gap-2 py-2 text-sm font-semibold hover:text-green">
               All firm news <ArrowUpRight className="size-4" aria-hidden />
             </Link>
           </div>

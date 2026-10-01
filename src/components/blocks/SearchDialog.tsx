@@ -125,7 +125,7 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
                 onClick={() => choose(r)}
                 className={`flex w-full items-center gap-4 px-4 py-3 text-left ${i === active ? 'bg-paper-deep' : ''}`}
               >
-                <span className="w-20 shrink-0 text-[11px] font-semibold tracking-[0.15em] text-brass uppercase">{r.kind}</span>
+                <span className="w-24 shrink-0 text-xs font-semibold tracking-[0.15em] text-brass uppercase">{r.kind}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-medium">{r.title}</span>
                   <span className="block truncate text-xs text-muted">{r.detail}</span>

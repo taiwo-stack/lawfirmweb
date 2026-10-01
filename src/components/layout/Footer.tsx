@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { Email } from '~/components/ui/Email'
 import { MessageCircle } from 'lucide-react'
 import { groupId, groups } from '~/content/practices'
 import { firmTabs, insightTabs, site } from '~/content/site'
@@ -30,16 +31,16 @@ export function Footer() {
         </div>
         <div className="lg:col-span-2">
           <h2 className={heading}>The Firm</h2>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-3 text-sm sm:mt-5 sm:space-y-3">
             {firmTabs.map((n) => (
               <li key={n.label}>
-                <Link to={n.to} className="hover:text-paper">
+                <Link to={n.to} className="block py-2.5 hover:text-paper sm:inline sm:py-0">
                   {n.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link to="/people/" className="hover:text-paper">
+              <Link to="/people/" className="block py-2.5 hover:text-paper sm:inline sm:py-0">
                 Our people
               </Link>
             </li>
@@ -47,10 +48,10 @@ export function Footer() {
         </div>
         <div className="lg:col-span-2">
           <h2 className={heading}>Expertise</h2>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-3 text-sm sm:mt-5 sm:space-y-3">
             {groups.map((g) => (
               <li key={g.name}>
-                <Link to="/practice-areas/" hash={groupId(g.name)} className="hover:text-paper">
+                <Link to="/practice-areas/" hash={groupId(g.name)} className="block py-2.5 hover:text-paper sm:inline sm:py-0">
                   {g.name}
                 </Link>
               </li>
@@ -59,10 +60,10 @@ export function Footer() {
         </div>
         <div className="lg:col-span-2">
           <h2 className={heading}>Insights</h2>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-3 text-sm sm:mt-5 sm:space-y-3">
             {insightTabs.slice(1).map((n) => (
               <li key={n.label}>
-                <Link to={n.to} search={n.search} className="hover:text-paper">
+                <Link to={n.to} search={n.search} className="block py-2.5 hover:text-paper sm:inline sm:py-0">
                   {n.label}
                 </Link>
               </li>
@@ -80,17 +81,17 @@ export function Footer() {
           </p>
           <p className="mt-4 space-y-1 text-sm">
             {site.phones.map((p) => (
-              <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block py-1 hover:text-paper">
+              <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block py-2.5 hover:text-paper sm:py-1">
                 {p}
               </a>
             ))}
             {site.emails.map((e) => (
-              <a key={e} href={`mailto:${e}`} className="block py-1 break-all hover:text-paper">
-                {e}
+              <a key={e} href={`mailto:${e}`} className="block py-2.5 hover:text-paper sm:py-1">
+                <Email value={e} />
               </a>
             ))}
           </p>
-          <Link to="/contact/" className="mt-5 inline-block text-sm font-semibold text-paper underline underline-offset-4 hover:text-brass-soft">
+          <Link to="/contact/" className="mt-3 inline-block py-2.5 text-sm font-semibold text-paper underline underline-offset-4 hover:text-brass-soft">
             Contact us
           </Link>
         </address>
@@ -99,7 +100,7 @@ export function Footer() {
         <Container className="flex flex-col gap-2 pt-6 pb-24 text-xs sm:flex-row sm:justify-between sm:pb-6">
           <p>© {year} Zest Partners. All rights reserved.</p>
           <p className="flex gap-6">
-            <Link to="/privacy/" className="hover:text-paper">
+            <Link to="/privacy/" className="block py-2.5 hover:text-paper sm:inline sm:py-0">
               Privacy notice
             </Link>
             <span>Nothing on this website constitutes legal advice.</span>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { Email } from '~/components/ui/Email'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { Img } from '~/components/ui/Img'
@@ -267,11 +268,11 @@ function PersonPage() {
               <p className="mt-4 font-display text-2xl">{name}</p>
               <div className="mt-6 space-y-3 text-sm">
                 {person.email && (
-                  <a href={`mailto:${person.email}`} className="flex items-center gap-3 break-all hover:text-brass-soft">
-                    <Mail className="size-4 shrink-0 text-brass" aria-hidden /> {person.email}
+                  <a href={`mailto:${person.email}`} className="flex items-center gap-3 py-1.5 hover:text-brass-soft">
+                    <Mail className="size-4 shrink-0 text-brass" aria-hidden /> <Email value={person.email} />
                   </a>
                 )}
-                <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-brass-soft">
+                <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-3 py-1.5 hover:text-brass-soft">
                   <Phone className="size-4 shrink-0 text-brass" aria-hidden /> {site.phones[0]}
                 </a>
               </div>

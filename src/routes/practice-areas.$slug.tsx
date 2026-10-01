@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { Email } from '~/components/ui/Email'
 import { Img } from '~/components/ui/Img'
 import { ArrowLeft, ArrowRight, Check, Mail, Phone } from 'lucide-react'
 import { Container, Section } from '~/components/ui/Container'
@@ -65,7 +66,7 @@ function PracticePage() {
             ]}
           />
           <div className="rise pt-6 sm:pt-12">
-            <Link to="/practice-areas/" hash={groupId(practice.group)} className="eyebrow hover:text-paper">
+            <Link to="/practice-areas/" hash={groupId(practice.group)} className="eyebrow -my-2 py-2 hover:text-paper">
               {practice.group}
             </Link>
             <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] sm:text-6xl">{practice.title}</h1>
@@ -139,12 +140,12 @@ function PracticePage() {
                 )}
                 <div className="mt-6 space-y-2 border-t border-line pt-6 text-sm">
                   {site.phones.map((ph) => (
-                    <a key={ph} href={`tel:${ph.replace(/\s/g, '')}`} className="flex items-center gap-3 py-0.5 hover:text-green">
+                    <a key={ph} href={`tel:${ph.replace(/\s/g, '')}`} className="flex items-center gap-3 py-2 hover:text-green">
                       <Phone className="size-4 text-brass" aria-hidden /> {ph}
                     </a>
                   ))}
-                  <a href={`mailto:${contacts[0]?.email ?? site.emails[0]}`} className="flex items-center gap-3 py-0.5 break-all hover:text-green">
-                    <Mail className="size-4 shrink-0 text-brass" aria-hidden /> {contacts[0]?.email ?? site.emails[0]}
+                  <a href={`mailto:${contacts[0]?.email ?? site.emails[0]}`} className="flex items-center gap-3 py-2 hover:text-green">
+                    <Mail className="size-4 shrink-0 text-brass" aria-hidden /> <Email value={contacts[0]?.email ?? site.emails[0]} />
                   </a>
                 </div>
                 <ButtonLink to="/contact/" className="mt-6 w-full justify-center">

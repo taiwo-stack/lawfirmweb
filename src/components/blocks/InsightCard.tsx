@@ -15,7 +15,7 @@ export function InsightCard({ item }: { item: Insight }) {
       <div className="mt-auto flex items-end justify-between gap-4 pt-6">
         <ul className="flex flex-wrap gap-1.5">
           {item.topics.slice(0, 2).map((t) => (
-            <li key={t} className="rounded-full bg-paper-deep px-2.5 py-1 text-[11px] text-ink/70">
+            <li key={t} className="rounded-full bg-paper-deep px-2.5 py-1 text-xs text-ink/70">
               {topics[t]}
             </li>
           ))}

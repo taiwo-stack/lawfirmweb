@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Email } from '~/components/ui/Email'
 import { Mail, MapPin, MessageCircle, Phone, Plus } from 'lucide-react'
 import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
@@ -81,7 +82,7 @@ function Contact() {
                 <div>
                   <p className="text-xs font-semibold tracking-[0.2em] text-brass uppercase">Phone</p>
                   {site.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="mt-2 block text-paper/80 hover:text-paper">
+                    <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block py-2 text-paper/80 hover:text-paper">
                       {p}
                     </a>
                   ))}
@@ -92,8 +93,8 @@ function Contact() {
                 <div>
                   <p className="text-xs font-semibold tracking-[0.2em] text-brass uppercase">Email</p>
                   {site.emails.map((e) => (
-                    <a key={e} href={`mailto:${e}`} className="mt-2 block break-all text-paper/80 hover:text-paper">
-                      {e}
+                    <a key={e} href={`mailto:${e}`} className="block py-2 text-paper/80 hover:text-paper">
+                      <Email value={e} />
                     </a>
                   ))}
                 </div>

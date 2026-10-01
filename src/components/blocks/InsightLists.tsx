@@ -23,7 +23,7 @@ export function TalkTimeline({ items, showSpeaker = false }: { items: Insight[];
                 </p>
                 <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
                   {showSpeaker && t.authorSlug && (
-                    <Link to="/people/$slug/" params={{ slug: t.authorSlug }} className="font-semibold text-ink hover:text-green">
+                    <Link to="/people/$slug/" params={{ slug: t.authorSlug }} className="-my-1.5 inline-block py-1.5 font-semibold text-ink hover:text-green">
                       {t.author}
                     </Link>
                   )}

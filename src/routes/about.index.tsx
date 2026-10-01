@@ -144,7 +144,7 @@ function About() {
             <div className="mt-8 space-y-6">
               {groups.map((g) => (
                 <div key={g.name}>
-                  <Link to="/practice-areas/" hash={groupId(g.name)} className="text-xs font-semibold tracking-[0.15em] text-brass uppercase hover:text-green">
+                  <Link to="/practice-areas/" hash={groupId(g.name)} className="inline-block py-1.5 text-xs font-semibold tracking-[0.15em] text-brass uppercase hover:text-green">
                     {g.name}
                   </Link>
                   <p className="mt-2 leading-relaxed">

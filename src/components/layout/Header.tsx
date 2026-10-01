@@ -253,7 +253,7 @@ export function Header() {
           >
             <Search className="size-4" aria-hidden />
             <span className="hidden text-xs text-muted lg:inline">Search</span>
-            <kbd className="hidden rounded border border-line px-1.5 text-[10px] text-muted lg:inline">Ctrl K</kbd>
+            <kbd className="hidden rounded border border-line px-1.5 text-xs text-muted lg:inline">Ctrl K</kbd>
           </button>
           <div className="hidden xl:block">
             <ButtonLink to="/contact/" className="px-5 py-2.5">

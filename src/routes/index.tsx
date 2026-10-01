@@ -134,8 +134,8 @@ function Home() {
 
       {/* The firm */}
       <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
-          <Reveal className="lg:col-span-7">
+        <div className="grid items-center gap-12 md:grid-cols-12 lg:gap-20">
+          <Reveal className="md:col-span-7">
             <p className="eyebrow">About us</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Corporate practice and litigation, since {site.founded}.</h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
@@ -161,7 +161,7 @@ function Home() {
               Read more about the firm
             </ButtonLink>
           </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-5">
+          <Reveal delay={0.15} className="md:col-span-5">
             <div className="relative">
               <Img
                 src={'/images/brand/library-tall.jpg'}
@@ -202,7 +202,7 @@ function Home() {
                     .filter((p) => p.group === g.name)
                     .map((p) => (
                       <li key={p.slug}>
-                        <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="hover:text-green">
+                        <Link to="/practice-areas/$slug/" params={{ slug: p.slug }} className="-my-1 block py-1 hover:text-green">
                           {p.title}
                         </Link>
                       </li>
