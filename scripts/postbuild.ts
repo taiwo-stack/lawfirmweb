@@ -1,6 +1,6 @@
 /**
  * Post-build steps for GitHub Pages:
- *  - 404.html from the prerendered /404 route (Pages serves it for unknown URLs)
+ *  - 404.html from the SPA shell (Pages serves it for unknown URLs; the router then renders NotFound)
  *  - static redirect pages for every old WordPress URL, so links and rankings survive
  *  - .nojekyll so Pages serves the output untouched
  */
@@ -11,15 +11,20 @@ import { practices } from '../src/content/practices.ts'
 const out = 'dist/client'
 const base = (process.env.BASE_PATH ?? '/').replace(/\/?$/, '/')
 
-copyFileSync(join(out, '404/index.html'), join(out, '404.html'))
-rmSync(join(out, '404'), { recursive: true })
+const shell = ['_shell.html', '_shell/index.html'].map((f) => join(out, f)).find(existsSync)
+if (!shell) throw new Error('SPA shell not found in build output')
+copyFileSync(shell, join(out, '404.html'))
+rmSync(shell)
+rmSync(join(out, '_shell'), { recursive: true, force: true })
+// The internal /shell route is also auto-discovered as a static page; it must not be published.
+rmSync(join(out, 'shell'), { recursive: true, force: true })
 rmSync(join(out, 'pages.json'), { force: true })
 writeFileSync(join(out, '.nojekyll'), '')
 
 // The crawler records /404, #hash and ?filter links, and slash/no-slash duplicates; keep one canonical URL per page.
 const sitemapPath = join(out, 'sitemap.xml')
 const locs = [...readFileSync(sitemapPath, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
-const clean = [...new Set(locs.filter((u) => !/[#?]/.test(u) && !u.endsWith('/404')).map((u) => u.replace(/\/?$/, '/')))]
+const clean = [...new Set(locs.filter((u) => !/[#?]/.test(u) && !/\/(404|_?shell)\/?$/.test(u)).map((u) => u.replace(/\/?$/, '/')))]
 writeFileSync(
   sitemapPath,
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${clean

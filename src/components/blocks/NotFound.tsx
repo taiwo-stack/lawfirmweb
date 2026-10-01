@@ -1,7 +1,16 @@
+import { useEffect } from 'react'
 import { ButtonLink } from '~/components/ui/Button'
 import { Container } from '~/components/ui/Container'
 
 export function NotFound() {
+  useEffect(() => {
+    document.title = 'Page not found | Zest Partners'
+    const robots = document.createElement('meta')
+    robots.name = 'robots'
+    robots.content = 'noindex'
+    document.head.appendChild(robots)
+    return () => robots.remove()
+  }, [])
   return (
     <Container className="flex min-h-[60vh] flex-col items-start justify-center py-24">
       <p className="eyebrow">Error 404</p>

@@ -13,7 +13,8 @@ export default defineConfig({
     tailwindcss(),
     tanstackStart({
       prerender: { enabled: true, crawlLinks: true, failOnError: true },
-      pages: [{ path: '/404' }],
+      // The SPA shell renders client-side for whatever URL it is served on; it becomes 404.html.
+      spa: { enabled: true, maskPath: '/shell/' },
       sitemap: { enabled: true, host: 'https://zestpartnersng.com' },
     }),
     viteReact(),

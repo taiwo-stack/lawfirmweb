@@ -10,9 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as R404RouteImport } from './routes/404'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ShellRouteImport } from './routes/shell'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
 import { Route as AboutCommunityRouteImport } from './routes/about.community'
 import { Route as AboutFacilitiesRouteImport } from './routes/about.facilities'
@@ -32,11 +32,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const R404Route = R404RouteImport.update({
-  id: '/404',
-  path: '/404',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -45,6 +40,11 @@ const ContactRoute = ContactRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShellRoute = ShellRouteImport.update({
+  id: '/shell',
+  path: '/shell',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutIndexRoute = AboutIndexRouteImport.update({
@@ -115,9 +115,9 @@ const InsightsNewsSlugRoute = InsightsNewsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/shell': typeof ShellRoute
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
@@ -134,9 +134,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/shell': typeof ShellRoute
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
@@ -154,9 +154,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/shell': typeof ShellRoute
   '/about/community': typeof AboutCommunityRoute
   '/about/facilities': typeof AboutFacilitiesRoute
   '/about/history': typeof AboutHistoryRoute
@@ -175,9 +175,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/404'
     | '/contact'
     | '/privacy'
+    | '/shell'
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
@@ -194,9 +194,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/404'
     | '/contact'
     | '/privacy'
+    | '/shell'
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
@@ -213,9 +213,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/404'
     | '/contact'
     | '/privacy'
+    | '/shell'
     | '/about/community'
     | '/about/facilities'
     | '/about/history'
@@ -233,9 +233,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  R404Route: typeof R404Route
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
+  ShellRoute: typeof ShellRoute
   AboutCommunityRoute: typeof AboutCommunityRoute
   AboutFacilitiesRoute: typeof AboutFacilitiesRoute
   AboutHistoryRoute: typeof AboutHistoryRoute
@@ -260,13 +260,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/404': {
-      id: '/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: typeof R404RouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -279,6 +272,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shell': {
+      id: '/shell'
+      path: '/shell'
+      fullPath: '/shell'
+      preLoaderRoute: typeof ShellRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about/': {
@@ -377,9 +377,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  R404Route: R404Route,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
+  ShellRoute: ShellRoute,
   AboutCommunityRoute: AboutCommunityRoute,
   AboutFacilitiesRoute: AboutFacilitiesRoute,
   AboutHistoryRoute: AboutHistoryRoute,
