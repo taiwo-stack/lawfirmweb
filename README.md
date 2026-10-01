@@ -22,11 +22,17 @@ Copy lives in typed data files, not in page components:
 |---|---|
 | Firm name, address, phones, emails, WhatsApp, socials | `src/content/site.ts` |
 | Practice areas (text, services, image, group) | `src/content/practices.ts` |
-| Partners and bios | `src/content/people.ts` |
+| Partners, bios, CVs, talks, publications | `src/content/people.ts` |
+| Firm news articles | `src/content/news.ts` |
+| Firm history timeline | `src/content/history.ts` |
+| Insight topics and auto-tagging rules | `src/content/topics.ts` |
+| Navigation (menus, mega menu, tabs) | `src/content/site.ts` → `nav` |
 | Images | `public/images/…` |
 
 To **add a practice area**, add an entry to `practices.ts`. Its page, card, sitemap entry and links are generated automatically.
 To **add a partner**, add an entry to `people.ts` and put the photo in `public/images/people/`.
+To **add a news item**, add an entry to `news.ts`. It gets its own page under `/insights/…`, appears on the home page, and is searchable.
+Talks and publications are tagged with topics automatically, and each practice page shows the ones that match its `topics`.
 
 Search for `TODO` to find content still waiting on the firm.
 
@@ -37,14 +43,17 @@ src/
   components/
     ui/        Container, Section, Button, Reveal
     layout/    Header, Footer, Logo, WhatsAppButton
-    blocks/    PageHeader, PracticeCard, PersonCard, CTASection, ContactForm, NotFound
-  content/     site.ts, practices.ts, people.ts
+    blocks/    PageHeader, Breadcrumbs, SectionTabs, SearchDialog (Ctrl+K), PracticeCard,
+               PersonCard, InsightCard, RotatingText, CTASection, ContactForm, NotFound
+  content/     site.ts, practices.ts, people.ts, news.ts, history.ts, topics.ts, insights.ts
   routes/      file-based routes (TanStack Router)
   styles/      app.css — brand tokens (colours, fonts) live in @theme
 scripts/
-  postbuild.ts 404.html, legacy WordPress redirects, sitemap cleanup, .nojekyll
+  postbuild.ts       404.html, legacy WordPress redirects, sitemap cleanup, .nojekyll
+  content-audit.py   checks every old-site sentence against the new source
 docs/
   PLAN.md                    rebuild plan & launch checklist
+  content-audit.md           proof that all legacy content was carried over
   legacy-site-content.md     content scraped from the old WordPress site
 ```
 

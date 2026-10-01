@@ -16,10 +16,10 @@ rmSync(join(out, '404'), { recursive: true })
 rmSync(join(out, 'pages.json'), { force: true })
 writeFileSync(join(out, '.nojekyll'), '')
 
-// The crawler records /404, #hash links and trailing-slash duplicates; keep one clean URL per page.
+// The crawler records /404, #hash and ?filter links, and trailing-slash duplicates; keep one clean URL per page.
 const sitemapPath = join(out, 'sitemap.xml')
 const locs = [...readFileSync(sitemapPath, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
-const clean = [...new Set(locs.filter((u) => !u.includes('#') && !u.endsWith('/404')).map((u) => (new URL(u).pathname === '/' ? u : u.replace(/\/$/, ''))))]
+const clean = [...new Set(locs.filter((u) => !/[#?]/.test(u) && !u.endsWith('/404')).map((u) => (new URL(u).pathname === '/' ? u : u.replace(/\/$/, ''))))]
 writeFileSync(
   sitemapPath,
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${clean

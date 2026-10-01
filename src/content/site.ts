@@ -1,7 +1,10 @@
+import type { FileRoutesByTo } from '~/routeTree.gen'
+
 export const site = {
   name: 'Zest Partners',
   legalName: 'Zest Partners',
   tagline: 'Corporate practice and litigation, delivered with precision.',
+  descriptor: 'Legal Practitioners · Arbitrators · Mediators · Trainers',
   description:
     'Zest Partners is a full-service Nigerian law firm established in 2006, advising on corporate and commercial matters, finance, energy, disputes and private client affairs from Abuja and Lagos.',
   url: 'https://zestpartnersng.com',
@@ -24,9 +27,37 @@ export const site = {
     'https://www.google.com/maps?q=Prince+and+Princess+Estate,+Kaura+District,+Abuja&output=embed',
 } as const
 
-export const nav = [
-  { label: 'The Firm', to: '/about' },
-  { label: 'Practice Areas', to: '/practice-areas' },
-  { label: 'People', to: '/people' },
+export type RoutePath = keyof FileRoutesByTo
+export type NavChild = { label: string; to: RoutePath; description: string; search?: Record<string, string> }
+export type NavItem = { label: string; to: RoutePath; children?: NavChild[]; mega?: boolean }
+
+export const nav: NavItem[] = [
+  {
+    label: 'The Firm',
+    to: '/about',
+    children: [
+      { label: 'About the firm', to: '/about', description: 'Who we are, our vision and mission' },
+      { label: 'Our history', to: '/about/history', description: 'Milestones since 2006' },
+      { label: 'Facilities & library', to: '/about/facilities', description: 'Our office, law library and technology' },
+      { label: 'Pro bono & community', to: '/about/community', description: 'Legal aid, public interest and service to the Bar' },
+    ],
+  },
+  { label: 'Expertise', to: '/practice-areas', mega: true },
+  { label: 'Our People', to: '/people' },
+  {
+    label: 'Insights',
+    to: '/insights',
+    children: [
+      { label: 'Firm news', to: '/insights', search: { type: 'news' }, description: 'Appointments, events and announcements' },
+      { label: 'Talks & papers', to: '/insights', search: { type: 'talk' }, description: 'Papers presented at conferences and trainings' },
+      { label: 'Publications', to: '/insights', search: { type: 'publication' }, description: 'Books, articles and academic work' },
+    ],
+  },
   { label: 'Contact', to: '/contact' },
-] as const
+]
+
+export const firmTabs = nav.find((n) => n.label === 'The Firm')!.children!
+export const insightTabs: NavChild[] = [
+  { label: 'All', to: '/insights', description: 'Everything' },
+  ...nav.find((n) => n.label === 'Insights')!.children!,
+]

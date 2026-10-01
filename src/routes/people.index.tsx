@@ -16,6 +16,7 @@ function People() {
   return (
     <>
       <PageHeader
+        crumbs={[{ label: 'Our People' }]}
         eyebrow="Our people"
         title="Lawyers of outstanding training and experience."
         intro="Our partners lead teams that combine courtroom advocacy with commercial insight."

@@ -1,10 +1,12 @@
-import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { ArrowLeft, Mail } from 'lucide-react'
+import { createFileRoute, notFound } from '@tanstack/react-router'
+import { Mail } from 'lucide-react'
+import { Breadcrumbs } from '~/components/blocks/Breadcrumbs'
 import type { ReactNode } from 'react'
 import { Container, Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { CTASection } from '~/components/blocks/CTASection'
 import { displayName, personBySlug, type Person, type Talk } from '~/content/people'
+import { site } from '~/content/site'
 import { asset, seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/people/$slug')({
@@ -15,12 +17,30 @@ export const Route = createFileRoute('/people/$slug')({
   },
   head: ({ loaderData }) =>
     loaderData
-      ? seo({
-          title: `${displayName(loaderData)}, ${loaderData.role}`,
-          description: loaderData.bio[0],
-          image: loaderData.photo,
-          path: `/people/${loaderData.slug}`,
-        })
+      ? {
+          ...seo({
+            title: `${displayName(loaderData)}, ${loaderData.role}`,
+            description: loaderData.bio[0],
+            image: loaderData.photo,
+            path: `/people/${loaderData.slug}`,
+          }),
+          scripts: [
+            {
+              type: 'application/ld+json',
+              children: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                name: loaderData.name,
+                honorificPrefix: loaderData.honorific,
+                jobTitle: loaderData.role,
+                email: loaderData.email,
+                image: site.url + loaderData.photo,
+                worksFor: { '@type': 'LegalService', name: site.name, url: site.url },
+                memberOf: loaderData.positions?.map((p) => ({ '@type': 'Organization', name: p.org })),
+              }),
+            },
+          ],
+        }
       : {},
   component: PersonPage,
 })
@@ -147,9 +167,7 @@ function PersonPage() {
     <>
       <section className="border-b border-line bg-paper">
         <Container className="pt-10 pb-16 sm:pt-14 sm:pb-20">
-          <Link to="/people" className="inline-flex items-center gap-2 text-sm text-muted hover:text-ink">
-            <ArrowLeft className="size-4" aria-hidden /> All people
-          </Link>
+          <Breadcrumbs items={[{ label: 'Our People', link: { to: '/people' }, path: '/people' }, { label: name }]} />
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="rise lg:col-span-5">
               <img src={asset(person.photo)} alt={name} className="aspect-[4/5] w-full object-cover object-top" />

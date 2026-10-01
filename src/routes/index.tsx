@@ -1,11 +1,15 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowUpRight } from 'lucide-react'
 import { ButtonLink } from '~/components/ui/Button'
 import { Container, Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { CTASection } from '~/components/blocks/CTASection'
 import { PersonCard } from '~/components/blocks/PersonCard'
+import { InsightCard } from '~/components/blocks/InsightCard'
+import { RotatingText } from '~/components/blocks/RotatingText'
 import { groupId, groups, practices } from '~/content/practices'
 import { people } from '~/content/people'
+import { insights } from '~/content/insights'
 import { site } from '~/content/site'
 import { asset, seo } from '~/lib/utils'
 
@@ -15,20 +19,26 @@ export const Route = createFileRoute('/')({
 })
 
 const years = new Date().getFullYear() - site.founded
+const talkCount = insights.filter((i) => i.kind === 'talk').length
 
-const pillars = [
-  {
-    title: 'Solicitors and advocates',
-    body: 'We draft the contracts, debentures, mortgages and powers of attorney, and we argue the case in court when a matter needs it.',
-  },
-  {
-    title: 'Real-time, modern practice',
-    body: 'Up-to-date IT facilities and real-time legal services mean clients get timely answers wherever they are.',
-  },
-  {
-    title: 'Ethics without compromise',
-    body: 'Top-class legal services delivered without compromise to ethical values. That is our mission and how we work.',
-  },
+const sectors = [
+  'Commercial & investment banks',
+  'Insurance & finance companies',
+  'Private investment funds',
+  'Oil & gas operators',
+  'Public & private companies',
+  'Government agencies',
+  'Regulators & public institutions',
+  'Development partners',
+  'Families & individuals',
+  'Indigent citizens (pro bono)',
+]
+
+const steps = [
+  { title: 'Listen', body: 'We start by understanding your objectives, your business and the facts, in confidence.' },
+  { title: 'Assess', body: 'We analyse the law, the risks and the options, and tell you candidly where you stand.' },
+  { title: 'Act', body: 'We negotiate, draft, file or advocate, as solicitors or in court, with minimum expenditure of time and resources.' },
+  { title: 'Resolve', body: 'We see matters through to resolution and keep you informed of developments that affect your objectives.' },
 ]
 
 function Home() {
@@ -38,16 +48,20 @@ function Home() {
       <section className="relative isolate overflow-hidden bg-ink text-paper">
         <img
           src={asset('/images/brand/library-wide.jpg')}
-          alt="The Zest Partners law library: bound volumes of law reports and Halsbury’s Laws of England"
+          alt=""
           className="absolute inset-0 -z-20 size-full object-cover opacity-40"
           fetchPriority="high"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
-        <Container className="flex min-h-[min(88svh,920px)] flex-col justify-end pt-32 pb-16 sm:pb-24">
+        <Container className="flex min-h-[min(86svh,900px)] flex-col justify-end pt-28 pb-14 sm:pb-20">
           <div className="rise">
-            <p className="eyebrow">Zest Partners · Est. {site.founded}</p>
-            <h1 className="mt-8 max-w-5xl text-5xl leading-[1.02] font-light sm:text-7xl lg:text-8xl">
-              Counsel with <em className="text-brass-soft">conviction.</em>
+            <p className="eyebrow">Welcome to Zest Partners · Est. {site.founded}</p>
+            <h1 className="mt-8 max-w-5xl text-5xl leading-[1.04] font-light sm:text-7xl lg:text-8xl">
+              Counsel for{' '}
+              <RotatingText
+                className="text-brass-soft italic"
+                items={['business.', 'disputes.', 'energy.', 'families.', 'justice.']}
+              />
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/75 sm:text-xl">
               A full-service corporate practice and litigation firm, advising businesses, institutions and families across
@@ -62,21 +76,39 @@ function Home() {
                 variant="ghost"
                 className="border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink"
               >
-                Our practice areas
+                Our expertise
               </ButtonLink>
             </div>
           </div>
+          {/* Quick links to practice groups */}
+          <ul className="mt-16 hidden grid-cols-5 border-t border-paper/15 lg:grid">
+            {groups.map((g, i) => (
+              <li key={g.name}>
+                <Link
+                  to="/practice-areas"
+                  hash={groupId(g.name)}
+                  className="group flex items-center justify-between gap-2 border-r border-paper/15 py-5 pr-4 text-sm text-paper/70 last:border-r-0 hover:text-paper"
+                >
+                  <span>
+                    <span className="mr-2 text-brass">{String(i + 1).padStart(2, '0')}</span>
+                    {g.name}
+                  </span>
+                  <ArrowUpRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
 
       {/* Stats */}
       <div className="border-b border-line bg-paper">
-        <Container className="grid grid-cols-2 divide-line lg:grid-cols-4 lg:divide-x">
+        <Container className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
           {[
             [`${years}+`, 'Years in practice'],
             [String(practices.length), 'Practice areas'],
+            [`${talkCount}+`, 'Papers presented'],
             ['2', 'Offices: Abuja & Lagos'],
-            ['Pro bono', 'Human rights & public interest'],
           ].map(([value, label]) => (
             <div key={label} className="py-8 lg:px-8 lg:first:pl-0">
               <p className="font-display text-3xl sm:text-4xl">{value}</p>
@@ -86,27 +118,33 @@ function Home() {
         </Container>
       </div>
 
-      {/* About teaser */}
+      {/* The firm */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-7">
-            <p className="eyebrow">The firm</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">
-              Built on the conviction that good law is good business.
-            </h2>
-            <div className="prose-firm mt-8">
+            <p className="eyebrow">About us</p>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Built on the conviction that good law is good business.</h2>
+            <div className="mt-10 grid gap-8 sm:grid-cols-2">
+              <div className="border-t-2 border-ink pt-5">
+                <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Our vision</p>
+                <p className="mt-3 font-display text-xl leading-snug">{site.vision}</p>
+              </div>
+              <div className="border-t-2 border-ink pt-5">
+                <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Our mission</p>
+                <p className="mt-3 font-display text-xl leading-snug">{site.mission}</p>
+              </div>
+            </div>
+            <div className="prose-firm mt-10">
               <p>
-                Zest Partners was founded in {site.founded} by young, progressive and diligent legal practitioners. Today we
-                are a dynamic firm of lawyers with deep experience in negotiation, international trade law, litigation and
-                commercial practice.
-              </p>
-              <p>
-                We act as solicitors and advocates for individuals, companies and government agencies, with one unwavering
-                aim: {site.vision.toLowerCase().replace(/\.$/, '')}.
+                Zest Partners is a full-service corporate practice and litigation law firm established in Nigeria. We are
+                professionals across contracts, debt and loan recovery, corporate compliance and financial services, criminal
+                law, election petitions, wills and probate, human rights, intellectual property, interpretation of foreign
+                documents, property law, and matrimonial causes, with a selection of lawyers of outstanding training and
+                experience.
               </p>
             </div>
-            <ButtonLink to="/about" variant="ghost" className="mt-4">
-              About the firm
+            <ButtonLink to="/about" variant="ghost" className="mt-2">
+              Read more about the firm
             </ButtonLink>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-5">
@@ -126,7 +164,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* Practice groups */}
+      {/* Expertise */}
       <Section tone="deep">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
@@ -134,92 +172,144 @@ function Home() {
             <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">Five practice groups. One integrated team.</h2>
           </Reveal>
           <ButtonLink to="/practice-areas" variant="ghost">
-            All practice areas
+            View all {practices.length} practice areas
           </ButtonLink>
         </div>
         <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-2 lg:grid-cols-5">
           {groups.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.06} className="bg-paper-deep">
-              <Link
-                to="/practice-areas"
-                hash={groupId(g.name)}
-                className="group flex h-full flex-col gap-6 p-6 transition-colors hover:bg-ink hover:text-paper"
-              >
-                <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="text-2xl leading-tight">{g.name}</h3>
-                <p className="text-sm leading-relaxed text-muted group-hover:text-paper/70">{g.blurb}</p>
-                <ul className="mt-auto space-y-1.5 border-t border-line pt-5 text-sm group-hover:border-paper/20">
+              <div className="flex h-full flex-col gap-6 p-6">
+                <Link to="/practice-areas" hash={groupId(g.name)} className="group">
+                  <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="mt-4 text-2xl leading-tight group-hover:text-green">{g.name}</h3>
+                </Link>
+                <p className="text-sm leading-relaxed text-muted">{g.blurb}</p>
+                <ul className="mt-auto space-y-1.5 border-t border-line pt-5 text-sm">
                   {practices
                     .filter((p) => p.group === g.name)
                     .map((p) => (
-                      <li key={p.slug}>{p.title}</li>
+                      <li key={p.slug}>
+                        <Link to="/practice-areas/$slug" params={{ slug: p.slug }} className="hover:text-green">
+                          {p.title}
+                        </Link>
+                      </li>
                     ))}
                 </ul>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* Why Zest */}
+      {/* Who we act for + how we work */}
       <Section tone="ink">
-        <Reveal>
-          <p className="eyebrow">Why Zest</p>
-          <h2 className="mt-6 max-w-3xl text-4xl leading-tight sm:text-5xl">Dedicated to our clients, committed to the rule of law.</h2>
-        </Reveal>
-        <div className="mt-16 grid gap-12 md:grid-cols-3">
-          {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.1} className="border-t border-paper/15 pt-8">
-              <h3 className="text-2xl">{p.title}</h3>
-              <p className="mt-4 leading-relaxed text-paper/65">{p.body}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Thought leadership */}
-      <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <Reveal>
-            <img
-              src={asset('/images/brand/afba-conference.jpg')}
-              alt="Speaking at the African Bar Association (AFBA) conference podium"
-              loading="lazy"
-              className="aspect-[4/5] w-full object-cover object-top sm:aspect-[4/3]"
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="eyebrow">Thought leadership</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A voice in Africa’s legal conversation.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              At the 2025 Annual Conference of the African Bar Association in Accra, our Managing Partner presented{' '}
-              <em className="text-ink">“Navigating Customs, Excise and Taxation Bottlenecks Towards Improving Trade in Africa”</em>.
-              It is one of more than twenty papers he has delivered to bar associations, regulators and public institutions.
-            </p>
-            <ul className="mt-8 divide-y divide-line border-y border-line">
-              {[
-                ['Aug 2026', 'Dr. Chinedu Obienu inaugurated to the Governing Council of the Legal Aid Council of Nigeria by the Attorney General of the Federation'],
-                ['Oct 2025', 'Zest Partners facilitated dispute-resolution training for staff of the Federal Airports Authority of Nigeria'],
-                ['2025', 'Co-editor, The Bar, Bench and Good Governance in Africa: Legal Essays in Honour of Afam Osigwe, SAN'],
-              ].map(([when, what]) => (
-                <li key={when} className="grid grid-cols-[5.5rem_1fr] gap-4 py-4 text-sm">
-                  <span className="font-semibold text-brass">{when}</span>
-                  <span className="text-ink/80">{what}</span>
+            <p className="eyebrow">Who we act for</p>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">From boardrooms to the most vulnerable.</h2>
+            <ul className="mt-10 flex flex-wrap gap-2">
+              {sectors.map((s) => (
+                <li key={s} className="rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/85">
+                  {s}
                 </li>
               ))}
             </ul>
-            <ButtonLink to="/people/$slug" params={{ slug: 'chinedu-obienu' }} hash="speaking" variant="ghost" className="mt-8">
-              Talks & publications
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="eyebrow">How we work</p>
+            <ol className="mt-8 space-y-px">
+              {steps.map((s, i) => (
+                <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-paper/15 py-6">
+                  <span className="font-display text-2xl text-brass">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="text-2xl">{s.title}</h3>
+                    <p className="mt-2 leading-relaxed text-paper/65">{s.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Infrastructure */}
+      <Section>
+        <div className="grid items-end gap-10 lg:grid-cols-12">
+          <Reveal className="lg:col-span-5">
+            <p className="eyebrow">Infrastructure</p>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A law library and modern technology.</h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted">
+              Our in-house library holds Nigerian and English law reports and authorities, and our modern IT facilities let us
+              deliver legal services in real time.
+            </p>
+            <ButtonLink to="/about/facilities" variant="ghost" className="mt-8">
+              Facilities & library
             </ButtonLink>
           </Reveal>
+          <Reveal delay={0.1} className="grid grid-cols-3 gap-3 lg:col-span-7">
+            {['/images/office/exterior-1.jpg', '/images/office/library-1.jpg', '/images/office/library-3.jpg'].map((src, i) => (
+              <img
+                key={src}
+                src={asset(src)}
+                alt={i === 0 ? 'The Zest Partners office, Abuja' : 'The Zest Partners law library'}
+                loading="lazy"
+                className={`aspect-[3/5] w-full object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
+              />
+            ))}
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* News & insights */}
+      <Section tone="deep">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal>
+            <p className="eyebrow">News & insights</p>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A voice in Africa’s legal conversation.</h2>
+          </Reveal>
+          <ButtonLink to="/insights" variant="ghost">
+            All insights
+          </ButtonLink>
+        </div>
+        <div className="mt-14 grid gap-4 lg:grid-cols-3">
+          <Reveal className="lg:row-span-2">
+            <Link
+              to="/insights/$slug"
+              params={{ slug: 'afba-2025-accra' }}
+              className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper"
+            >
+              <img
+                src={asset('/images/brand/afba-conference.jpg')}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 size-full object-cover object-top opacity-60 transition duration-700 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+              <div className="relative">
+                <p className="text-xs font-semibold tracking-[0.15em] text-brass-soft uppercase">Featured · October 2025</p>
+                <h3 className="mt-4 font-display text-2xl leading-snug">
+                  A paper at the African Bar Association Annual Conference, Accra
+                </h3>
+              </div>
+            </Link>
+          </Reveal>
+          {insights
+            .filter((i) => i.kind === 'news' && i.id !== 'news-afba-2025-accra')
+            .slice(0, 2)
+            .concat(insights.filter((i) => i.kind !== 'news').slice(0, 2))
+            .map((item, i) => (
+              <Reveal key={item.id} delay={i * 0.05} className="h-full">
+                <InsightCard item={item} />
+              </Reveal>
+            ))}
         </div>
       </Section>
 
       {/* People */}
-      <Section tone="deep">
+      <Section>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
-            <p className="eyebrow">Leadership</p>
+            <p className="eyebrow">Our people</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Meet the partners.</h2>
           </Reveal>
           <ButtonLink to="/people" variant="ghost">
@@ -233,7 +323,7 @@ function Home() {
         </div>
       </Section>
 
-      <CTASection />
+      <CTASection title="Feel free to ask. We are here." />
     </>
   )
 }

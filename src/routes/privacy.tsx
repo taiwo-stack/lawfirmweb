@@ -13,7 +13,7 @@ export const Route = createFileRoute('/privacy')({
 function Privacy() {
   return (
     <>
-      <PageHeader eyebrow="Legal" title="Privacy notice" />
+      <PageHeader crumbs={[{ label: 'Privacy' }]} eyebrow="Legal" title="Privacy notice" />
       <Section>
         <div className="prose-firm max-w-3xl">
           <p>
