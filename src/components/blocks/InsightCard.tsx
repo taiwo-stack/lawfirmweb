@@ -1,11 +1,22 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowUpRight } from 'lucide-react'
+import { Img } from '~/components/ui/Img'
 import type { Insight } from '~/content/insights'
 import { topics } from '~/content/topics'
 
 export function InsightCard({ item }: { item: Insight }) {
   const inner = (
     <>
+      {item.image && (
+        <div className="-mx-6 -mt-6 mb-6 aspect-[16/9] overflow-hidden bg-paper-deep">
+          <Img
+            src={item.image}
+            alt=""
+            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+            className="size-full object-cover object-[center_30%] transition duration-700 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
       <div className="flex items-center justify-between gap-4 text-xs">
         <span className="font-semibold tracking-[0.15em] text-brass uppercase">{item.label}</span>
         <span className="text-muted">{item.when}</span>
@@ -20,18 +31,13 @@ export function InsightCard({ item }: { item: Insight }) {
             </li>
           ))}
         </ul>
-        {item.href && (
-          <ArrowUpRight className="size-5 shrink-0 text-ink/30 transition-colors group-hover:text-brass" aria-hidden />
-        )}
+        <ArrowUpRight className="size-5 shrink-0 text-ink/30 transition-colors group-hover:text-brass" aria-hidden />
       </div>
     </>
   )
-  const cls = 'group flex h-full flex-col border border-line bg-paper p-6 transition-shadow hover:shadow-lg hover:shadow-ink/5'
-  return item.href ? (
-    <Link {...item.href} className={cls}>
+  return (
+    <Link {...item.href} className="group flex h-full flex-col overflow-hidden border border-line bg-paper p-6 transition-shadow hover:shadow-lg hover:shadow-ink/5">
       {inner}
     </Link>
-  ) : (
-    <div className={cls}>{inner}</div>
   )
 }

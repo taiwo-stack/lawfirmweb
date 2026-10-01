@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { ScrollRow } from '~/components/ui/ChipRow'
 import { ArrowUpRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Section } from '~/components/ui/Container'
@@ -9,7 +10,7 @@ import { SectionTabs } from './SectionTabs'
 import { InsightCard } from './InsightCard'
 import { PublicationList, TalkTimeline } from './InsightLists'
 import { CTASection } from './CTASection'
-import { byKind, kindLabels, kindRoutes, type InsightKind } from '~/content/insights'
+import { byKind, kindLabels, kindRoutes, type Insight, type InsightKind } from '~/content/insights'
 import { news } from '~/content/news'
 import { insightTabs } from '~/content/site'
 import { topics, type Topic } from '~/content/topics'
@@ -30,13 +31,43 @@ const intro: Record<InsightKind | 'all', { title: string; intro: string }> = {
   publication: { title: 'Publications.', intro: 'Books, journal articles and chapters.' },
 }
 
+/** "View all" shown after the content on phones (it sits in the heading on larger screens). */
+function MobileViewAll({ to, count }: { to: (typeof kindRoutes)[InsightKind]; count: number }) {
+  return (
+    <ButtonLink to={to} variant="ghost" className="mt-8 md:hidden">
+      View all {count}
+    </ButtonLink>
+  )
+}
+
 function Heading({ title, to, count }: { title: string; to: (typeof kindRoutes)[InsightKind]; count: number }) {
   return (
     <div className="flex flex-col justify-between gap-4 border-b border-line pb-6 sm:flex-row sm:items-end">
       <h2 className="text-3xl sm:text-4xl">{title}</h2>
-      <ButtonLink to={to} variant="ghost">
-        View all {count}
-      </ButtonLink>
+      <div className="hidden md:block">
+        <ButtonLink to={to} variant="ghost">
+          View all {count}
+        </ButtonLink>
+      </div>
+    </div>
+  )
+}
+
+/** Publications beside a photo of the firm's law library (decorative; not a book cover). */
+function PublicationsWithImage({ items }: { items: Insight[] }) {
+  return (
+    <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-12">
+      <div className="md:col-span-4">
+        <Img
+          src="/images/brand/library-tall.jpg"
+          alt="Law reports in the Zest Partners library"
+          sizes="(min-width: 768px) 30vw, 100vw"
+          className="aspect-[4/3] w-full object-cover md:sticky md:top-40 md:aspect-[3/4]"
+        />
+      </div>
+      <div className="md:col-span-8">
+        <PublicationList items={items} />
+      </div>
     </div>
   )
 }
@@ -67,9 +98,14 @@ function Landing() {
           </Link>
           <div className="flex flex-col gap-4 lg:col-span-5">
             {moreNews.slice(0, 3).map((n) => (
-              <Link key={n.id} {...n.href} className="group flex flex-1 flex-col justify-center border border-line p-6 transition-colors hover:bg-paper-deep">
-                <p className="text-xs text-muted">{n.when}</p>
-                <h3 className="mt-2 font-display text-xl leading-snug group-hover:text-green">{n.title}</h3>
+              <Link key={n.id} {...n.href} className="group flex flex-1 items-center gap-5 border border-line p-4 transition-colors hover:bg-paper-deep">
+                {n.image && (
+                  <Img src={n.image} alt="" sizes="96px" className="size-20 shrink-0 object-cover object-[center_30%] sm:size-24" />
+                )}
+                <span>
+                  <span className="block text-xs text-muted">{n.when}</span>
+                  <span className="mt-1 block font-display text-lg leading-snug group-hover:text-green">{n.title}</span>
+                </span>
               </Link>
             ))}
             <Link to="/insights/news/" className="inline-flex items-center gap-2 py-2 text-sm font-semibold hover:text-green">
@@ -81,9 +117,8 @@ function Landing() {
 
       <Section tone="deep">
         <Heading title="Publications" to="/insights/publications/" count={byKind('publication').length} />
-        <div className="mt-10">
-          <PublicationList items={byKind('publication')} />
-        </div>
+        <PublicationsWithImage items={byKind('publication')} />
+        <MobileViewAll to="/insights/publications/" count={byKind('publication').length} />
       </Section>
 
       <Section>
@@ -91,6 +126,7 @@ function Landing() {
         <div className="mt-10">
           <TalkTimeline items={byKind('talk').slice(0, 6)} showSpeaker />
         </div>
+        <MobileViewAll to="/insights/talks/" count={byKind('talk').length} />
       </Section>
     </>
   )
@@ -124,8 +160,9 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
         <Section>
           {/* Topic filters only where there is enough to filter. */}
           {kind === 'talk' && usedTopics.length > 1 && (
-            <div className="mb-12 flex flex-wrap items-center gap-2">
-              <span className="mr-2 text-xs font-semibold tracking-[0.15em] text-muted uppercase">Topic</span>
+            <div className="mb-12">
+              <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-muted uppercase">Filter by topic</p>
+              <ScrollRow label="Filter by topic">
               <Link to={here.to} search={{ topic: undefined }} activeOptions={{ explicitUndefined: true }} className={chip(!topic)}>
                 All topics
               </Link>
@@ -134,6 +171,7 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
                   {topics[t]}
                 </Link>
               ))}
+              </ScrollRow>
             </div>
           )}
           <h2 className="sr-only">{topic ? `${topics[topic]}: ${list.length} items` : `${list.length} items`}</h2>
@@ -150,14 +188,11 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
             </div>
           )}
           {kind === 'talk' && <TalkTimeline items={list} showSpeaker />}
-          {kind === 'publication' && <PublicationList items={list} />}
+          {kind === 'publication' && <PublicationsWithImage items={list} />}
         </Section>
       )}
 
-      <CTASection
-        title="Invite us to speak or train."
-        body="Our Managing Partner presents papers and facilitates workshops, seminars and training in diverse areas of law."
-      />
+      <CTASection />
     </>
   )
 }

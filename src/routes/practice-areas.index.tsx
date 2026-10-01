@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { ScrollRow } from '~/components/ui/ChipRow'
 import { Search, X } from 'lucide-react'
 import { useState } from 'react'
 import { Section } from '~/components/ui/Container'
@@ -50,7 +51,8 @@ function PracticeAreas() {
             </button>
           )}
         </div>
-        <nav aria-label="Practice groups" className="mt-8 flex flex-wrap gap-2">
+        <nav aria-label="Practice groups" className="mt-8">
+          <ScrollRow label="Practice groups">
           {groups.map((g, i) => (
             <a
               key={g.name}
@@ -61,6 +63,7 @@ function PracticeAreas() {
               {g.name}
             </a>
           ))}
+          </ScrollRow>
         </nav>
       </PageHeader>
 

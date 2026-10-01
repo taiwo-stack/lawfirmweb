@@ -29,6 +29,7 @@ export type Insight = {
   topics: Topic[]
   author?: string
   authorSlug?: string
+  image?: string
   /** Where the item lives: its own article page, or its entry on the Speaking/Publications page. */
   href:
     | { to: '/insights/news/$slug/'; params: { slug: string } }
@@ -48,6 +49,7 @@ function build(): Insight[] {
     when: n.when,
     year: n.date.slice(0, 4),
     topics: n.topics,
+    image: n.image,
     href: { to: '/insights/news/$slug/', params: { slug: n.slug } },
   }))
 

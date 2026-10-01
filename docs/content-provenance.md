@@ -19,6 +19,7 @@ Every factual statement on the site comes from one of three sources:
 | Practice-area text (all 19 pages) | `practices.ts` | OLD. Details about the Managing Partner come from CV |
 | Criminal Law page | `practices.ts` | OLD (criminal law listed as a field; "criminal and civil litigation") + CV (Plateau ACJL, FREP Rules) |
 | Legislative Drafting and Training pages | `practices.ts` | CV |
+| Enterprise Risk Management & Data Protection page | `practices.ts` | **Instructed by the firm, 1 Oct 2026** (not on the old site or in the CV). The description and services list are drafted wording for the firm to confirm. The Nigeria Data Protection Act 2023 is cited as the governing law |
 | "Who we act for" lists | `practices.ts`, home | Only where OLD names the clients (banking, tax, compliance, debt recovery, wills, matrimonial, human rights) or CV does (legislative, training) |
 | Dr. Obienu's profile, positions, publications, talks | `people.ts` | CV |
 | Edwin Nneamaka Uzoma's profile | `people.ts` | OLD |
@@ -53,6 +54,7 @@ These are headings and connecting lines written for the design. They make no fac
 5. **Talk venue:** "NBA Aniocha Branch" (the CV says Anambra State; Aniocha is in Delta State).
 6. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
 7. **Social media:** links to the firm's profiles, if any.
+9. **Enterprise Risk Management & Data Protection:** confirm the description and services list, and who should be the key contact.
 
 ## Reverse audit (1 Oct 2026)
 

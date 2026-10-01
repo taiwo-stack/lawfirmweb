@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 
 /**
- * Cycles through phrases. The first phrase is prerendered; rotation starts after hydration
- * and pauses for users who prefer reduced motion.
+ * Cycles through phrases inline. All phrases are stacked in one grid cell, so the box is always
+ * as wide as the longest phrase: the surrounding heading never re-wraps or shifts as words change.
+ * The first phrase is prerendered; rotation starts after hydration and pauses for reduced motion.
  */
 export function RotatingText({ items, interval = 3200, className }: { items: string[]; interval?: number; className?: string }) {
   const [i, setI] = useState(0)
@@ -13,10 +14,16 @@ export function RotatingText({ items, interval = 3200, className }: { items: str
   }, [items.length, interval])
 
   return (
-    <span className={className} aria-live="off">
-      <span key={i} className="inline-block animate-[rise_0.7s_var(--ease-out-soft)_both]">
-        {items[i]}
-      </span>
+    <span className={`inline-grid align-baseline ${className ?? ''}`}>
+      {items.map((item, k) => (
+        <span
+          key={item}
+          aria-hidden={k !== i}
+          className={`[grid-area:1/1] whitespace-nowrap ${k === i ? 'animate-[rise_0.7s_var(--ease-out-soft)_both]' : 'invisible'}`}
+        >
+          {item}
+        </span>
+      ))}
     </span>
   )
 }

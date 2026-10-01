@@ -22,7 +22,7 @@ export function CTASection({
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
       <Container className="py-24 sm:py-32">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow">Consultation</p>
+          <p className="eyebrow">Contact</p>
           <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">{title}</h2>
           <p className="mt-6 text-lg text-paper/70">{body}</p>
           <div className="mt-10 flex flex-wrap gap-4">

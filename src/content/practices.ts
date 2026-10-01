@@ -102,6 +102,28 @@ export const practices: Practice[] = [
     legacy: ['contract-specialist', 'commercial-specialist'],
   },
   {
+    // Added on the firm's instruction (1 Oct 2026); not on the old site or in the CV.
+    // TODO: firm to confirm the description and services list.
+    slug: 'risk-data-protection',
+    title: 'Enterprise Risk Management & Data Protection',
+    group: 'Corporate & Commercial',
+    summary: 'Identifying and managing legal and regulatory risk, and complying with Nigeria’s data protection law.',
+    body: [
+      'Zest Partners advises on enterprise risk management and data protection.',
+      'We help organisations identify and manage their legal and regulatory risks, and comply with the Nigeria Data Protection Act 2023 in how they collect, use and protect personal data.',
+    ],
+    services: [
+      'Enterprise risk assessment',
+      'Compliance frameworks & policies',
+      'Data protection compliance (NDPA 2023)',
+      'Privacy notices & policies',
+      'Data processing agreements',
+    ],
+    image: '/images/practice/risk-data-protection.jpg',
+    topics: [],
+    legacy: [],
+  },
+  {
     slug: 'taxation',
     title: 'Taxation',
     group: 'Corporate & Commercial',

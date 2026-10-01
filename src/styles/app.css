@@ -120,6 +120,21 @@
   }
 }
 
+/* Marquee: the track holds two copies of the content, so sliding by -50% loops seamlessly. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:active .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
 @keyframes rise {
   from {
     transform: translateY(16px);
@@ -133,6 +148,16 @@
   .js .reveal {
     opacity: 1;
     transform: none;
+  }
+  /* No auto-motion: the marquee becomes a normal swipeable row. */
+  .marquee {
+    overflow-x: auto !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-copy {
+    display: none !important;
   }
   *,
   *::before,

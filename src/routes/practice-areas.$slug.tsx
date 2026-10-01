@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
+import { ChipRow } from '~/components/ui/ChipRow'
 import { Email } from '~/components/ui/Email'
 import { Img } from '~/components/ui/Img'
 import { ArrowLeft, ArrowRight, Check, Mail, Phone } from 'lucide-react'
@@ -104,13 +105,9 @@ function PracticePage() {
             {practice.clients && (
               <Reveal className="mt-14">
                 <h2 className="text-3xl">Who we act for</h2>
-                <ul className="mt-8 flex flex-wrap gap-2">
-                  {practice.clients.map((c) => (
-                    <li key={c} className="rounded-full border border-line bg-paper-deep px-4 py-2 text-sm">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-8">
+                  <ChipRow items={practice.clients} label={`Who we act for: ${practice.title}`} />
+                </div>
               </Reveal>
             )}
           </div>

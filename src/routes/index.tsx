@@ -1,4 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { ChipRow } from '~/components/ui/ChipRow'
+import { Marquee } from '~/components/ui/Marquee'
+import { ExpandText } from '~/components/ui/ExpandText'
 import { Img } from '~/components/ui/Img'
 import { ArrowUpRight } from 'lucide-react'
 import { ButtonLink } from '~/components/ui/Button'
@@ -22,6 +25,12 @@ export const Route = createFileRoute('/')({
 
 const years = new Date().getFullYear() - site.founded
 const talkCount = insights.filter((i) => i.kind === 'talk').length
+const stats = [
+  [`${years}+`, 'Years in practice'],
+  [String(practices.length), 'Practice areas'],
+  [`${talkCount}+`, 'Papers presented'],
+  ['2', 'Offices: Abuja & Lagos'],
+]
 
 const sectors = [
   'Commercial & investment banks',
@@ -71,9 +80,9 @@ function Home() {
           <div className="rise">
             <p className="eyebrow">Welcome to Zest Partners · Est. {site.founded}</p>
             <h1 className="mt-8 max-w-5xl text-5xl leading-[1.04] font-light sm:text-7xl lg:text-8xl">
-              Counsel for
+              Counsel for{' '}
               <RotatingText
-                className="block text-brass-soft italic"
+                className="text-brass-soft italic"
                 items={['business.', 'disputes.', 'energy.', 'families.', 'justice.']}
               />
             </h1>
@@ -117,15 +126,20 @@ function Home() {
 
       {/* Stats */}
       <div className="border-b border-line bg-paper">
-        <Container className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
-          {[
-            [`${years}+`, 'Years in practice'],
-            [String(practices.length), 'Practice areas'],
-            [`${talkCount}+`, 'Papers presented'],
-            ['2', 'Offices: Abuja & Lagos'],
-          ].map(([value, label]) => (
-            <div key={label} className="py-8 lg:px-8 lg:first:pl-0">
-              <p className="font-display text-3xl sm:text-4xl">{value}</p>
+        {/* Phones: one moving line. */}
+        <Marquee label="Key facts" className="py-6 md:hidden">
+          {stats.map(([value, label]) => (
+            <div key={label} className="flex items-baseline gap-3 border-r border-line px-6">
+              <span className="font-display text-3xl">{value}</span>
+              <span className="text-sm whitespace-nowrap text-muted">{label}</span>
+            </div>
+          ))}
+        </Marquee>
+        {/* Tablet and up: a static grid. */}
+        <Container className="hidden md:grid md:grid-cols-4 md:divide-x md:divide-line">
+          {stats.map(([value, label]) => (
+            <div key={label} className="py-8 md:px-6 md:first:pl-0 lg:px-8">
+              <p className="font-display text-4xl">{value}</p>
               <p className="mt-2 text-sm text-muted">{label}</p>
             </div>
           ))}
@@ -134,21 +148,28 @@ function Home() {
 
       {/* The firm */}
       <Section>
-        <div className="grid items-center gap-12 md:grid-cols-12 lg:gap-20">
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12 lg:gap-20">
           <Reveal className="md:col-span-7">
             <p className="eyebrow">About us</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Corporate practice and litigation, since {site.founded}.</h2>
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              <div className="border-t-2 border-ink pt-5">
-                <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Our vision</p>
-                <p className="mt-3 font-display text-xl leading-snug">{site.vision}</p>
-              </div>
-              <div className="border-t-2 border-ink pt-5">
-                <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Our mission</p>
-                <p className="mt-3 font-display text-xl leading-snug">{site.mission}</p>
-              </div>
+            <div
+              role="region"
+              aria-label="Vision and mission"
+              tabIndex={0}
+              className="-mx-4 mt-8 flex w-0 min-w-[calc(100%+2rem)] snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:w-auto sm:min-w-0 sm:grid-cols-2 sm:gap-8 sm:overflow-visible sm:p-0"
+            >
+              {[
+                ['Our vision', site.vision],
+                ['Our mission', site.mission],
+              ].map(([label, text]) => (
+                <div key={label} className="w-[82%] shrink-0 snap-start border-t-2 border-ink bg-paper-deep p-5 sm:w-auto sm:bg-transparent sm:p-0 sm:pt-5">
+                  <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">{label}</p>
+                  <p className="mt-3 font-display text-xl leading-snug">{text}</p>
+                </div>
+              ))}
             </div>
-            <div className="prose-firm mt-10">
+            <ExpandText>
+            <div className="prose-firm mt-8 sm:mt-10">
               <p>
                 Zest Partners is a full-service corporate practice and litigation law firm established in Nigeria. We are
                 professionals across contracts, debt and loan recovery, corporate compliance and financial services, criminal
@@ -156,20 +177,26 @@ function Home() {
                 documents, property law, and matrimonial causes, with a selection of lawyers of outstanding training and
                 experience.
               </p>
+              <p>
+                The firm is equipped with modern and up-to-date IT facilities and provides legal services in real time, which
+                makes it easy to deliver world-class legal services to our clients.
+              </p>
             </div>
-            <ButtonLink to="/about/" variant="ghost" className="mt-2">
+            </ExpandText>
+            <ButtonLink to="/about/" variant="ghost" className="mt-4 md:mt-2">
               Read more about the firm
             </ButtonLink>
           </Reveal>
-          <Reveal delay={0.15} className="md:col-span-5">
+          <Reveal delay={0.15} className="order-first md:order-none md:col-span-5">
             <div className="relative">
               <Img
                 src={'/images/brand/library-tall.jpg'}
                 alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
-                className="aspect-[4/5] w-full object-cover"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="aspect-[4/3] w-full object-cover md:aspect-[4/5]"
               />
-              <div className="absolute -bottom-6 -left-6 hidden bg-green p-6 text-paper sm:block">
-                <p className="font-display text-4xl">{site.founded}</p>
+              <div className="absolute bottom-0 left-0 bg-green px-5 py-4 text-paper md:-bottom-6 md:-left-6 md:p-6">
+                <p className="font-display text-3xl md:text-4xl">{site.founded}</p>
                 <p className="mt-1 text-xs tracking-[0.2em] uppercase">Established</p>
               </div>
             </div>
@@ -183,14 +210,23 @@ function Home() {
           <Reveal>
             <p className="eyebrow">Expertise</p>
             <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">Five practice groups. {practices.length} practice areas.</h2>
+            <p className="mt-4 max-w-xl text-lg text-muted">We are here to fight against any violation, with experience.</p>
           </Reveal>
-          <ButtonLink to="/practice-areas/" variant="ghost">
-            View all {practices.length} practice areas
-          </ButtonLink>
+          <div className="hidden md:block">
+            <ButtonLink to="/practice-areas/" variant="ghost">
+              View all {practices.length} practice areas
+            </ButtonLink>
+          </div>
         </div>
-        <div className="mt-14 grid gap-px border border-line bg-line md:grid-cols-2 lg:grid-cols-5">
+        {/* Phones: swipeable cards. md and up: a grid. */}
+        <div
+          role="region"
+          aria-label="Practice groups"
+          tabIndex={0}
+          className="-mx-4 mt-10 flex w-0 min-w-[calc(100%+2rem)] snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] md:mx-0 md:mt-14 md:grid md:w-auto md:min-w-0 md:grid-cols-2 md:gap-px md:overflow-visible md:border md:border-line md:bg-line md:p-0 lg:grid-cols-5"
+        >
           {groups.map((g, i) => (
-            <Reveal key={g.name} delay={i * 0.06} className="bg-paper-deep">
+            <div key={g.name} className="w-[82%] shrink-0 snap-start border border-line bg-paper-deep md:w-auto md:border-0">
               <div className="flex h-full flex-col gap-6 p-6">
                 <Link to="/practice-areas/" hash={groupId(g.name)} className="group">
                   <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
@@ -209,9 +245,13 @@ function Home() {
                     ))}
                 </ul>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
+        <p className="mt-4 text-xs text-muted md:hidden">Swipe to see all five groups</p>
+        <ButtonLink to="/practice-areas/" variant="ghost" className="mt-8 md:hidden">
+          View all {practices.length} practice areas
+        </ButtonLink>
       </Section>
 
       {/* Who we act for + how we work */}
@@ -220,13 +260,9 @@ function Home() {
           <Reveal>
             <p className="eyebrow">Who we act for</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">From boardrooms to the most vulnerable.</h2>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {sectors.map((s) => (
-                <li key={s} className="rounded-full border border-paper/20 px-4 py-2 text-sm text-paper/85">
-                  {s}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10">
+              <ChipRow items={sectors} label="Who we act for" tone="dark" />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="eyebrow">Why Zest Partners</p>
@@ -280,9 +316,11 @@ function Home() {
             <p className="eyebrow">News & insights</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A voice in Africa’s legal conversation.</h2>
           </Reveal>
-          <ButtonLink to="/insights/" variant="ghost">
-            All insights
-          </ButtonLink>
+          <div className="hidden md:block">
+            <ButtonLink to="/insights/" variant="ghost">
+              All insights
+            </ButtonLink>
+          </div>
         </div>
         <div className="mt-14 grid gap-4 lg:grid-cols-3">
           <Reveal className="lg:row-span-2">
@@ -315,6 +353,9 @@ function Home() {
               </Reveal>
             ))}
         </div>
+        <ButtonLink to="/insights/" variant="ghost" className="mt-8 md:hidden">
+          All insights
+        </ButtonLink>
       </Section>
 
       {/* People */}
@@ -324,9 +365,11 @@ function Home() {
             <p className="eyebrow">Leadership</p>
             <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Our leadership.</h2>
           </Reveal>
-          <ButtonLink to="/people/" variant="ghost">
-            Our people
-          </ButtonLink>
+          <div className="hidden md:block">
+            <ButtonLink to="/people/" variant="ghost">
+              Our people
+            </ButtonLink>
+          </div>
         </div>
         <div className="mt-14 space-y-16">
           {people
@@ -347,6 +390,9 @@ function Home() {
             </div>
           )}
         </div>
+        <ButtonLink to="/people/" variant="ghost" className="mt-12 md:hidden">
+          Our people
+        </ButtonLink>
       </Section>
 
       <CTASection title="Feel free to ask. We are here." />
