@@ -1,23 +1,12 @@
 import { Link } from '@tanstack/react-router'
 import { cardArrow, cardMuted, cardSurface } from '~/lib/card'
 import { ArrowUpRight } from 'lucide-react'
-import { Img } from '~/components/ui/Img'
 import type { Insight } from '~/content/insights'
 import { topics } from '~/content/topics'
 
 export function InsightCard({ item }: { item: Insight }) {
   const inner = (
     <>
-      {item.image && (
-        <div className="-mx-6 -mt-6 mb-6 aspect-[16/9] overflow-hidden bg-paper-deep">
-          <Img
-            src={item.image}
-            alt=""
-            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-            className="size-full object-cover object-[center_30%] transition duration-700 group-hover:scale-[1.03]"
-          />
-        </div>
-      )}
       <div className="flex items-center justify-between gap-4 text-xs">
         <span className="font-semibold tracking-[0.15em] text-brass uppercase">{item.label}</span>
         <span className={cardMuted}>{item.when}</span>
