@@ -53,7 +53,7 @@ function Facilities() {
       <PageHeader
         crumbs={[{ label: 'The Firm', to: '/about/' }, { label: 'Facilities & library' }]}
         eyebrow="Facilities & library"
-        title="The infrastructure behind our advice."
+        title="Our office and law library."
         intro="An in-house law library, modern IT facilities and our office in Kaura District, Abuja."
       />
       <SectionTabs items={firmTabs} label="The Firm" />

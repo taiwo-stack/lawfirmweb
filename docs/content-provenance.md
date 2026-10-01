@@ -33,11 +33,11 @@ Every factual statement on the site comes from one of three sources:
 These are headings and connecting lines written for the design. They make no factual claims beyond the sources above.
 
 - Home hero: "Counsel for business. / disputes. / energy. / families. / justice."
-- Home: "Corporate practice and litigation, since 2006.", "From boardrooms to the most vulnerable.", "A law library and modern technology.", "A voice in Africa's legal conversation.", "Our leadership."
+- Home: "Corporate practice and litigation, since 2006.", "Individuals, companies and government agencies." (old About page), "Modern and up to date IT facilities." (old site), "Papers presented locally and internationally." (CV), "Our leadership."
 - About: "Dynamic by every standard." (from OLD "by all standards dynamic"), "How we practise."
 - History: the short title on each milestone, e.g. "Shaping human rights procedure", "A continental voice"
-- Facilities: "The infrastructure behind our advice."
-- Community: "Justice should not depend on the ability to pay.", "Free representation for those who need it most.", "Serving the Bar."
+- Facilities: "Our office and law library."
+- Community: "Free services to the poor and indigent." (old Human Rights page), "Human Rights and Public Interest Litigation." (old department name), "Leadership positions held." (CV heading)
 - Insights: "Ideas from the Bar, the boardroom and the classroom.", "Invite us to speak or train."
 - Practice summaries (the one-line description under each title) condense the OLD page text.
 - Group descriptions, e.g. "Structuring, governance, tax and the contracts that hold business together."

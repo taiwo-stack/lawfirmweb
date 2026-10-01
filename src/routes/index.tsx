@@ -252,7 +252,7 @@ function Home() {
       <Section tone="ink">
         <Reveal>
           <p className="eyebrow">Who we act for</p>
-          <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">From boardrooms to the most vulnerable.</h2>
+          <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">Individuals, companies and government agencies.</h2>
         </Reveal>
         {/* Phones: swipeable cards. md and up: three columns. */}
         <div
@@ -309,7 +309,7 @@ function Home() {
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <p className="eyebrow">Infrastructure</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A law library and modern technology.</h2>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Modern and up to date IT facilities.</h2>
             <p className="mt-6 text-lg leading-relaxed text-muted">
               Our in-house library holds Nigerian and English law reports and authorities, and our modern IT facilities let us
               deliver legal services in real time.
@@ -337,7 +337,7 @@ function Home() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
             <p className="eyebrow">News & insights</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">A voice in Africa’s legal conversation.</h2>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Papers presented locally and internationally.</h2>
           </Reveal>
           <div className="hidden md:block">
             <ButtonLink to="/insights/" variant="ghost">

@@ -30,7 +30,7 @@ function Community() {
       <PageHeader
         crumbs={[{ label: 'The Firm', to: '/about/' }, { label: 'Pro bono & community' }]}
         eyebrow="Pro bono & community"
-        title="Justice should not depend on the ability to pay."
+        title="Free services to the poor and indigent."
         intro="Public interest litigation is our corporate social responsibility and how we promote good governance and the rule of law in Nigeria."
       />
       <SectionTabs items={firmTabs} label="The Firm" />
@@ -39,7 +39,7 @@ function Community() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <p className="eyebrow">Pro bono</p>
-            <h2 className="mt-6 text-4xl leading-tight">Free representation for those who need it most.</h2>
+            <h2 className="mt-6 text-4xl leading-tight">Human Rights and Public Interest Litigation.</h2>
             <div className="prose-firm mt-8">
               <p>
                 We take a keen interest in the observance of the rule of law, and our Human Rights and Public Interest
@@ -75,7 +75,7 @@ function Community() {
         <div className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <p className="eyebrow">Service to the profession</p>
-            <h2 className="mt-6 text-4xl leading-tight">Serving the Bar.</h2>
+            <h2 className="mt-6 text-4xl leading-tight">Leadership positions held.</h2>
             <Img
               src={'/images/brand/afba-conference.jpg'}
               alt="Speaking at the African Bar Association conference"
