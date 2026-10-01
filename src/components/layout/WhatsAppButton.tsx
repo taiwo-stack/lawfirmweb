@@ -3,6 +3,7 @@ import { site } from '~/content/site'
 
 export function WhatsAppButton() {
   return (
+    <aside aria-label="Quick contact">
     <a
       href={site.whatsapp}
       target="_blank"
@@ -12,5 +13,6 @@ export function WhatsAppButton() {
     >
       <MessageCircle className="size-6" aria-hidden />
     </a>
+    </aside>
   )
 }

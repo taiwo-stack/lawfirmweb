@@ -4,6 +4,7 @@ import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { PageHeader } from '~/components/blocks/PageHeader'
 import { ContactForm } from '~/components/blocks/ContactForm'
+import { MapEmbed } from '~/components/blocks/MapEmbed'
 import { site } from '~/content/site'
 import { seo } from '~/lib/utils'
 
@@ -131,13 +132,7 @@ function Contact() {
         </div>
       </Section>
       <div className="h-[420px] border-t border-line bg-paper-deep">
-        <iframe
-          title="Map of the Zest Partners Abuja office"
-          src={site.mapEmbed}
-          className="size-full grayscale"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+        <MapEmbed />
       </div>
     </>
   )

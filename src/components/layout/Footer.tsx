@@ -80,12 +80,12 @@ export function Footer() {
           </p>
           <p className="mt-4 space-y-1 text-sm">
             {site.phones.map((p) => (
-              <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block hover:text-paper">
+              <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block py-1 hover:text-paper">
                 {p}
               </a>
             ))}
             {site.emails.map((e) => (
-              <a key={e} href={`mailto:${e}`} className="block break-all hover:text-paper">
+              <a key={e} href={`mailto:${e}`} className="block py-1 break-all hover:text-paper">
                 {e}
               </a>
             ))}
@@ -96,7 +96,7 @@ export function Footer() {
         </address>
       </Container>
       <div className="border-t border-paper/10">
-        <Container className="flex flex-col gap-2 py-6 text-xs sm:flex-row sm:justify-between">
+        <Container className="flex flex-col gap-2 pt-6 pb-24 text-xs sm:flex-row sm:justify-between sm:pb-6">
           <p>© {year} Zest Partners. All rights reserved.</p>
           <p className="flex gap-6">
             <Link to="/privacy/" className="hover:text-paper">

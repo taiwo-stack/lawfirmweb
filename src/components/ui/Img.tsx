@@ -34,7 +34,7 @@ export function Img({ src, sizes = '100vw', priority, alt = '', ...rest }: Props
       alt={alt}
       loading={priority ? 'eager' : 'lazy'}
       fetchPriority={priority ? 'high' : undefined}
-      decoding={priority ? 'sync' : 'async'}
+      decoding="async"
       {...rest}
     />
   )

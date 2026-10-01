@@ -2,8 +2,6 @@
 import { HeadContent, Outlet, Scripts, createRootRoute, useRouter } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import appCss from '~/styles/app.css?url'
-import frauncesWoff2 from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url'
-import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url'
 import { Header } from '~/components/layout/Header'
 import { Footer } from '~/components/layout/Footer'
 import { WhatsAppButton } from '~/components/layout/WhatsAppButton'
@@ -43,9 +41,6 @@ export const Route = createRootRoute({
       links: [
         { rel: 'stylesheet', href: appCss },
         { rel: 'icon', href: asset('/favicon.png'), type: 'image/png' },
-        // Preload the two fonts used above the fold so text renders in the brand faces immediately.
-        { rel: 'preload', href: frauncesWoff2, as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
-        { rel: 'preload', href: interWoff2, as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' },
       ],
       scripts: [
         // Enables reveal animations only when JS runs; without it, content stays visible.

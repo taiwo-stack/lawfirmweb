@@ -63,6 +63,7 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
             ))}
           </div>
         )}
+        <h2 className="sr-only">{topic ? `${topics[topic]} items` : 'All items'}</h2>
         <p className="mt-10 text-sm text-muted" aria-live="polite">
           {list.length} {list.length === 1 ? 'item' : 'items'}
           {topic ? ` on ${topics[topic]}` : ''}

@@ -76,7 +76,7 @@ function PracticeAreas() {
         return (
           <Section key={g.name} id={groupId(g.name)} tone={gi % 2 ? 'deep' : 'paper'}>
             <Reveal className="grid gap-6 md:grid-cols-12">
-              <span className="font-display text-5xl text-brass/70 md:col-span-2">{String(gi + 1).padStart(2, '0')}</span>
+              <span className="font-display text-5xl text-brass md:col-span-2">{String(gi + 1).padStart(2, '0')}</span>
               <div className="md:col-span-10">
                 <h2 className="text-3xl sm:text-4xl">{g.name}</h2>
                 <p className="mt-3 max-w-xl text-muted">{g.blurb}</p>

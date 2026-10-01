@@ -82,7 +82,7 @@ function NewsPage() {
           </div>
           {item.people.length > 0 && (
             <div className="mt-14 border-t border-line pt-10">
-              <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">People</p>
+              <h2 className="font-sans text-xs font-semibold tracking-[0.15em] text-muted uppercase">People</h2>
               <div className="mt-6 grid max-w-xs gap-8">
                 {item.people.map((s) => {
                   const p = personBySlug(s)
