@@ -43,7 +43,7 @@ const reasons = [
   },
   {
     title: 'Recognised expertise',
-    body: 'Led by a Managing Partner with a PhD in law, MCIArb (UK) and FICMC, who has presented more than twenty papers to bar associations, regulators and public institutions.',
+    body: 'Led by a Managing Partner with a PhD in law, MCIArb (UK) and FICMC, who has presented more than twenty papers to bar associations and public institutions.',
   },
   {
     title: 'Modern, real-time practice',
