@@ -76,7 +76,7 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
       </Section>
       <CTASection
         title="Invite us to speak or train."
-        body="We deliver papers, workshops and training for institutions, regulators, companies and the profession."
+        body="Our Managing Partner presents papers and facilitates workshops, seminars and training in diverse areas of law."
       />
     </>
   )

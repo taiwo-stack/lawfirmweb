@@ -51,6 +51,7 @@ src/
 scripts/
   postbuild.ts       404.html, legacy WordPress redirects, sitemap cleanup, .nojekyll
   content-audit.py   checks every old-site sentence against the new source
+  provenance-audit.py checks every sentence on the built site against the sources (old site + docs/sources)
   check-links.py     fails the build if any internal link or #anchor is broken (runs in CI)
   optimize-images.py makes responsive WebP variants + src/content/images.json (re-run after adding images)
 docs/

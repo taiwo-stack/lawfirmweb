@@ -257,7 +257,7 @@ function PersonPage() {
         </Section>
       ))}
 
-      <CTASection title={`Speak with ${name}.`} />
+      <CTASection title={`Contact ${name}.`} />
     </>
   )
 }

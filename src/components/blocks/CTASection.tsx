@@ -6,7 +6,7 @@ import { site } from '~/content/site'
 
 export function CTASection({
   title = 'Tell us what you are facing.',
-  body = 'Call, email, WhatsApp or send us a message to speak with a partner about your matter.',
+  body = 'Call, email, WhatsApp or send us a message about your matter.',
 }: {
   title?: string
   body?: string

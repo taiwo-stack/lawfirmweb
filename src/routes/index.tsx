@@ -28,7 +28,7 @@ const sectors = [
   'Private investment funds',
   'Public & private companies',
   'Government agencies',
-  'Regulators & public institutions',
+  'Public institutions',
   'Development partners',
   'Families & individuals',
   'Indigent citizens (pro bono)',

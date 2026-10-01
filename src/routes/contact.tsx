@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'Can you deliver training for our organisation?',
-    a: 'Yes. We design and facilitate workshops and training, for example a two-day dispute resolution programme for the Federal Airports Authority of Nigeria in October 2025.',
+    a: 'Zest Partners facilitated a two-day dispute resolution training for staff of the Federal Airports Authority of Nigeria in October 2025, and our Managing Partner facilitates workshops, seminars and training in diverse areas of law.',
   },
   {
     q: 'Is information I send through this website confidential?',

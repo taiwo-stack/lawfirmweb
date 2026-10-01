@@ -22,7 +22,7 @@ export const history: { year: string; title: string; body: string }[] = [
   },
   {
     year: '2015',
-    title: 'Training the regulators',
+    title: 'Papers for FIRS and the courts',
     body: 'Courses for the Federal Inland Revenue Service Legal Department on drafting, ADR, brief writing, case management and tax adjudication, and workshops on security at the superior courts.',
   },
   {

@@ -44,7 +44,8 @@ export const practices: Practice[] = [
     summary: 'Incorporation, shareholder and director rights, governance, secretarial matters and listings.',
     body: [
       'The practice of corporate law involves general corporate matters: the incorporation of companies, directors’ and shareholders’ rights, articles of association, board meetings, secretarial matters, and the public listing or delisting of companies.',
-      'No two corporate transactions or deals are the same. We take the time to understand each client’s structure and objectives before advising on the right course, including on mergers and acquisitions, privatisations and divestments, and transnational joint ventures.',
+      'No two corporate transactions or deals are the same.',
+      'Our wider experience includes acquisitions and mergers, privatisations and divestments, and transnational joint ventures.',
     ],
     services: [
       'Company incorporation',
@@ -110,7 +111,7 @@ export const practices: Practice[] = [
     body: [
       'Our tax group has substantial expertise in income tax planning for individuals, corporations, partnerships, limited liability companies and other business entities.',
       'We advise business clients on the tax aspects of acquisitions, reorganisations, liquidations, redemptions and debt restructuring.',
-      'The practice is led by our Managing Partner, whose PhD thesis (University of Abuja, 2023) and LL.M dissertation (University of Jos, 2008) both examined Nigerian taxation, and who has trained the Federal Inland Revenue Service Legal Department on the adjudication of tax disputes.',
+      'Our Managing Partner’s PhD thesis (University of Abuja, 2023) and LL.M dissertation (University of Jos, 2008) both examined Nigerian taxation, and he has presented papers on the adjudication of tax disputes to the Federal Inland Revenue Service Legal Department.',
     ],
     services: ['Income tax planning', 'Tax aspects of acquisitions', 'Reorganisations & liquidations', 'Redemptions', 'Debt restructuring'],
     clients: ['Individuals', 'Corporations', 'Partnerships', 'Limited liability companies'],
@@ -199,7 +200,7 @@ export const practices: Practice[] = [
     summary: 'Criminal matters handled for clients across Nigeria, informed by first-hand work on criminal justice and rights legislation.',
     body: [
       'The firm handles criminal litigation for its clients across various states of Nigeria.',
-      'Our understanding of criminal procedure goes beyond the courtroom. Our Managing Partner worked as a consultant on the drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018, and was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules used in courts across Nigeria.',
+      'Our Managing Partner worked as a consultant on the drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018, and was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules used in courts across Nigeria.',
     ],
     image: '/images/practice/criminal.jpg',
     topics: ['advocacy', 'drafting'],
@@ -339,9 +340,8 @@ export const practices: Practice[] = [
     group: 'Rights & Advisory',
     summary: 'Drafting bills, rules and public–private partnership agreements, and running the stakeholder engagement behind them.',
     body: [
-      'Led by our Managing Partner, the firm drafts legislation and advises governments, development partners and agencies on the legal frameworks behind public services.',
-      'Our work has included consulting for WaterAid on the Enugu State Water Sector Bill (2019); drafting the bill to establish the Anambra State Small Town Water Supply and Sanitation Agency; drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018; and membership of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules now used in courts across Nigeria.',
-      'We also draft agreements for public–private partnerships (PPPs).',
+      'Our Managing Partner has worked on several bills and drafted several agreements, including public–private partnership agreements.',
+      'His work has included consulting for WaterAid on the Enugu State Water Sector Bill (2019); drafting the bill to establish the Anambra State Small Town Water Supply and Sanitation Agency; drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018; and membership of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules now used in courts across Nigeria.',
     ],
     services: ['Bills & legislation', 'Court & procedural rules', 'PPP agreements', 'Stakeholder engagement'],
     clients: ['State governments', 'Development partners'],
@@ -353,14 +353,14 @@ export const practices: Practice[] = [
     slug: 'training-capacity-building',
     title: 'Training & Capacity Building',
     group: 'Rights & Advisory',
-    summary: 'Practical legal training for public institutions, regulators, companies and the profession.',
+    summary: 'Workshops, seminars and training for public institutions and the legal profession.',
     body: [
-      'We design and deliver workshops, seminars and training across diverse areas of law. Our Managing Partner is an accredited management trainer and consultant verified by the Nigeria Council for Management Development (NCMD).',
+      'Our Managing Partner facilitates workshops, seminars and training in diverse areas of law. He is an accredited management trainer and consultant verified by the Nigeria Council for Management Development (NCMD).',
       'In October 2025, Zest Partners facilitated a two-day programme for staff of the Federal Airports Authority of Nigeria (FAAN) at the FAAN Training School, Ikeja, on conflict and dispute resolution in labour, trade, human resources and industrial relations.',
-      'We have also delivered sessions for the Federal Inland Revenue Service (FIRS) Legal Department, the Revenue Mobilisation Allocation and Fiscal Commission (RMAFC), the Transmission Company of Nigeria (TCN), the FCT High Court, and Nigerian Bar Association programmes on the Rules of Professional Conduct.',
+      'He has also presented papers at programmes for the Federal Inland Revenue Service (FIRS) Legal Department, the Revenue Mobilisation Allocation and Fiscal Commission (RMAFC), the Transmission Company of Nigeria (TCN), the FCT High Court, and a training on the 2023 Rules of Professional Conduct organised by ROLAC with the Nigerian Bar Association.',
     ],
     services: ['Dispute resolution & negotiation', 'Industrial & labour relations', 'Tax & petroleum law', 'Legal & legislative drafting', 'Professional ethics', 'Court administration'],
-    clients: ['Public institutions', 'Regulators', 'Companies', 'Professional bodies'],
+    clients: ['Public institutions', 'Professional bodies'],
     image: '/images/practice/training.jpg',
     topics: ['adr', 'tax', 'energy', 'profession', 'advocacy'],
     legacy: [],

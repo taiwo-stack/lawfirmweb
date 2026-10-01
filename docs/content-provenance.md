@@ -51,3 +51,26 @@ These are headings and connecting lines written for the design. They make no fac
 5. **Talk venue:** "NBA Aniocha Branch" (the CV says Anambra State; Aniocha is in Delta State).
 6. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
 7. **Social media:** links to the firm's profiles, if any.
+
+## Reverse audit (1 Oct 2026)
+
+`python scripts/provenance-audit.py <legacy pages dir>` scores every visible sentence on every built page against the sources: the scraped old site plus `docs/sources/` (the firm's documents, transcribed verbatim).
+
+**Result:** 342 unique sentences.
+- **231 sourced:** verbatim or lightly edited.
+- **63 reworded:** condensed from a source. Each was checked by hand for meaning.
+- **48 written for the site.** All 48 were reviewed by hand, and none adds an unsourced fact:
+  - Headings and taglines (listed above under "Wording written for the site")
+  - Interface and contact wording: FAQ questions, "Send us a message…", map notice, form note
+  - Counts calculated from the data, e.g. "24 papers presented… since 2007"
+  - Facts from the CV combined from several lines, e.g. the Taxation, Training and 2015 history sentences
+  - Library titles read from the firm's photos
+  - The privacy template and the Foreign Documents page, both flagged for the firm
+
+**Removed or corrected after this audit:** these sentences went beyond the sources.
+- Company Law: "We take the time to understand each client's structure and objectives…"
+- Criminal Law: "Our understanding of criminal procedure goes beyond the courtroom."
+- Legislative Drafting: "the firm drafts legislation and advises governments…". The CV attributes this work to the Managing Partner.
+- Taxation: "The practice is led by our Managing Partner…". The CV does not say this.
+- Training: "We have delivered sessions for FIRS, RMAFC, TCN…". The CV says the Managing Partner presented these papers. Only the FAAN training is stated as facilitated by the firm.
+- CTA: "…to speak with a partner" and "Speak with Dr. Chinedu Obienu" now read "about your matter" and "Contact Dr. Chinedu Obienu".
