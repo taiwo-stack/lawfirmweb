@@ -1,5 +1,4 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
-import { Shape } from '~/components/ui/Shape'
 import { cardArrow, cardMuted, cardSurface } from '~/lib/card'
 import { Email } from '~/components/ui/Email'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
@@ -209,9 +208,7 @@ function PersonPage() {
           <Breadcrumbs items={[{ label: 'Our People', to: '/people/' }, { label: name }]} />
           <div className="mt-2 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="rise lg:col-span-5">
-              <Shape variant="arch" frame>
-                <Img src={person.photo} alt={name} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover object-top" />
-              </Shape>
+              <Img src={person.photo} alt={name} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover object-top" />
             </div>
             <div className="rise lg:col-span-7">
               <p className="eyebrow">{person.role}</p>

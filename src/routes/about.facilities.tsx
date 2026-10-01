@@ -77,7 +77,7 @@ function Facilities() {
         </Reveal>
         <div className="mt-12 grid auto-rows-[220px] gap-4 sm:grid-cols-3 sm:auto-rows-[260px]">
           {gallery.map((g) => (
-            <figure key={g.src} className={`group overflow-hidden rounded-tl-[3rem] rounded-br-[3rem] bg-paper ${g.span}`}>
+            <figure key={g.src} className={`group overflow-hidden bg-paper ${g.span}`}>
               <Img
                 src={g.src}
                 alt={g.alt}

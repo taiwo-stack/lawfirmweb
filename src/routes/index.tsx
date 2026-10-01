@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { Shape } from '~/components/ui/Shape'
-import { ChipRow } from '~/components/ui/ChipRow'
 import { Marquee } from '~/components/ui/Marquee'
 import { ExpandText } from '~/components/ui/ExpandText'
 import { Img } from '~/components/ui/Img'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Building2, Landmark, Users } from 'lucide-react'
 import { ButtonLink } from '~/components/ui/Button'
 import { Container, Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
@@ -33,16 +31,11 @@ const stats = [
   ['2', 'Offices: Abuja & Lagos'],
 ]
 
-const sectors = [
-  'Commercial & investment banks',
-  'Insurance & finance companies',
-  'Private investment funds',
-  'Public & private companies',
-  'Government agencies',
-  'Public institutions',
-  'Development partners',
-  'Families & individuals',
-  'Indigent citizens (pro bono)',
+// The same client types as before, organised into three groups for display.
+const clientGroups = [
+  { title: 'Financial institutions', icon: Landmark, items: ['Commercial & investment banks', 'Insurance & finance companies', 'Private investment funds'] },
+  { title: 'Business & government', icon: Building2, items: ['Public & private companies', 'Government agencies', 'Public institutions', 'Development partners'] },
+  { title: 'Individuals', icon: Users, items: ['Families & individuals', 'Indigent citizens (pro bono)'] },
 ]
 
 // Every point is drawn from the old website or the Managing Partner's profile document.
@@ -190,14 +183,12 @@ function Home() {
           </Reveal>
           <Reveal delay={0.15} className="order-first md:order-none md:col-span-5">
             <div className="relative">
-              <Shape variant="leaf">
-                <Img
-                  src={'/images/brand/library-tall.jpg'}
-                  alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
-                  sizes="(min-width: 768px) 40vw, 100vw"
-                  className="aspect-[4/3] w-full object-cover md:aspect-[4/5]"
-                />
-              </Shape>
+              <Img
+                src={'/images/brand/library-tall.jpg'}
+                alt="Nigerian Supreme Court Cases and Nigerian Weekly Law Reports in the firm’s library"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="aspect-[4/3] w-full object-cover md:aspect-[4/5]"
+              />
               <div className="absolute bottom-0 left-0 bg-green px-5 py-4 text-paper md:-bottom-6 md:-left-6 md:p-6">
                 <p className="font-display text-3xl md:text-4xl">{site.founded}</p>
                 <p className="mt-1 text-xs tracking-[0.2em] uppercase">Established</p>
@@ -259,28 +250,57 @@ function Home() {
 
       {/* Who we act for + how we work */}
       <Section tone="ink">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <Reveal>
+          <p className="eyebrow">Who we act for</p>
+          <h2 className="mt-6 max-w-2xl text-4xl leading-tight sm:text-5xl">From boardrooms to the most vulnerable.</h2>
+        </Reveal>
+        {/* Phones: swipeable cards. md and up: three columns. */}
+        <div
+          role="region"
+          aria-label="Who we act for"
+          tabIndex={0}
+          className="-mx-4 mt-12 flex w-0 min-w-[calc(100%+2rem)] snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:w-auto md:min-w-0 md:grid-cols-3 md:gap-6 md:overflow-visible md:p-0"
+        >
+          {clientGroups.map((g, i) => (
+            <article key={g.title} className="relative w-[82%] shrink-0 snap-start overflow-hidden border border-paper/15 p-7 sm:p-8 md:w-auto">
+              {/* Large faint numeral behind the content. */}
+              <span aria-hidden className="pointer-events-none absolute -top-6 -right-2 font-display text-[9rem] leading-none text-paper/[0.04]">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div className="flex items-center gap-4">
+                <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-brass/60 text-brass">
+                  <g.icon className="size-6" aria-hidden strokeWidth={1.5} />
+                </span>
+                <span className="font-display text-sm text-brass">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 className="mt-8 text-2xl">{g.title}</h3>
+              <ul className="mt-6 divide-y divide-paper/10 border-t border-paper/10">
+                {g.items.map((item) => (
+                  <li key={item} className="flex items-center gap-3 py-3.5 text-paper/80">
+                    <span className="size-1.5 shrink-0 rounded-full bg-brass" aria-hidden />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-20 border-t border-paper/15 pt-16">
           <Reveal>
-            <p className="eyebrow">Who we act for</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">From boardrooms to the most vulnerable.</h2>
-            <div className="mt-10">
-              <ChipRow items={sectors} label="Who we act for" tone="dark" />
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
             <p className="eyebrow">Why Zest Partners</p>
-            <ol className="mt-8 space-y-px">
-              {reasons.map((s, i) => (
-                <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-paper/15 py-6">
-                  <span className="font-display text-2xl text-brass">{String(i + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3 className="text-2xl">{s.title}</h3>
-                    <p className="mt-2 leading-relaxed text-paper/65">{s.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
           </Reveal>
+          <ol className="mt-10 grid gap-x-16 md:grid-cols-2">
+            {reasons.map((s, i) => (
+              <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-paper/15 py-6">
+                <span className="font-display text-2xl text-brass">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3 className="text-2xl">{s.title}</h3>
+                  <p className="mt-2 leading-relaxed text-paper/65">{s.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </Section>
 
@@ -305,7 +325,7 @@ function Home() {
                 src={src}
                 alt={i === 0 ? 'The Zest Partners office, Abuja' : 'The Zest Partners law library'}
                 sizes="(min-width: 1024px) 20vw, 33vw"
-                className={`aspect-[3/5] w-full rounded-t-[999px] object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
+                className={`aspect-[3/5] w-full object-cover ${i === 1 ? 'lg:-translate-y-10' : ''}`}
               />
             ))}
           </Reveal>

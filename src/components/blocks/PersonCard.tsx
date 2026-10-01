@@ -1,5 +1,4 @@
 import { Link } from '@tanstack/react-router'
-import { Shape } from '~/components/ui/Shape'
 import { Img } from '~/components/ui/Img'
 import { displayName, type Person } from '~/content/people'
 import { practiceBySlug } from '~/content/practices'
@@ -9,14 +8,14 @@ export function PersonCard({ person, compact = false }: { person: Person; compac
   const areas = (person.practices ?? []).map(practiceBySlug).filter((p) => p !== undefined)
   return (
     <Link to="/people/$slug/" params={{ slug: person.slug }} className="group block">
-      <Shape variant="arch" frame>
+      <div className="aspect-[4/5] overflow-hidden bg-paper-deep">
         <Img
           src={person.photo}
           alt={displayName(person)}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="aspect-[4/5] w-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="size-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
         />
-      </Shape>
+      </div>
       {!compact && <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-brass uppercase">{person.role}</p>}
       <h3 className={`${compact ? 'mt-5' : 'mt-2'} text-2xl group-hover:text-green`}>{displayName(person)}</h3>
       {!compact && (
