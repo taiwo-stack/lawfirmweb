@@ -8,7 +8,7 @@ import { Breadcrumbs } from '~/components/blocks/Breadcrumbs'
 import { InsightCard } from '~/components/blocks/InsightCard'
 import { CTASection } from '~/components/blocks/CTASection'
 import { groupId, practiceBySlug, practices } from '~/content/practices'
-import { displayName, personBySlug } from '~/content/people'
+import { contactsForPractice, displayName } from '~/content/people'
 import { insightsForTopics } from '~/content/insights'
 import { site } from '~/content/site'
 import { seo } from '~/lib/utils'
@@ -45,7 +45,7 @@ export const Route = createFileRoute('/practice-areas/$slug')({
 function PracticePage() {
   const practice = Route.useLoaderData()
   const related = practices.filter((p) => p.group === practice.group && p.slug !== practice.slug)
-  const lead = personBySlug(practice.lead ?? 'chinedu-obienu')
+  const contacts = contactsForPractice(practice.slug)
   const talks = insightsForTopics(practice.topics, 3)
   const i = practices.findIndex((p) => p.slug === practice.slug)
   const prev = practices[(i - 1 + practices.length) % practices.length]
@@ -115,32 +115,41 @@ function PracticePage() {
 
           <aside className="lg:col-span-5">
             <div className="space-y-6 lg:sticky lg:top-32">
-              {lead && (
-                <div className="border border-line bg-paper-deep p-8">
-                  <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Key contact</p>
-                  <Link to="/people/$slug/" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
-                    <Img src={lead.photo} alt="" sizes="80px" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
-                    <span>
-                      <span className="block font-display text-xl group-hover:text-green">{displayName(lead)}</span>
-                      <span className="mt-1 block text-sm text-muted">{lead.role}</span>
-                      {lead.credentials && <span className="mt-1 block text-xs text-muted">{lead.credentials.join(' · ')}</span>}
-                    </span>
-                  </Link>
-                  <div className="mt-6 space-y-2 border-t border-line pt-6 text-sm">
-                    <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-green">
-                      <Phone className="size-4 text-brass" aria-hidden /> {site.phones[0]}
+              <div className="border border-line bg-paper-deep p-8">
+                {contacts.length > 0 ? (
+                  <>
+                    <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Key contact</p>
+                    {contacts.map((lead) => (
+                      <Link key={lead.slug} to="/people/$slug/" params={{ slug: lead.slug }} className="group mt-5 flex items-center gap-5">
+                        <Img src={lead.photo} alt="" sizes="80px" className="size-20 shrink-0 object-cover object-top grayscale group-hover:grayscale-0" />
+                        <span>
+                          <span className="block font-display text-xl group-hover:text-green">{displayName(lead)}</span>
+                          <span className="mt-1 block text-sm text-muted">{lead.role}</span>
+                          {lead.credentials && <span className="mt-1 block text-xs text-muted">{lead.credentials.join(' · ')}</span>}
+                        </span>
+                      </Link>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Contact the firm</p>
+                    <p className="mt-4 text-sm text-muted">Speak with us about your {practice.title.toLowerCase()} matter.</p>
+                  </>
+                )}
+                <div className="mt-6 space-y-2 border-t border-line pt-6 text-sm">
+                  {site.phones.map((ph) => (
+                    <a key={ph} href={`tel:${ph.replace(/\s/g, '')}`} className="flex items-center gap-3 py-0.5 hover:text-green">
+                      <Phone className="size-4 text-brass" aria-hidden /> {ph}
                     </a>
-                    {lead.email && (
-                      <a href={`mailto:${lead.email}`} className="flex items-center gap-3 break-all hover:text-green">
-                        <Mail className="size-4 shrink-0 text-brass" aria-hidden /> {lead.email}
-                      </a>
-                    )}
-                  </div>
-                  <ButtonLink to="/contact/" className="mt-6 w-full justify-center">
-                    Book a consultation
-                  </ButtonLink>
+                  ))}
+                  <a href={`mailto:${contacts[0]?.email ?? site.emails[0]}`} className="flex items-center gap-3 py-0.5 break-all hover:text-green">
+                    <Mail className="size-4 shrink-0 text-brass" aria-hidden /> {contacts[0]?.email ?? site.emails[0]}
+                  </a>
                 </div>
-              )}
+                <ButtonLink to="/contact/" className="mt-6 w-full justify-center">
+                  Book a consultation
+                </ButtonLink>
+              </div>
               {related.length > 0 && (
                 <div className="border border-line p-8">
                   <p className="text-xs font-semibold tracking-[0.15em] text-muted uppercase">Also in {practice.group}</p>

@@ -19,8 +19,6 @@ export type Practice = {
   image: string
   /** Insight topics whose talks and publications are shown on the page. */
   topics: Topic[]
-  /** Slug of the partner to contact; defaults to the Managing Partner. */
-  lead?: string
   /** Old WordPress slugs that should redirect here. */
   legacy: string[]
 }

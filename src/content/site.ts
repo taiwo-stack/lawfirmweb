@@ -49,8 +49,8 @@ export const nav: NavItem[] = [
     to: '/insights/',
     children: [
       { label: 'Firm news', to: '/insights/news/', description: 'Appointments, events and announcements' },
-      { label: 'Talks & papers', to: '/insights/talks/', description: 'Papers presented at conferences and trainings' },
-      { label: 'Publications', to: '/insights/publications/', description: 'Books, articles and academic work' },
+      { label: 'Speaking', to: '/insights/talks/', description: 'Papers presented at conferences and trainings' },
+      { label: 'Publications', to: '/insights/publications/', description: 'Books and journal articles' },
     ],
   },
   { label: 'Contact', to: '/contact/' },

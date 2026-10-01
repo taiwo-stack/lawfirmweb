@@ -6,11 +6,19 @@ export type Talk = {
   when: string
 }
 
+/** Directory sections, in display order. Add people to a group and the section appears. */
+export const personGroups = ['Partners', 'Senior Associates', 'Associates'] as const
+export type PersonGroup = (typeof personGroups)[number]
+
 export type Person = {
   slug: string
   name: string
   honorific?: string
   role: string
+  group: PersonGroup
+  /** Practice-area slugs this person's documented work covers (drives "Key contact" on practice pages). */
+  practices?: string[]
+  memberships?: string[]
   office?: string
   photo: string
   email?: string
@@ -38,7 +46,27 @@ export const people: Person[] = [
     honorific: 'Dr.',
     name: 'Chinedu Obienu',
     role: 'Principal & Managing Partner',
+    group: 'Partners',
     office: 'Abuja',
+    // From the CV: corporate commercial, energy, taxation, government compliance; litigator and
+    // dispute settlor (MCIArb, FICMC); legislative drafting; NCMD-accredited trainer.
+    practices: [
+      'company-law',
+      'corporate-compliance-financial-services',
+      'taxation',
+      'petroleum-law',
+      'litigation-adr',
+      'legislative-drafting',
+      'training-capacity-building',
+    ],
+    memberships: [
+      'Member, Chartered Institute of Arbitrators (MCIArb) (UK)',
+      'Fellow, Institute of Chartered Mediators and Conciliators (FICMC)',
+      'Member, Nigerian Bar Association',
+      'Member, African Bar Association',
+      'Accredited Management Trainer and Consultant, Nigeria Council for Management Development (NCMD)',
+      'Alumnus, Haggai Leadership Institute, Hawaii, USA',
+    ],
     // TODO: replace with the new studio portrait once confirmed.
     photo: '/images/people/chinedu-obienu.jpg',
     email: 'chineduobienu@yahoo.com',
@@ -72,7 +100,7 @@ export const people: Person[] = [
     academic: [
       { title: 'Legal Analysis of the Tax Regime in the Nigerian Petroleum Industry', detail: 'PhD thesis, Faculty of Law, University of Abuja, 2023' },
       { title: 'Taxation: A Tool for Sustainable Economic Development in Nigeria', detail: 'LL.M dissertation, Faculty of Law, University of Jos, 2008' },
-      { title: 'A Critical Appraisal of Copyright Laws in Nigeria', detail: 'LL.B long essay, Faculty of Law, University of Abuja, 2002' },
+      { title: 'A Critical Appraisal of Copyright Laws in Nigeria', detail: 'Undergraduate long essay, Faculty of Law, University of Abuja, 2002' },
     ],
     books: [
       {
@@ -210,6 +238,7 @@ export const people: Person[] = [
     slug: 'edwin-nneamaka-uzoma',
     name: 'Edwin Nneamaka Uzoma',
     role: 'Partner',
+    group: 'Partners',
     office: 'Lagos',
     photo: '/images/people/edwin-nneamaka-uzoma.jpg',
     bio: [
@@ -220,3 +249,9 @@ export const people: Person[] = [
 ]
 
 export const personBySlug = (slug: string) => people.find((p) => p.slug === slug)
+
+/** People whose documented work covers a practice (may be empty: the page then shows firm contacts). */
+export const contactsForPractice = (slug: string) => people.filter((p) => p.practices?.includes(slug))
+
+/** An appointment is current if it says "present" or runs into the current year. */
+export const isCurrent = (period: string) => /present/i.test(period) || Number(period.match(/\d{4}(?!.*\d{4})/)?.[0]) >= new Date().getFullYear()

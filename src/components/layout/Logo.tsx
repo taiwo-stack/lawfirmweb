@@ -10,6 +10,7 @@ export function Logo({ tone = 'light', className }: { tone?: 'light' | 'dark'; c
         src={'/images/brand/logo.jpg'}
         alt="Zest Partners"
         sizes="120px"
+        loading="eager"
         className={cn('h-10 w-auto sm:h-12', tone === 'light' ? 'logo-on-light' : 'logo-on-dark')}
       />
     </Link>
