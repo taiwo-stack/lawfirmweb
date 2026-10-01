@@ -6,8 +6,11 @@ export type Talk = {
   when: string
 }
 
-/** Directory sections, in display order. Add people to a group and the section appears. */
-export const personGroups = ['Partners', 'Senior Associates', 'Associates'] as const
+/**
+ * Directory sections, in display order. Add people to a group and the section appears.
+ * 'Principal' is the head of the firm and is shown as a feature, not a grid card.
+ */
+export const personGroups = ['Principal', 'Partners', 'Senior Associates', 'Associates'] as const
 export type PersonGroup = (typeof personGroups)[number]
 
 export type Person = {
@@ -46,7 +49,7 @@ export const people: Person[] = [
     honorific: 'Dr.',
     name: 'Chinedu Obienu',
     role: 'Principal & Managing Partner',
-    group: 'Partners',
+    group: 'Principal',
     office: 'Abuja',
     // From the CV: corporate commercial, energy, taxation, government compliance; litigator and
     // dispute settlor (MCIArb, FICMC); legislative drafting; NCMD-accredited trainer.

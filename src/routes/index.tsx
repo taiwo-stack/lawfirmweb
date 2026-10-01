@@ -6,6 +6,7 @@ import { Container, Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
 import { CTASection } from '~/components/blocks/CTASection'
 import { PersonCard } from '~/components/blocks/PersonCard'
+import { PrincipalFeature } from '~/components/blocks/PrincipalFeature'
 import { InsightCard } from '~/components/blocks/InsightCard'
 import { RotatingText } from '~/components/blocks/RotatingText'
 import { groupId, groups, practices } from '~/content/practices'
@@ -320,17 +321,31 @@ function Home() {
       <Section>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
-            <p className="eyebrow">Our people</p>
-            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Meet the partners.</h2>
+            <p className="eyebrow">Leadership</p>
+            <h2 className="mt-6 text-4xl leading-tight sm:text-5xl">Our leadership.</h2>
           </Reveal>
           <ButtonLink to="/people/" variant="ghost">
             Our people
           </ButtonLink>
         </div>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {people.map((p) => (
-            <PersonCard key={p.slug} person={p} />
-          ))}
+        <div className="mt-14 space-y-16">
+          {people
+            .filter((p) => p.group === 'Principal')
+            .map((p) => (
+              <PrincipalFeature key={p.slug} person={p} />
+            ))}
+          {people.some((p) => p.group !== 'Principal') && (
+            <div>
+              <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">Partners</h3>
+              <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                {people
+                  .filter((p) => p.group !== 'Principal')
+                  .map((p) => (
+                    <PersonCard key={p.slug} person={p} />
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </Section>
 

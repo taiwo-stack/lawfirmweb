@@ -31,7 +31,7 @@ Every factual statement on the site comes from one of three sources:
 These are headings and connecting lines written for the design. They make no factual claims beyond the sources above.
 
 - Home hero: "Counsel for business. / disputes. / energy. / families. / justice."
-- Home: "Corporate practice and litigation, since 2006.", "From boardrooms to the most vulnerable.", "A law library and modern technology.", "A voice in Africa's legal conversation.", "Meet the partners."
+- Home: "Corporate practice and litigation, since 2006.", "From boardrooms to the most vulnerable.", "A law library and modern technology.", "A voice in Africa's legal conversation.", "Our leadership."
 - About: "Dynamic by every standard." (from OLD "by all standards dynamic"), "How we practise."
 - History: the short title on each milestone, e.g. "Shaping human rights procedure", "A continental voice"
 - Facilities: "The infrastructure behind our advice."
@@ -47,7 +47,8 @@ These are headings and connecting lines written for the design. They make no fac
 1. **Aviation:** the team claims on that page (engineering degrees, pilots, regulatory agencies, speaking engagements, bar leadership) come from the old site and are unverified.
 2. **Interpretation of Foreign Documents:** the old text was copied from a Finnish immigration page. The new text keeps only its general points. Please confirm what this service involves.
 3. **AFBA podium photo:** it is used with the 2025 Accra conference news item. Please confirm it was taken there.
-4. **Key contact:** every practice page lists Dr. Obienu as the key contact. Should any practice list Edwin Nneamaka Uzoma instead (e.g. Lagos matters)?
+4. **Key contacts:** practice pages name Dr. Obienu only where his CV covers the practice; other pages show the firm's contacts. Which practices should list Edwin Nneamaka Uzoma?
+8. **Founder:** the site calls Dr. Obienu "Principal & Managing Partner" (his CV title). If he founded the firm and wants that stated, confirm it and the wording will be added.
 5. **Talk venue:** "NBA Aniocha Branch" (the CV says Anambra State; Aniocha is in Delta State).
 6. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
 7. **Social media:** links to the firm's profiles, if any.

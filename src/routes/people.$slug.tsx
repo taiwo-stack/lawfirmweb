@@ -204,7 +204,7 @@ function PersonPage() {
       <section className="border-b border-line bg-paper">
         <Container className="pt-10 pb-16 sm:pb-20">
           <Breadcrumbs items={[{ label: 'Our People', to: '/people/' }, { label: name }]} />
-          <div className="mt-10 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="mt-2 grid items-end gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="rise lg:col-span-5">
               <Img src={person.photo} alt={name} priority sizes="(min-width: 1024px) 40vw, 100vw" className="aspect-[4/5] w-full object-cover object-top" />
             </div>

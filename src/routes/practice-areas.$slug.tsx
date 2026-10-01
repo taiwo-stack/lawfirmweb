@@ -58,15 +58,16 @@ function PracticePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/85 to-ink/50" />
         <Container className="pt-10 pb-20 sm:pb-24">
           <Breadcrumbs
-            tone="dark"
             items={[
               { label: 'Expertise', to: '/practice-areas/' },
               { label: practice.group, to: '/practice-areas/', hash: groupId(practice.group) },
               { label: practice.title },
             ]}
           />
-          <div className="rise mt-14 sm:mt-20">
-            <p className="eyebrow">{practice.group}</p>
+          <div className="rise pt-6 sm:pt-12">
+            <Link to="/practice-areas/" hash={groupId(practice.group)} className="eyebrow hover:text-paper">
+              {practice.group}
+            </Link>
             <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] sm:text-6xl">{practice.title}</h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-paper/75">{practice.summary}</p>
           </div>
