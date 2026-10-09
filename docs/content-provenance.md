@@ -29,6 +29,7 @@ Every factual statement on the site comes from one of these sources:
 | Kumawuese Ruth Nenchi's profile, memberships and portrait (Senior Associate) | `people.ts`, `public/images/people/` | **NENCHI**: profile and studio portrait supplied by the firm, 9 Oct 2026 (`docs/sources/kumawuese-ruth-nenchi-profile.md`). Her practice-page links follow her stated areas of practice |
 | News articles (LACON, AFBA 2025, FAAN training, book) | `news.ts` | CV |
 | History timeline | `history.ts` | OLD (2006) + CV (all other years) |
+| NBA Abuja Branch 2026 Law Week photo and caption | community page | PHOTO supplied by the firm, 9 Oct 2026, identified by the firm as taken at the Law Week. Caption: CV (Chairman, Law Week Planning Committee) |
 | Library contents (NSCC, NWLR, All England Law Reports, Halsbury's) | facilities page | PHOTO (titles readable on the spines and shelf labels) |
 | Taglines "We are here to fight against any violation with experience" and "Feel free to ask… we are here" | Expertise and Contact headings | OLD |
 
