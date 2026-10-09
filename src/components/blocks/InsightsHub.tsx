@@ -11,7 +11,7 @@ import { SectionTabs } from './SectionTabs'
 import { InsightCard } from './InsightCard'
 import { PublicationList, TalkTimeline } from './InsightLists'
 import { CTASection } from './CTASection'
-import { byKind, kindLabels, kindRoutes, type InsightKind } from '~/content/insights'
+import { byKind, insights, kindLabels, kindRoutes, type InsightKind } from '~/content/insights'
 import { news } from '~/content/news'
 import { insightTabs } from '~/content/site'
 import { topics, type Topic } from '~/content/topics'
@@ -124,7 +124,7 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
   const crumbs: Crumb[] | undefined = kind ? [{ label: 'Insights', to: '/insights/' }, { label: here.label }] : undefined
   const copy = intro[kind ?? 'all']
 
-  const pool = kind ? byKind(kind) : []
+  const pool = kind ? byKind(kind) : insights
   const list = pool.filter((i) => !topic || i.topics.includes(topic))
   const usedTopics = (Object.keys(topics) as Topic[]).filter((t) => pool.some((i) => i.topics.includes(t)))
   const chip = (active: boolean) =>
@@ -135,12 +135,12 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
       <PageHeader crumbs={crumbs} eyebrow={kind ? kindLabels[kind] : 'Insights'} title={copy.title} intro={copy.intro} />
       <SectionTabs items={insightTabs} label="Insights" />
 
-      {!kind ? (
+      {!kind && !topic ? (
         <Landing />
       ) : (
         <Section>
-          {/* Topic filters only where there is enough to filter. */}
-          {kind === 'talk' && usedTopics.length > 1 && (
+          {/* Topic filters only where there is enough to filter: talks, and the all-insights view once a topic is chosen. */}
+          {(kind === 'talk' || !kind) && usedTopics.length > 1 && (
             <div className="mb-12">
               <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-muted uppercase">Filter by topic</p>
               <ScrollRow label="Filter by topic">
@@ -158,10 +158,11 @@ export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; top
           <h2 className="sr-only">{topic ? `${topics[topic]}: ${list.length} items` : `${list.length} items`}</h2>
           {topic && (
             <p className="mb-8 text-sm text-muted" aria-live="polite">
-              {list.length} {list.length === 1 ? 'paper' : 'papers'} on {topics[topic]}
+              {list.length} {kind !== 'talk' ? (list.length === 1 ? 'item' : 'items') : list.length === 1 ? 'paper' : 'papers'} on{' '}
+              {topics[topic]}
             </p>
           )}
-          {kind === 'news' && (
+          {(kind === 'news' || !kind) && (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {list.map((i) => (
                 <InsightCard key={i.id} item={i} />

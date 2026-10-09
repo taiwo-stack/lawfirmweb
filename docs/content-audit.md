@@ -27,7 +27,7 @@
 
 - **Taglines:** "We Are Here To Fight Against Any violation With Experience" (Expertise page heading) and "Feel Free To Ask Something We Are Here" (Contact heading and home CTA)
 - **Vision and mission:** Home, About
-- **Contact details:** address, both phone numbers, both emails and WhatsApp link (header, footer, contact page)
+- **Contact details:** address, both phone numbers and WhatsApp link (header, footer, contact page). The two old Yahoo email addresses were replaced by chineduobienu@zestpartnersng.com on the firm's instruction
 - **Team:** both partners with their original photos and bios (now expanded)
 - **Real photography:** office exterior and library photos that were in the old media library but never shown (Facilities & library gallery)
 - **URLs:** all 21 old page URLs redirect to their new equivalents (`scripts/postbuild.ts`)

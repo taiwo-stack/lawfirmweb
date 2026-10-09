@@ -14,9 +14,9 @@ Every factual statement on the site comes from one of three sources:
 |---|---|---|
 | Firm founding (2006), vision, mission, "who we are", experience list, documents prepared | `site.ts`, `about.index.tsx` | OLD |
 | Address, phones, WhatsApp | `site.ts` | OLD |
-| Email: chinedu@zestpartnersng.com (the only address on the site) | `site.ts`, `people.ts` | Instructed by the firm, 1 Oct 2026. Replaces the old site's zestpartners@yahoo.com and chineduobienu@yahoo.com |
+| Email: chineduobienu@zestpartnersng.com (the only address on the site) | `site.ts`, `people.ts` | Instructed by the firm, 1 Oct 2026; address changed to chineduobienu@ on the firm's instruction, 9 Oct 2026. Replaces the old site's zestpartners@yahoo.com and chineduobienu@yahoo.com |
 | Lagos office | `site.ts`, contact FAQ | OLD (Edwin Nneamaka Uzoma "personally runs the Lagos office") |
-| Practice-area text (all 19 pages) | `practices.ts` | OLD. Details about the Managing Partner come from CV |
+| Practice-area text (all 20 pages) | `practices.ts` | OLD. Details about the Managing Partner come from CV |
 | Criminal Law page | `practices.ts` | OLD (criminal law listed as a field; "criminal and civil litigation") + CV (Plateau ACJL, FREP Rules) |
 | Legislative Drafting and Training pages | `practices.ts` | CV |
 | Enterprise Risk Management & Data Protection page | `practices.ts` | **Instructed by the firm, 1 Oct 2026** (not on the old site or in the CV). Shows only the service name; the firm is to supply a description |
@@ -50,10 +50,10 @@ These are headings and connecting lines written for the design. They make no fac
 2. **Interpretation of Foreign Documents:** the old text was copied from a Finnish immigration page. The new text keeps only its general points. Please confirm what this service involves.
 3. **AFBA podium photo:** it is used with the 2025 Accra conference news item. Please confirm it was taken there.
 4. **Key contacts:** practice pages name Dr. Obienu only where his CV covers the practice; other pages show the firm's contacts. Which practices should list Edwin Nneamaka Uzoma?
-8. **Founder:** the site calls Dr. Obienu "Principal & Managing Partner" (his CV title). If he founded the firm and wants that stated, confirm it and the wording will be added.
-5. **Talk venue:** "NBA Aniocha Branch" (the CV says Anambra State; Aniocha is in Delta State).
-6. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
-7. **Social media:** links to the firm's profiles, if any.
+5. **Founder:** the site calls Dr. Obienu "Principal & Managing Partner" (his CV title). If he founded the firm and wants that stated, confirm it and the wording will be added.
+6. **Talk venue:** "NBA Aniocha Branch" (the CV says Anambra State; Aniocha is in Delta State).
+7. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
+8. **Social media:** links to the firm's profiles, if any.
 9. **Enterprise Risk Management & Data Protection:** supply a description of the service and say who should be the key contact.
 
 ## Reverse audit (1 Oct 2026)

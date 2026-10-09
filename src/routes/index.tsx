@@ -14,6 +14,7 @@ import { RotatingText } from '~/components/blocks/RotatingText'
 import { groupId, groups, practices } from '~/content/practices'
 import { people } from '~/content/people'
 import { insights } from '~/content/insights'
+import { featuredNews } from '~/content/news'
 import { site } from '~/content/site'
 import { seo } from '~/lib/utils'
 
@@ -349,25 +350,25 @@ function Home() {
           <Reveal className="lg:row-span-2">
             <Link
               to="/insights/news/$slug/"
-              params={{ slug: 'afba-2025-accra' }}
+              params={{ slug: featuredNews.slug }}
               className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper"
             >
-              <Img
-                src={'/images/brand/afba-conference.jpg'}
-                alt=""
-                className="absolute inset-0 size-full object-cover object-top opacity-60 transition duration-700 group-hover:scale-[1.03]"
-              />
+              {featuredNews.image && (
+                <Img
+                  src={featuredNews.image}
+                  alt=""
+                  className="absolute inset-0 size-full object-cover object-top opacity-60 transition duration-700 group-hover:scale-[1.03]"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
               <div className="relative">
                 <p className="text-xs font-semibold tracking-[0.15em] text-brass-soft uppercase">Featured</p>
-                <h3 className="mt-4 font-display text-2xl leading-snug">
-                  A paper at the African Bar Association Annual Conference, Accra
-                </h3>
+                <h3 className="mt-4 font-display text-2xl leading-snug">{featuredNews.shortTitle ?? featuredNews.title}</h3>
               </div>
             </Link>
           </Reveal>
           {insights
-            .filter((i) => i.kind === 'news' && i.id !== 'news-afba-2025-accra')
+            .filter((i) => i.kind === 'news' && i.id !== `news-${featuredNews.slug}`)
             .slice(0, 2)
             .concat(insights.filter((i) => i.kind !== 'news').slice(0, 2))
             .map((item, i) => (

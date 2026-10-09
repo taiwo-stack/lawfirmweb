@@ -19,7 +19,7 @@ export const site = {
   },
   offices: ['Abuja', 'Lagos'],
   phones: ['+234 803 591 0250', '+234 805 041 4135'],
-  emails: ['chinedu@zestpartnersng.com'],
+  emails: ['chineduobienu@zestpartnersng.com'],
   whatsapp: 'https://wa.me/message/PZC7C5L63ILON1',
   // TODO: add real profile URLs — the current site's icons link nowhere.
   socials: [] as { label: string; href: string }[],

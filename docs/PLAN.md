@@ -91,6 +91,8 @@
 | Hosting | GitHub Pages via GitHub Actions | Free, with HTTPS |
 | Domain | `zestpartnersng.com` → GitHub Pages (`CNAME` file) | |
 
+**As built:** shadcn/ui, Motion and MDX turned out to be unnecessary. Menus and the search dialog are hand-built, animation is plain CSS (`Reveal`, `.rise`, the marquee), and all copy lives in typed `src/content/*.ts` files.
+
 **Fallback:** if TanStack Start's static prerender causes problems on Pages, drop to **TanStack Router (SPA) + Vite** with a `404.html` copy of `index.html` and prerender the routes with a small script. Routing code stays nearly the same.
 
 ### Modular component system
@@ -120,7 +122,7 @@ Each page is built from these blocks. Adding a practice area or a partner means 
 ### Phase 0 — Accounts & decisions (you)
 - [ ] GitHub account/org and repo name (e.g. `zestpartners/website`)
 - [ ] Confirm the domain registrar and who has DNS access
-- [x] Site email is now chinedu@zestpartnersng.com. **This mailbox is hosted on the current server (MX → mail.zestpartnersng.com), so the DNS switch in Phase 7 must keep the mail records exactly as they are.**
+- [x] Site email is now chineduobienu@zestpartnersng.com. **This mailbox is hosted on the current server (MX → mail.zestpartnersng.com), so the DNS switch in Phase 7 must keep the mail records exactly as they are.**
 - [ ] Send: vector logo, the partners' names and bios, real contact details, social URLs, any documents or brochures
 
 ### Phase 1 — Content (done → `content/`)
@@ -163,7 +165,7 @@ Each page is built from these blocks. Adding a practice area or a partner means 
 ### Phase 7 — Deploy & cut-over
 1. [ ] GitHub Actions workflow: `npm ci → npm run build → upload dist → deploy-pages`
 2. [ ] Test on `https://<user>.github.io/<repo>/` (set the base path temporarily)
-3. [ ] Add `public/CNAME` = `zestpartnersng.com`; set the custom domain in Repo → Settings → Pages
+3. [ ] Set the repository variable `CUSTOM_DOMAIN` = `zestpartnersng.com` (the workflow then writes `CNAME`); set the custom domain in Repo → Settings → Pages
 4. [ ] **Before changing DNS:** make sure `mail.zestpartnersng.com` has its own A record pointing to `162.241.85.30`, and keep the MX, SPF and DKIM records unchanged, so email keeps working.
 5. [ ] DNS changes: apex `A` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (plus the AAAA records if wanted); `www` `CNAME` → `<user>.github.io`
 6. [ ] Enforce HTTPS in Pages settings once the certificate is issued

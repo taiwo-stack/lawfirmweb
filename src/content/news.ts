@@ -11,6 +11,10 @@ export type NewsItem = {
   imageAlt?: string
   topics: Topic[]
   people: string[]
+  /** Shown as the large card in the home page's News & insights section. Give one item an image and this flag. */
+  featured?: boolean
+  /** Shorter headline for the featured card. */
+  shortTitle?: string
 }
 
 export const news: NewsItem[] = [
@@ -46,6 +50,8 @@ export const news: NewsItem[] = [
     imageAlt: 'Speaking at the African Bar Association conference podium',
     topics: ['tax'],
     people: ['chinedu-obienu'],
+    featured: true,
+    shortTitle: 'A paper at the African Bar Association Annual Conference, Accra',
   },
   {
     slug: 'faan-dispute-resolution-training',
@@ -78,3 +84,6 @@ export const news: NewsItem[] = [
 ]
 
 export const newsBySlug = (slug: string) => news.find((n) => n.slug === slug)
+
+/** The flagged item, or else the latest item with an image. */
+export const featuredNews = news.find((n) => n.featured && n.image) ?? news.find((n) => n.image) ?? news[0]
