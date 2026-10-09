@@ -12,7 +12,7 @@ import { PrincipalFeature } from '~/components/blocks/PrincipalFeature'
 import { InsightCard } from '~/components/blocks/InsightCard'
 import { RotatingText } from '~/components/blocks/RotatingText'
 import { groupId, groups, practices } from '~/content/practices'
-import { people } from '~/content/people'
+import { people, personGroups } from '~/content/people'
 import { insights } from '~/content/insights'
 import { featuredNews } from '~/content/news'
 import { site } from '~/content/site'
@@ -401,18 +401,20 @@ function Home() {
             .map((p) => (
               <PrincipalFeature key={p.slug} person={p} />
             ))}
-          {people.some((p) => p.group !== 'Principal') && (
-            <div>
-              <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">Partners</h3>
-              <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                {people
-                  .filter((p) => p.group !== 'Principal')
-                  .map((p) => (
+          {personGroups
+            .filter((g) => g !== 'Principal')
+            .map((g) => ({ group: g, list: people.filter((p) => p.group === g) }))
+            .filter((s) => s.list.length)
+            .map((s) => (
+              <div key={s.group}>
+                <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">{s.group}</h3>
+                <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                  {s.list.map((p) => (
                     <PersonCard key={p.slug} person={p} />
                   ))}
+                </div>
               </div>
-            </div>
-          )}
+            ))}
         </div>
         <ButtonLink to="/people/" variant="ghost" className="mt-12 md:hidden">
           Our people

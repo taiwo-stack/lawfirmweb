@@ -249,6 +249,45 @@ export const people: Person[] = [
       'Edwin Nneamaka Uzoma has worked with BOMS and BOMS, a firm of Legal Practitioners based in Port Harcourt, and Equatorial Trust Bank before joining Zest Partners. She personally runs the Lagos office.',
     ],
   },
+  {
+    slug: 'kumawuese-ruth-nenchi',
+    name: 'Kumawuese Ruth Nenchi',
+    role: 'Senior Associate',
+    group: 'Senior Associates',
+    // docs/sources/kumawuese-ruth-nenchi-profile.md. Practice pages matching her stated areas; Telecoms & ICT and
+    // Labour Law have no practice page, so they appear in the bio only.
+    practices: ['company-law', 'contracts-commercial', 'corporate-compliance-financial-services', 'litigation-adr', 'matrimonial-family-law'],
+    memberships: [
+      'Associate, Institute of Chartered Secretaries and Administrators of Nigeria (ICSAN)',
+      'Associate, Institute of Chartered Mediators and Conciliators (ICMC)',
+    ],
+    photo: '/images/people/kumawuese-ruth-nenchi.jpg',
+    focus: ['Corporate & commercial', 'Alternative dispute resolution', 'Telecommunications & ICT', 'Regulatory compliance', 'Family law', 'Labour law'],
+    bio: [
+      'Kumawuese Ruth Nenchi is a Senior Associate at Zest Partners with many years of experience in legal practice. She is a versatile legal practitioner committed to providing practical, commercially relevant and solution-oriented legal services to individuals, businesses and corporate institutions.',
+      'She holds a Master’s Degree in Information and Communications Technology Law and is an Associate of the Institute of Chartered Secretaries and Administrators of Nigeria (ICSAN) and the Institute of Chartered Mediators and Conciliators (ICMC). Her professional interests reflect a strong appreciation of the intersection between law, business, technology and effective dispute resolution.',
+      'Her areas of practice include Corporate and Commercial Law, Alternative Dispute Resolution (ADR), Telecommunications and ICT Law, Regulatory Compliance, Family Law and Labour Law. She has strong advocacy, negotiation and problem-solving skills, and approaches legal issues with a practical understanding of both their legal and human dimensions.',
+      'Kumawuese is passionate about legal research and writing and has authored several papers. She has also participated as a facilitator in professional training programmes for corporate institutions. Her professional approach is founded on diligence, integrity, empathy and a strong commitment to those she serves. She believes in using the law as a positive instrument for humanity.',
+    ],
+  },
+  {
+    slug: 'chinagorom-oluchi-uwandu',
+    name: 'Chinagorom Oluchi Uwandu',
+    role: 'Senior Associate',
+    group: 'Senior Associates',
+    // docs/sources/chinagorom-oluchi-uwandu-profile.md. Practice pages matching her stated areas; Labour Law has no
+    // practice page, so it appears in the bio only.
+    practices: ['litigation-adr', 'company-law', 'contracts-commercial', 'property-real-estate'],
+    memberships: ['Associate, Institute of Chartered Mediators and Conciliators (AICMC)', 'Certified Mediator and Conciliator', 'Called to the Nigerian Bar'],
+    photo: '/images/people/chinagorom-oluchi-uwandu.jpg',
+    credentials: ['MIAD', 'AICMC'],
+    focus: ['Alternative dispute resolution', 'Corporate & commercial', 'Property', 'Labour law'],
+    bio: [
+      'Chinagorom Oluchi Uwandu is a Senior Associate at Zest Partners. She has practised for a number of years, acting as Counsel for individuals, businesses and corporate institutions in contentious and non-contentious matters. She also advises on alternative dispute resolution, corporate and commercial law, property, labour law and general legal matters.',
+      'She is called to the Nigerian Bar and holds a Professional Master’s Degree in International Affairs and Diplomacy (MIAD) from Ahmadu Bello University. She is a Certified Mediator and Conciliator and an Associate of the Institute of Chartered Mediators and Conciliators (AICMC). Her interest is in how law, advocacy and diplomacy work together to resolve difficult disputes.',
+      'She has participated in facilitating professional training sessions for corporate institutions. Chinagorom brings thorough research, careful drafting and strong advocacy, and aims for excellence in every matter she handles. Her approach is built on diligence, integrity and sound judgment, with a clear focus on securing the best possible outcome for clients.',
+    ],
+  },
 ]
 
 export const personBySlug = (slug: string) => people.find((p) => p.slug === slug)

@@ -9,7 +9,7 @@ import { people, personGroups } from '~/content/people'
 import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/people/')({
-  head: () => seo({ title: 'Our People', description: 'The leadership and partners of Zest Partners in Abuja and Lagos.', path: '/people/' }),
+  head: () => seo({ title: 'Our People', description: 'The leadership, partners and associates of Zest Partners in Abuja and Lagos.', path: '/people/' }),
   component: People,
 })
 

@@ -90,6 +90,14 @@
    744
   ]
  },
+ "/images/people/chinagorom-oluchi-uwandu.jpg": {
+  "w": 816,
+  "h": 1020,
+  "variants": [
+   480,
+   816
+  ]
+ },
  "/images/people/chinedu-obienu.jpg": {
   "w": 744,
   "h": 992,
@@ -104,6 +112,15 @@
   "variants": [
    480,
    744
+  ]
+ },
+ "/images/people/kumawuese-ruth-nenchi.jpg": {
+  "w": 1012,
+  "h": 1248,
+  "variants": [
+   480,
+   960,
+   1012
   ]
  },
  "/images/practice/aviation.jpg": {

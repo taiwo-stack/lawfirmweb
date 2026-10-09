@@ -1,11 +1,14 @@
 # Content provenance
 
-Every factual statement on the site comes from one of three sources:
+Every factual statement on the site comes from one of these sources:
 
 | Code | Source |
 |---|---|
 | **OLD** | The old WordPress site, zestpartnersng.com (scraped 1 Oct 2026, kept in `docs/legacy-site-content.md`) |
 | **CV** | *DR CHINEDU FOR WEBSITE.pdf*, the Managing Partner's profile supplied by the firm |
+| **NENCHI** | Kumawuese Ruth Nenchi's profile, supplied by the firm (`docs/sources/kumawuese-ruth-nenchi-profile.md`) |
+| Chinagorom Oluchi Uwandu's profile, memberships and portrait (Senior Associate) | `people.ts`, `public/images/people/` | **UWANDU**: profile and studio portrait supplied by the firm, 9 Oct 2026. Her practice-page links follow her stated areas of practice |
+| **UWANDU** | Chinagorom Oluchi Uwandu's profile, supplied by the firm (`docs/sources/chinagorom-oluchi-uwandu-profile.md`) |
 | **PHOTO** | Photos supplied by the firm, or real photos from the old site's media library (library shelves, office building, AFBA podium) |
 
 ## Where each piece of content comes from
@@ -23,6 +26,7 @@ Every factual statement on the site comes from one of three sources:
 | "Who we act for" lists | `practices.ts`, home | Only where OLD names the clients (banking, tax, compliance, debt recovery, wills, matrimonial, human rights) or CV does (legislative, training) |
 | Dr. Obienu's profile, positions, publications, talks | `people.ts` | CV |
 | Edwin Nneamaka Uzoma's profile | `people.ts` | OLD |
+| Kumawuese Ruth Nenchi's profile, memberships and portrait (Senior Associate) | `people.ts`, `public/images/people/` | **NENCHI**: profile and studio portrait supplied by the firm, 9 Oct 2026 (`docs/sources/kumawuese-ruth-nenchi-profile.md`). Her practice-page links follow her stated areas of practice |
 | News articles (LACON, AFBA 2025, FAAN training, book) | `news.ts` | CV |
 | History timeline | `history.ts` | OLD (2006) + CV (all other years) |
 | Library contents (NSCC, NWLR, All England Law Reports, Halsbury's) | facilities page | PHOTO (titles readable on the spines and shelf labels) |
