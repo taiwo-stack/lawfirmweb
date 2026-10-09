@@ -25,7 +25,7 @@ Every factual statement on the site comes from one of these sources:
 | Enterprise Risk Management & Data Protection page | `practices.ts` | **Instructed by the firm, 1 Oct 2026** (not on the old site or in the CV). Shows only the service name; the firm is to supply a description |
 | "Who we act for" lists | `practices.ts`, home | Only where OLD names the clients (banking, tax, compliance, debt recovery, wills, matrimonial, human rights) or CV does (legislative, training) |
 | Dr. Obienu's profile, positions, publications, talks | `people.ts` | CV |
-| Edwin Nneamaka Uzoma's profile | `people.ts` | OLD |
+| Edwin Nneamaka Uzoma's profile | `people.ts` | OLD. Portrait replaced with a photo supplied by the firm, 9 Oct 2026 |
 | Kumawuese Ruth Nenchi's profile, memberships and portrait (Senior Associate) | `people.ts`, `public/images/people/` | **NENCHI**: profile and studio portrait supplied by the firm, 9 Oct 2026 (`docs/sources/kumawuese-ruth-nenchi-profile.md`). Her practice-page links follow her stated areas of practice |
 | News articles (LACON, AFBA 2025, FAAN training, book) | `news.ts` | CV |
 | History timeline | `history.ts` | OLD (2006) + CV (all other years) |
