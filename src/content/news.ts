@@ -9,6 +9,8 @@ export type NewsItem = {
   body: string[]
   image?: string
   imageAlt?: string
+  /** Further photos, shown as a gallery after the article text. */
+  gallery?: { src: string; alt: string }[]
   topics: Topic[]
   people: string[]
   /** Shown as the large card in the home page's News & insights section. Give one item an image and this flag. */
@@ -32,6 +34,29 @@ export const news: NewsItem[] = [
     ],
     image: '/images/people/chinedu-obienu.jpg',
     imageAlt: 'Dr. Chinedu Obienu',
+    topics: ['profession', 'policy'],
+    people: ['chinedu-obienu'],
+  },
+  {
+    // Photos supplied by the firm, 9 Oct 2026, with no further details. The theme is read from the podium in the
+    // photos; the exact dates are not known, so only the year is shown.
+    slug: 'nba-abuja-law-week-2026',
+    title: 'NBA Abuja (Unity Bar) Law Week 2026',
+    date: '2026-01-01',
+    when: '2026',
+    summary:
+      'Dr. Chinedu Obienu, our Managing Partner, chaired the Planning Committee of the NBA Abuja Branch 2026 Law Week, themed “Safeguarding Nigeria’s Democratic Process”.',
+    body: [
+      'Dr. Chinedu Obienu, Principal and Managing Partner of Zest Partners, was Chairman of the NBA Abuja Branch 2026 Law Week Planning Committee.',
+      'The theme of the NBA Abuja (Unity Bar) Law Week 2026 was “Safeguarding Nigeria’s Democratic Process”.',
+    ],
+    image: '/images/events/nba-abuja-law-week-2026-2.jpg',
+    imageAlt: 'On stage at the NBA Abuja (Unity Bar) Law Week 2026',
+    gallery: [
+      { src: '/images/events/nba-abuja-law-week-2026-3.jpg', alt: 'Remarks at the NBA Abuja Law Week 2026 podium' },
+      { src: '/images/events/nba-abuja-law-week-2026-4.jpg', alt: 'Speaking at the NBA Abuja Law Week 2026' },
+      { src: '/images/events/nba-abuja-law-week-2026-1.jpg', alt: 'Guests arriving at the NBA Abuja Branch 2026 Law Week' },
+    ],
     topics: ['profession', 'policy'],
     people: ['chinedu-obienu'],
   },

@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { Img } from '~/components/ui/Img'
 import { Section } from '~/components/ui/Container'
 import { Reveal } from '~/components/ui/Reveal'
@@ -84,7 +84,10 @@ function Community() {
                 className="aspect-[4/5] w-full object-cover object-top"
               />
               <figcaption className="mt-3 text-sm text-muted">
-                NBA Abuja Branch 2026 Law Week. Dr. Chinedu Obienu chaired the Law Week Planning Committee.
+                NBA Abuja Branch 2026 Law Week. Dr. Chinedu Obienu chaired the Law Week Planning Committee.{' '}
+                <Link to="/insights/news/$slug/" params={{ slug: 'nba-abuja-law-week-2026' }} className="font-semibold text-ink underline underline-offset-4 hover:text-green">
+                  More photos
+                </Link>
               </figcaption>
             </figure>
           </Reveal>

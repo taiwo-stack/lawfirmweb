@@ -30,6 +30,7 @@ Every factual statement on the site comes from one of these sources:
 | News articles (LACON, AFBA 2025, FAAN training, book) | `news.ts` | CV |
 | History timeline | `history.ts` | OLD (2006) + CV (all other years) |
 | NBA Abuja Branch 2026 Law Week photo and caption | community page | PHOTO supplied by the firm, 9 Oct 2026, identified by the firm as taken at the Law Week. Caption: CV (Chairman, Law Week Planning Committee) |
+| News item "NBA Abuja (Unity Bar) Law Week 2026" and its four photos | `news.ts`, `public/images/events/` | CV (Chairman, Law Week Planning Committee) + PHOTO (theme "Safeguarding Nigeria's Democratic Process" read from the podium; the stage banner names Dr. Obienu as Chairman). Dates unknown, so only the year is shown |
 | Library contents (NSCC, NWLR, All England Law Reports, Halsbury's) | facilities page | PHOTO (titles readable on the spines and shelf labels) |
 | Taglines "We are here to fight against any violation with experience" and "Feel free to ask… we are here" | Expertise and Contact headings | OLD |
 
@@ -60,6 +61,7 @@ These are headings and connecting lines written for the design. They make no fac
 7. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
 8. **Social media:** links to the firm's profiles, if any.
 9. **Enterprise Risk Management & Data Protection:** supply a description of the service and say who should be the key contact.
+10. **Law Week 2026:** confirm the theme as read from the photos, and supply the dates and venue if the item should show them. The captions do not name the people pictured; supply names if wanted.
 
 ## Reverse audit (1 Oct 2026)
 

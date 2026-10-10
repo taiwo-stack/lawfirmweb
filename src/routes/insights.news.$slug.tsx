@@ -80,6 +80,15 @@ function NewsPage() {
               <p key={p.slice(0, 32)}>{p}</p>
             ))}
           </div>
+          {item.gallery && item.gallery.length > 0 && (
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2" aria-label="Photos">
+              {item.gallery.map((g) => (
+                <li key={g.src}>
+                  <Img src={g.src} alt={g.alt} sizes="(min-width: 768px) 384px, 100vw" className="aspect-[4/3] w-full object-cover object-top" />
+                </li>
+              ))}
+            </ul>
+          )}
           {item.people.length > 0 && (
             <div className="mt-14 border-t border-line pt-10">
               <h2 className="font-sans text-xs font-semibold tracking-[0.15em] text-muted uppercase">People</h2>
