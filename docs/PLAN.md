@@ -15,9 +15,9 @@
 | Blog | 9 posts, all theme demo placeholders ("What we are capable of usually gets discovered") → **drop** |
 | Our Team page | Empty → team lives on About; will become its own page |
 | Media | 97 files; ~44 are theme demo files → drop. The rest are mostly generic stock/screenshots (one is a screenshot of another firm's site, "Amicus Legal") → **replace** |
-| Social links | Icons in the footer, but only a WhatsApp link is real: `https://wa.me/message/PZC7C5L63ILON1` |
+| Social links | Icons in the footer link nowhere. The WhatsApp link reached the former web designer, not the firm, so it is not used |
 | Email | **MX record → `mail.zestpartnersng.com` on the current host.** The DNS switch must keep this working (Phase 7). |
-| Footer credit | "Designed by Paucha Technology" |
+| Footer credit | Credit to the former web designer → **drop** |
 
 ### Content problems to fix during the rewrite
 1. **Interpretation of Foreign Documents** was copied from a Finnish immigration page (mentions "Finnish, Swedish or English", "EU Member State"). Needs a full rewrite for Nigeria.

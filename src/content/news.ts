@@ -26,9 +26,9 @@ export const news: NewsItem[] = [
     date: '2026-08-05',
     when: '5 August 2026',
     summary:
-      'Our Managing Partner was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of LACON.',
+      'Our Principal/Managing Partner was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of LACON.',
     body: [
-      'On Wednesday, 5 August 2026, Dr. Chinedu Obienu, Principal and Managing Partner of Zest Partners, was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of the Legal Aid Council of Nigeria (LACON).',
+      'On Wednesday, 5 August 2026, Dr. Chinedu Obienu, Principal/Managing Partner of Zest Partners, was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of the Legal Aid Council of Nigeria (LACON).',
       'Through its Human Rights and Public Interest Litigation department, Zest Partners offers free legal services to poor and indigent citizens whose rights have been grossly infringed.',
       'Dr. Obienu also chairs the NBA Abuja Branch 2026 Law Week Planning Committee.',
     ],
@@ -45,9 +45,9 @@ export const news: NewsItem[] = [
     date: '2026-01-01',
     when: '2026',
     summary:
-      'Dr. Chinedu Obienu, our Managing Partner, chaired the Planning Committee of the NBA Abuja Branch 2026 Law Week, themed “Safeguarding Nigeria’s Democratic Process”.',
+      'Dr. Chinedu Obienu, our Principal/Managing Partner, chaired the Planning Committee of the NBA Abuja Branch 2026 Law Week, themed “Safeguarding Nigeria’s Democratic Process”.',
     body: [
-      'Dr. Chinedu Obienu, Principal and Managing Partner of Zest Partners, was Chairman of the NBA Abuja Branch 2026 Law Week Planning Committee.',
+      'Dr. Chinedu Obienu, Principal/Managing Partner of Zest Partners, was Chairman of the NBA Abuja Branch 2026 Law Week Planning Committee.',
       'The theme of the NBA Abuja (Unity Bar) Law Week 2026 was “Safeguarding Nigeria’s Democratic Process”.',
     ],
     image: '/images/events/nba-abuja-law-week-2026-2.jpg',

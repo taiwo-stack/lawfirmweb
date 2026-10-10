@@ -88,7 +88,7 @@ function Facilities() {
           ))}
         </div>
       </Section>
-      <CTASection title="Visit us in Abuja." body="Book a consultation at our office in Kaura District, or speak with us by phone or WhatsApp." />
+      <CTASection title="Visit us in Abuja." body={`Book a consultation at our office in Kaura District, or speak with us by phone${site.whatsapp ? ' or WhatsApp' : ''}.`} />
     </>
   )
 }

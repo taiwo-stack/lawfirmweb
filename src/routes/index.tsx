@@ -39,7 +39,7 @@ const clientGroups = [
   { title: 'Individuals', icon: Users, items: ['Families & individuals', 'Indigent citizens (pro bono)'] },
 ]
 
-// Every point is drawn from the old website or the Managing Partner's profile document.
+// Every point is drawn from the old website or the Principal/Managing Partner's profile document.
 const reasons = [
   {
     title: 'Solicitors and advocates',
@@ -47,7 +47,7 @@ const reasons = [
   },
   {
     title: 'Recognised expertise',
-    body: 'Led by a Managing Partner with a PhD in law, MCIArb (UK) and FICMC, who has presented more than twenty papers to bar associations and public institutions.',
+    body: 'Led by a Principal/Managing Partner with a PhD in law, MCIArb (UK) and FICMC, who has presented more than twenty papers to bar associations and public institutions.',
   },
   {
     title: 'Modern, real-time practice',
@@ -74,11 +74,21 @@ function Home() {
         <Container className="flex min-h-[min(86svh,900px)] flex-col justify-end pt-28 pb-14 sm:pb-20">
           <div className="rise">
             <p className="eyebrow">Welcome to Zest Partners · Est. {site.founded}</p>
-            <h1 className="mt-8 max-w-5xl text-5xl leading-[1.04] font-light sm:text-7xl lg:text-8xl">
+            <h1 className="mt-8 max-w-5xl text-5xl leading-[1.04] font-light sm:text-7xl">
               Counsel for{' '}
               <RotatingText
-                className="text-brass-soft italic"
-                items={['business.', 'disputes.', 'energy.', 'families.', 'justice.']}
+                className="mt-2 text-4xl leading-[1.08] text-brass-soft italic sm:text-6xl lg:text-7xl"
+                items={[
+                  'Litigation',
+                  'Corporate Commercial',
+                  'Business Advisory',
+                  'Arbitration',
+                  'Mediation & Negotiation',
+                  'Human Rights Protection',
+                  'Finance and Energy',
+                  'Families, Estate and Property',
+                  'Consultants and Notary Public',
+                ]}
               />
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/75 sm:text-xl">

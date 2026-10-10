@@ -27,7 +27,7 @@
 
 - **Taglines:** "We Are Here To Fight Against Any violation With Experience" (Expertise page heading) and "Feel Free To Ask Something We Are Here" (Contact heading and home CTA)
 - **Vision and mission:** Home, About
-- **Contact details:** address, both phone numbers and WhatsApp link (header, footer, contact page). The two old Yahoo email addresses were replaced by chineduobienu@zestpartnersng.com on the firm's instruction
+- **Contact details:** address and both phone numbers (header, footer, contact page). The two old Yahoo email addresses were replaced by info@zestpartnersng.com and chineduobienu@zestpartnersng.com on the firm's instruction. The old WhatsApp link reached the former web designer, so it was removed
 - **Team:** both partners with their original photos and bios (now expanded)
 - **Real photography:** office exterior and library photos that were in the old media library but never shown (Facilities & library gallery)
 - **URLs:** all 21 old page URLs redirect to their new equivalents (`scripts/postbuild.ts`)
@@ -37,4 +37,4 @@
 - 9 blog posts: theme demo placeholders ("What we are capable of usually gets discovered")
 - "Sample Page" and the empty "Our Team" page (the latter redirects to `/people`)
 - About 44 theme demo images, and stock images, including a screenshot of another firm's website
-- Footer credit "Designed by Paucha Technology"
+- The former web designer's footer credit

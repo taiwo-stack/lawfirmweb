@@ -119,7 +119,7 @@ export const practices: Practice[] = [
     body: [
       'Our tax group has substantial expertise in income tax planning for individuals, corporations, partnerships, limited liability companies and other business entities.',
       'We advise business clients on the tax aspects of acquisitions, reorganisations, liquidations, redemptions and debt restructuring.',
-      'Our Managing Partner’s PhD thesis (University of Abuja, 2023) and LL.M dissertation (University of Jos, 2008) both examined Nigerian taxation, and he has presented papers on the adjudication of tax disputes to the Federal Inland Revenue Service Legal Department.',
+      'Our Principal/Managing Partner’s PhD thesis (University of Abuja, 2023) and LL.M dissertation (University of Jos, 2008) both examined Nigerian taxation, and he has presented papers on the adjudication of tax disputes to the Federal Inland Revenue Service Legal Department.',
     ],
     services: ['Income tax planning', 'Tax aspects of acquisitions', 'Reorganisations & liquidations', 'Redemptions', 'Debt restructuring'],
     clients: ['Individuals', 'Corporations', 'Partnerships', 'Limited liability companies'],
@@ -162,7 +162,7 @@ export const practices: Practice[] = [
     body: [
       'Our petroleum lawyers specialise in the legal framework that regulates petroleum activities. They have extensive experience as in-house lawyers in large and smaller oil companies, on both the operator side and the licensee side.',
       'Zest Partners assists in all matters relating to petroleum activities: from the application for a production licence, through exploration, development and production, up to and including decommissioning and removal.',
-      'Our Managing Partner’s doctoral research was a legal analysis of the tax regime in the Nigerian petroleum industry, and he has presented on the Petroleum Industry Act 2021 to the Revenue Mobilisation Allocation and Fiscal Commission.',
+      'Our Principal/Managing Partner’s doctoral research was a legal analysis of the tax regime in the Nigerian petroleum industry, and he has presented on the Petroleum Industry Act 2021 to the Revenue Mobilisation Allocation and Fiscal Commission.',
     ],
     services: ['Production licence applications', 'Exploration', 'Development & production', 'Decommissioning & removal'],
     image: '/images/practice/petroleum.jpg',
@@ -193,7 +193,7 @@ export const practices: Practice[] = [
     body: [
       'The firm handles criminal and civil litigation for its clients across various states of Nigeria. Our primary objective is to make sure disputes arising from our clients’ business and commercial activities are resolved effectively, with the least expenditure of time and resources.',
       'Our Litigation and Alternative Dispute Resolution departments are combined because our focus is delivering solutions on time. The team is made up of dispute resolution experts with commendable experience in the firm’s other core practice areas.',
-      'Our Managing Partner is a Member of the Chartered Institute of Arbitrators (UK) and a Fellow of the Institute of Chartered Mediators and Conciliators, and is a consummate litigator and settler of disputes.',
+      'Our Principal/Managing Partner is a Member of the Chartered Institute of Arbitrators (UK) and a Fellow of the Institute of Chartered Mediators and Conciliators, and is a consummate litigator and settler of disputes.',
     ],
     services: ['Civil litigation', 'Criminal litigation', 'Business & commercial disputes', 'Arbitration', 'Mediation & conciliation', 'Negotiation'],
     image: '/images/practice/litigation.jpg',
@@ -207,7 +207,7 @@ export const practices: Practice[] = [
     summary: 'Criminal matters handled for clients across Nigeria, informed by first-hand work on criminal justice and rights legislation.',
     body: [
       'The firm handles criminal litigation for its clients across various states of Nigeria.',
-      'Our Managing Partner worked as a consultant on the drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018, and was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules used in courts across Nigeria.',
+      'Our Principal/Managing Partner worked as a consultant on the drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018, and was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules used in courts across Nigeria.',
     ],
     image: '/images/practice/criminal.jpg',
     topics: ['advocacy', 'drafting'],
@@ -304,7 +304,7 @@ export const practices: Practice[] = [
       'At Zest Partners we take a keen interest in the observance of the rule of law, and our Human Rights and Public Interest Litigation department champions that cause.',
       'We offer free services to poor and indigent citizens whose rights have been grossly infringed but who have no resources to pursue their grievances in the appropriate forum.',
       'We take up public interest litigation as our corporate social responsibility and as a way of promoting good governance and the rule of law in Nigeria.',
-      'Our Managing Partner was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules, and in August 2026 was inaugurated to the Governing Council of the Legal Aid Council of Nigeria.',
+      'Our Principal/Managing Partner was a member of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules, and in August 2026 was inaugurated to the Governing Council of the Legal Aid Council of Nigeria.',
     ],
     services: ['Pro bono representation', 'Fundamental rights enforcement', 'Public interest litigation', 'International human rights law'],
     clients: ['Poor and indigent citizens'],
@@ -347,7 +347,7 @@ export const practices: Practice[] = [
     group: 'Rights & Advisory',
     summary: 'Drafting bills, rules and public–private partnership agreements, and running the stakeholder engagement behind them.',
     body: [
-      'Our Managing Partner has worked on several bills and drafted several agreements, including public–private partnership agreements.',
+      'Our Principal/Managing Partner has worked on several bills and drafted several agreements, including public–private partnership agreements.',
       'His work has included consulting for WaterAid on the Enugu State Water Sector Bill (2019); drafting the bill to establish the Anambra State Small Town Water Supply and Sanitation Agency; drafting and stakeholder engagement for the Plateau State Administration of Criminal Justice Law, 2018; and membership of the team that drafted the Fundamental Human Rights (Enforcement Procedure) Rules now used in courts across Nigeria.',
     ],
     services: ['Bills & legislation', 'Court & procedural rules', 'PPP agreements', 'Stakeholder engagement'],
@@ -362,7 +362,7 @@ export const practices: Practice[] = [
     group: 'Rights & Advisory',
     summary: 'Workshops, seminars and training for public institutions and the legal profession.',
     body: [
-      'Our Managing Partner facilitates workshops, seminars and training in diverse areas of law. He is an accredited management trainer and consultant verified by the Nigeria Council for Management Development (NCMD).',
+      'Our Principal/Managing Partner facilitates workshops, seminars and training in diverse areas of law. He is an accredited management trainer and consultant verified by the Nigeria Council for Management Development (NCMD).',
       'In October 2025, Zest Partners facilitated a two-day programme for staff of the Federal Airports Authority of Nigeria (FAAN) at the FAAN Training School, Ikeja, on conflict and dispute resolution in labour, trade, human resources and industrial relations.',
       'He has also presented papers at programmes for the Federal Inland Revenue Service (FIRS) Legal Department, the Revenue Mobilisation Allocation and Fiscal Commission (RMAFC), the Transmission Company of Nigeria (TCN), the FCT High Court, and a training on the 2023 Rules of Professional Conduct organised by ROLAC with the Nigerian Bar Association.',
     ],

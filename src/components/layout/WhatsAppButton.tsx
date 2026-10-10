@@ -2,6 +2,7 @@ import { MessageCircle } from 'lucide-react'
 import { site } from '~/content/site'
 
 export function WhatsAppButton() {
+  if (!site.whatsapp) return null
   return (
     <aside aria-label="Quick contact">
     <a

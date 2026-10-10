@@ -16,9 +16,9 @@ Every factual statement on the site comes from one of these sources:
 | Content | File | Source |
 |---|---|---|
 | Firm founding (2006), vision, mission, "who we are", experience list, documents prepared | `site.ts`, `about.index.tsx` | OLD |
-| Address, phones, WhatsApp | `site.ts` | OLD |
-| Email: chineduobienu@zestpartnersng.com (the only address on the site) | `site.ts`, `people.ts` | Instructed by the firm, 1 Oct 2026; address changed to chineduobienu@ on the firm's instruction, 9 Oct 2026. Replaces the old site's zestpartners@yahoo.com and chineduobienu@yahoo.com |
-| Lagos office | `site.ts`, contact FAQ | OLD (Edwin Nneamaka Uzoma "personally runs the Lagos office") |
+| Address, phones | `site.ts` | OLD. WhatsApp removed on the firm's instruction, 10 Oct 2026 (the old link reached the former web designer); to be restored when the firm supplies the office number |
+| Emails: info@zestpartnersng.com (firm contact address) and chineduobienu@zestpartnersng.com (Dr. Obienu) | `site.ts`, `people.ts` | Instructed by Dr. Obienu, 10 Oct 2026. Replace the old site's zestpartners@yahoo.com and chineduobienu@yahoo.com |
+| Lagos office | `site.ts`, contact FAQ | OLD (Edwin Nneamaka Uzoma "personally runs the Lagos office"). FAQ wording "head office in Abuja… a branch in Lagos" instructed by Dr. Obienu, 10 Oct 2026 |
 | Practice-area text (all 20 pages) | `practices.ts` | OLD. Details about the Managing Partner come from CV |
 | Criminal Law page | `practices.ts` | OLD (criminal law listed as a field; "criminal and civil litigation") + CV (Plateau ACJL, FREP Rules) |
 | Legislative Drafting and Training pages | `practices.ts` | CV |
@@ -39,7 +39,8 @@ Every factual statement on the site comes from one of these sources:
 
 These are headings and connecting lines written for the design. They make no factual claims beyond the sources above.
 
-- Home hero: "Counsel for business. / disputes. / energy. / families. / justice."
+- Home hero: "Counsel for" Litigation / Corporate Commercial / Business Advisory / Arbitration / Mediation & Negotiation / Human Rights Protection / Finance and Energy / Families, Estate and Property / Consultants and Notary Public. **Wording instructed by Dr. Obienu, 10 Oct 2026**
+- Title "Principal/Managing Partner" used everywhere (instructed by Dr. Obienu, 10 Oct 2026; matches his CV)
 - Home: "Corporate practice and litigation, since 2006.", "Individuals, companies and government agencies." (old About page), "Modern and up to date IT facilities." (old site), "Papers presented locally and internationally." (CV), "Our leadership."
 - About: "Dynamic by every standard." (from OLD "by all standards dynamic"), "How we practise."
 - History: the short title on each milestone, e.g. "Shaping human rights procedure", "A continental voice"

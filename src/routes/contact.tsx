@@ -22,11 +22,11 @@ export const Route = createFileRoute('/contact')({
 const faqs = [
   {
     q: 'How do I book a consultation?',
-    a: `Send us a message using the form, call ${site.phones.join(' or ')}, email ${site.emails[0]}, or message us on WhatsApp.`,
+    a: `Send us a message using the form, call ${site.phones.join(' or ')}, or email ${site.emails[0]}${site.whatsapp ? ', or message us on WhatsApp' : ''}.`,
   },
   {
     q: 'Where are your offices?',
-    a: `Our main office is at ${site.address.lines.join(', ')}. We also have an office in Lagos, run by our Partner Edwin Nneamaka Uzoma.`,
+    a: `Our head office is at ${site.address.lines.join(', ')}. We also have a branch in Lagos.`,
   },
   {
     q: 'Do you act outside Abuja and Lagos?',
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'Can you deliver training for our organisation?',
-    a: 'Zest Partners facilitated a two-day dispute resolution training for staff of the Federal Airports Authority of Nigeria in October 2025, and our Managing Partner facilitates workshops, seminars and training in diverse areas of law.',
+    a: 'Zest Partners facilitated a two-day dispute resolution training for staff of the Federal Airports Authority of Nigeria in October 2025, and our Principal/Managing Partner facilitates workshops, seminars and training in diverse areas of law.',
   },
   {
     q: 'Is information I send through this website confidential?',
@@ -52,7 +52,7 @@ function Contact() {
       <PageHeader
         eyebrow="Contact"
         title="Feel free to ask. We are here."
-        intro="Send us a message, call, email or reach us on WhatsApp."
+        intro={`Send us a message, call or email${site.whatsapp ? ', or reach us on WhatsApp' : ''}.`}
       />
       <Section>
         <div className="grid gap-16 lg:grid-cols-12">
@@ -99,14 +99,16 @@ function Contact() {
                   ))}
                 </div>
               </div>
-              <a
-                href={site.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 rounded-full bg-green px-6 py-3.5 text-sm font-semibold hover:bg-green/85"
-              >
-                <MessageCircle className="size-5" aria-hidden /> Chat on WhatsApp
-              </a>
+              {site.whatsapp && (
+                <a
+                  href={site.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 rounded-full bg-green px-6 py-3.5 text-sm font-semibold hover:bg-green/85"
+                >
+                  <MessageCircle className="size-5" aria-hidden /> Chat on WhatsApp
+                </a>
+              )}
             </div>
           </Reveal>
         </div>

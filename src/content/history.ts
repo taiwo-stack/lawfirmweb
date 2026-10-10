@@ -1,4 +1,4 @@
-/** Firm history. Milestones of the Managing Partner are labelled as such. */
+/** Firm history. Milestones of the Principal/Managing Partner are labelled as such. */
 export const history: { year: string; title: string; body: string }[] = [
   {
     year: '2006',
@@ -8,7 +8,7 @@ export const history: { year: string; title: string; body: string }[] = [
   {
     year: '2007',
     title: 'Shaping human rights procedure',
-    body: 'Our Managing Partner joins the drafting team of the Fundamental Human Rights (Enforcement Procedure) Rules (2007–2008), now used in courts across Nigeria. He also presents at the NSITF National Conference on Social Security.',
+    body: 'Our Principal/Managing Partner joins the drafting team of the Fundamental Human Rights (Enforcement Procedure) Rules (2007–2008), now used in courts across Nigeria. He also presents at the NSITF National Conference on Social Security.',
   },
   {
     year: '2008',
@@ -53,6 +53,6 @@ export const history: { year: string; title: string; body: string }[] = [
   {
     year: '2026',
     title: 'Legal aid leadership',
-    body: 'Our Managing Partner is inaugurated to the Governing Council of the Legal Aid Council of Nigeria and chairs the NBA Abuja Branch 2026 Law Week Planning Committee.',
+    body: 'Our Principal/Managing Partner is inaugurated to the Governing Council of the Legal Aid Council of Nigeria and chairs the NBA Abuja Branch 2026 Law Week Planning Committee.',
   },
 ]

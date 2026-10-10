@@ -57,7 +57,7 @@ function Community() {
           <Reveal delay={0.1} className="bg-ink p-10 text-paper">
             <p className="eyebrow">Legal aid</p>
             <p className="mt-6 font-display text-3xl leading-snug">
-              In August 2026, our Managing Partner was inaugurated to the Governing Council of the Legal Aid Council of
+              In August 2026, our Principal/Managing Partner was inaugurated to the Governing Council of the Legal Aid Council of
               Nigeria.
             </p>
             <p className="mt-6 text-paper/70">
@@ -103,7 +103,7 @@ function Community() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-muted">Positions held by our Managing Partner, Dr. Chinedu Obienu.</p>
+            <p className="mt-6 text-sm text-muted">Positions held by our Principal/Managing Partner, Dr. Chinedu Obienu.</p>
           </Reveal>
         </div>
       </Section>

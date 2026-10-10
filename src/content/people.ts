@@ -50,7 +50,7 @@ export const people: Person[] = [
     slug: 'chinedu-obienu',
     honorific: 'Dr.',
     name: 'Chinedu Obienu',
-    role: 'Principal & Managing Partner',
+    role: 'Principal/Managing Partner',
     group: 'Principal',
     office: 'Abuja',
     // From the CV: corporate commercial, energy, taxation, government compliance; litigator and
@@ -86,7 +86,7 @@ export const people: Person[] = [
       { value: 'LACON', label: 'Governing Council member, 2026' },
     ],
     bio: [
-      'Dr. Chinedu Obienu is the Principal and Managing Partner of Zest Partners. He holds a PhD in law, and his practice spans corporate and commercial law, energy, taxation and general government compliance in Nigeria. He has practised law for more than two decades.',
+      'Dr. Chinedu Obienu is the Principal/Managing Partner of Zest Partners. He holds a PhD in law, and his practice spans corporate and commercial law, energy, taxation and general government compliance in Nigeria. He has practised law for more than two decades.',
       'He is a Member of the Chartered Institute of Arbitrators (MCIArb) (UK) and a Fellow of the Institute of Chartered Mediators and Conciliators (FICMC). He is an alumnus of the Haggai Leadership Institute, Hawaii, USA, and an accredited management trainer and consultant verified by the Nigeria Council for Management Development (NCMD). He is a consummate litigator and an experienced settler of disputes.',
       'An author, he has written and presented papers at conferences in Nigeria and abroad, and he facilitates workshops, seminars and training across diverse areas of law. He is a member of the Nigerian Bar Association and the African Bar Association.',
       'On Wednesday, 5 August 2026, he was inaugurated by the Attorney General of the Federation and Minister of Justice as a Member of the Governing Council of the Legal Aid Council of Nigeria (LACON).',

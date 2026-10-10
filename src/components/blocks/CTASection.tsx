@@ -6,7 +6,7 @@ import { site } from '~/content/site'
 
 export function CTASection({
   title = 'Tell us what you are facing.',
-  body = 'Call, email, WhatsApp or send us a message about your matter.',
+  body = `Call, email${site.whatsapp ? ', WhatsApp' : ''} or send us a message about your matter.`,
 }: {
   title?: string
   body?: string
@@ -29,14 +29,16 @@ export function CTASection({
             <ButtonLink to="/contact/" variant="light">
               Contact the firm
             </ButtonLink>
-            <ButtonAnchor
-              href={site.whatsapp}
-              external
-              variant="ghost"
-              className="border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink"
-            >
-              WhatsApp us
-            </ButtonAnchor>
+            {site.whatsapp && (
+              <ButtonAnchor
+                href={site.whatsapp}
+                external
+                variant="ghost"
+                className="border-paper/30 text-paper hover:border-paper hover:bg-paper hover:text-ink"
+              >
+                WhatsApp us
+              </ButtonAnchor>
+            )}
           </div>
         </Reveal>
       </Container>

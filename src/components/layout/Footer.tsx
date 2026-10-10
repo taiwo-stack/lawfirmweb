@@ -20,14 +20,16 @@ export function Footer() {
             A full-service corporate practice and litigation firm established in Nigeria in {site.founded}, with offices in
             Abuja and Lagos.
           </p>
-          <a
-            href={site.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-2 text-sm hover:border-paper hover:text-paper"
-          >
-            <MessageCircle className="size-4" aria-hidden /> WhatsApp
-          </a>
+          {site.whatsapp && (
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-2 text-sm hover:border-paper hover:text-paper"
+            >
+              <MessageCircle className="size-4" aria-hidden /> WhatsApp
+            </a>
+          )}
         </div>
         <div className="lg:col-span-2">
           <h2 className={heading}>The Firm</h2>

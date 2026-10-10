@@ -19,8 +19,11 @@ export const site = {
   },
   offices: ['Abuja', 'Lagos'],
   phones: ['+234 803 591 0250', '+234 805 041 4135'],
-  emails: ['chineduobienu@zestpartnersng.com'],
-  whatsapp: 'https://wa.me/message/PZC7C5L63ILON1',
+  // The first address is the firm's general contact address (forms, FAQs, structured data).
+  emails: ['info@zestpartnersng.com', 'chineduobienu@zestpartnersng.com'],
+  // Empty until the firm supplies its office WhatsApp number (the old link reached the former web designer).
+  // Set it to e.g. 'https://wa.me/2348035910250' and every WhatsApp link and mention on the site comes back.
+  whatsapp: '' as string,
   // TODO: add real profile URLs — the current site's icons link nowhere.
   socials: [] as { label: string; href: string }[],
   mapEmbed:
