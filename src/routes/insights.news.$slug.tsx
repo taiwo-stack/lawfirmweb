@@ -84,7 +84,10 @@ function NewsPage() {
             <ul className="mt-12 grid gap-4 sm:grid-cols-2" aria-label="Photos">
               {item.gallery.map((g) => (
                 <li key={g.src}>
-                  <Img src={g.src} alt={g.alt} sizes="(min-width: 768px) 384px, 100vw" className="aspect-[4/3] w-full object-cover object-top" />
+                  <figure>
+                    <Img src={g.src} alt="" sizes="(min-width: 768px) 384px, 100vw" className="aspect-[4/3] w-full object-cover object-top" />
+                    <figcaption className="mt-2 text-sm text-muted">{g.alt}</figcaption>
+                  </figure>
                 </li>
               ))}
             </ul>
