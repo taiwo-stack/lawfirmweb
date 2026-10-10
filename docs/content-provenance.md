@@ -61,7 +61,7 @@ These are headings and connecting lines written for the design. They make no fac
 7. **LACON wording:** "Governing Council" vs "Governing Board" (the CV uses both).
 8. **Social media:** links to the firm's profiles, if any.
 9. **Enterprise Risk Management & Data Protection:** supply a description of the service and say who should be the key contact.
-10. **Law Week 2026:** confirm the theme as read from the photos, and supply the dates and venue if the item should show them. The captions do not name the people pictured; supply names if wanted.
+10. **Law Week 2026:** confirm the theme as read from the photos, and supply the dates and venue if the item should show them. The podium speaker is named as Dr. Obienu (confirmed by the firm, 10 Oct 2026); other people pictured are not named.
 
 ## Reverse audit (1 Oct 2026)
 

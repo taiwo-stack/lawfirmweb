@@ -38,7 +38,7 @@ export const news: NewsItem[] = [
     people: ['chinedu-obienu'],
   },
   {
-    // Photos supplied by the firm, 9 Oct 2026, with no further details. The theme is read from the podium in the
+    // Photos supplied by the firm, 9 Oct 2026; the firm confirmed the podium speaker is Dr. Obienu. The theme is read from the podium in the
     // photos; the exact dates are not known, so only the year is shown.
     slug: 'nba-abuja-law-week-2026',
     title: 'NBA Abuja (Unity Bar) Law Week 2026',
@@ -53,8 +53,8 @@ export const news: NewsItem[] = [
     image: '/images/events/nba-abuja-law-week-2026-2.jpg',
     imageAlt: 'On stage at the NBA Abuja (Unity Bar) Law Week 2026',
     gallery: [
-      { src: '/images/events/nba-abuja-law-week-2026-3.jpg', alt: 'Remarks at the NBA Abuja Law Week 2026 podium' },
-      { src: '/images/events/nba-abuja-law-week-2026-4.jpg', alt: 'Speaking at the NBA Abuja Law Week 2026' },
+      { src: '/images/events/nba-abuja-law-week-2026-3.jpg', alt: 'Dr. Chinedu Obienu, Chairman of the Planning Committee, at the NBA Abuja Law Week 2026 podium' },
+      { src: '/images/events/nba-abuja-law-week-2026-4.jpg', alt: 'Dr. Chinedu Obienu speaking at the NBA Abuja Law Week 2026' },
       { src: '/images/events/nba-abuja-law-week-2026-1.jpg', alt: 'Guests arriving at the NBA Abuja Branch 2026 Law Week' },
     ],
     topics: ['profession', 'policy'],
