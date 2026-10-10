@@ -31,6 +31,7 @@ Every factual statement on the site comes from one of these sources:
 | History timeline | `history.ts` | OLD (2006) + CV (all other years) |
 | NBA Abuja Branch 2026 Law Week photo and caption | community page | PHOTO supplied by the firm, 9 Oct 2026, identified by the firm as taken at the Law Week. Caption: CV (Chairman, Law Week Planning Committee) |
 | News item "NBA Abuja (Unity Bar) Law Week 2026" and its four photos | `news.ts`, `public/images/events/` | CV (Chairman, Law Week Planning Committee) + PHOTO (theme "Safeguarding Nigeria's Democratic Process" read from the podium; the stage banner names Dr. Obienu as Chairman). Dates unknown, so only the year is shown |
+| Dr. Obienu's portrait in the Principal feature (home, Our People) | `people.ts` → `featurePhoto` | PHOTO supplied by the firm, 10 Oct 2026 (taken at Law Week 2026). Edited at the firm's request: background replaced with a plain studio backdrop, converted to black and white (the red stage lighting left no usable skin colour), cropped to head and shoulders. His profile page and other uses keep the original portrait |
 | Library contents (NSCC, NWLR, All England Law Reports, Halsbury's) | facilities page | PHOTO (titles readable on the spines and shelf labels) |
 | Taglines "We are here to fight against any violation with experience" and "Feel free to ask… we are here" | Expertise and Contact headings | OLD |
 

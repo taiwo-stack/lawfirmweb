@@ -24,6 +24,8 @@ export type Person = {
   memberships?: string[]
   office?: string
   photo: string
+  /** Portrait for the Principal feature block (home and Our People); falls back to `photo`. */
+  featurePhoto?: string
   email?: string
   credentials?: string[]
   focus?: string[]
@@ -72,6 +74,8 @@ export const people: Person[] = [
     ],
     // TODO: replace with the new studio portrait once confirmed.
     photo: '/images/people/chinedu-obienu.jpg',
+    // Law Week 2026 photo supplied by the firm (10 Oct 2026), re-lit on a studio background.
+    featurePhoto: '/images/people/chinedu-obienu-feature.jpg',
     email: 'chineduobienu@zestpartnersng.com',
     credentials: ['PhD (Law)', 'MCIArb (UK)', 'FICMC'],
     focus: ['Corporate & commercial', 'Energy', 'Taxation', 'Government compliance', 'Litigation', 'Dispute resolution'],
