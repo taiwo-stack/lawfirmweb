@@ -11,7 +11,7 @@ const field =
 
 /**
  * Posts to Web3Forms when VITE_WEB3FORMS_KEY is set at build time.
- * Without a key it falls back to opening the visitor's email client.
+ * Without a key it falls back to opening the visitor's email client, addressed to every firm address in site.emails.
  */
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
@@ -25,7 +25,7 @@ export function ContactForm() {
     if (!accessKey) {
       const subject = encodeURIComponent(String(data.get('subject') || 'Enquiry from website'))
       const body = encodeURIComponent(`${data.get('message')}\n\n${data.get('name')}\n${data.get('email')}\n${data.get('phone')}`)
-      window.location.href = `mailto:${site.emails[0]}?subject=${subject}&body=${body}`
+      window.location.href = `mailto:${site.emails.join(',')}?subject=${subject}&body=${body}`
       return
     }
 
