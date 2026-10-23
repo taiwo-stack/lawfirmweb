@@ -51,9 +51,9 @@ export const nav: NavItem[] = [
     label: 'Insights',
     to: '/insights/',
     children: [
-      { label: 'Firm news', to: '/insights/news/', description: 'Appointments, events and announcements' },
-      { label: 'Speaking', to: '/insights/talks/', description: 'Papers presented at conferences and trainings' },
-      { label: 'Publications', to: '/insights/publications/', description: 'Books and journal articles' },
+      { label: 'Firm news', to: '/insights/', hash: 'news', description: 'Appointments, events and announcements' },
+      { label: 'Speaking', to: '/insights/', hash: 'talks', description: 'Papers presented at conferences and trainings' },
+      { label: 'Publications', to: '/insights/', hash: 'publications', description: 'Books and journal articles' },
     ],
   },
   { label: 'Contact', to: '/contact/' },

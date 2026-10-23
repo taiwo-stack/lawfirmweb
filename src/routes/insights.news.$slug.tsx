@@ -52,7 +52,7 @@ function NewsPage() {
     <>
       <section className="border-b border-line bg-paper">
         <Container className="pt-10 pb-14">
-          <Breadcrumbs items={[{ label: 'Insights', to: '/insights/' }, { label: 'Firm news', to: '/insights/news/' }, { label: item.title }]} />
+          <Breadcrumbs items={[{ label: 'Insights', to: '/insights/' }, { label: 'Firm news', to: '/insights/', hash: 'news' }, { label: item.title }]} />
           <div className="rise mx-auto max-w-3xl pt-6 sm:pt-10">
             <p className="eyebrow">Firm news · {item.when}</p>
             <h1 className="mt-6 text-4xl leading-[1.08] sm:text-5xl">{item.title}</h1>

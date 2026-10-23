@@ -156,7 +156,7 @@ function blocksFor(p: Person): Block[] {
         <>
           <TalkTimeline items={talks.slice(0, 6)} />
           {talks.length > 6 && (
-            <ButtonLink to="/insights/talks/" variant="ghost" className="mt-10">
+            <ButtonLink to="/insights/" hash="talks" variant="ghost" className="mt-10">
               All {talks.length} papers
             </ButtonLink>
           )}

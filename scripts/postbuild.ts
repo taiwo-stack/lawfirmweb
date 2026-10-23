@@ -41,6 +41,10 @@ const redirects: Record<string, string> = {
   'about/history': 'about/#history',
   'about/facilities': 'about/#facilities',
   'about/community': 'about/#community',
+  // Insights pages were merged into one page; old talk/publication anchors are kept.
+  'insights/news': 'insights/#news',
+  'insights/talks': 'insights/#talks',
+  'insights/publications': 'insights/#publications',
 }
 for (const p of practices) for (const old of p.legacy) redirects[old] = `practice-areas/${p.slug}/`
 
@@ -50,7 +54,7 @@ const page = (to: string) => `<!doctype html>
 <link rel="canonical" href="https://zestpartnersng.com/${to.replace(/#.*/, '')}">
 <meta name="robots" content="noindex">
 <meta http-equiv="refresh" content="0; url=${base}${to}">
-<script>location.replace(${JSON.stringify(base + to)}${to.includes('#') ? '' : ' + location.hash'})</script>
+<script>location.replace(${JSON.stringify(base + to.replace(/#.*/, ''))} + (location.hash || ${JSON.stringify(to.match(/#.*/)?.[0] ?? '')}))</script>
 </head><body><a href="${base}${to}">This page has moved.</a></body></html>
 `
 

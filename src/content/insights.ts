@@ -4,18 +4,6 @@ import { inferTopics, type Topic } from './topics'
 
 export type InsightKind = 'news' | 'talk' | 'publication'
 
-export const kindLabels: Record<InsightKind, string> = {
-  news: 'Firm news',
-  talk: 'Speaking',
-  publication: 'Publications',
-}
-
-export const kindRoutes = {
-  news: '/insights/news/',
-  talk: '/insights/talks/',
-  publication: '/insights/publications/',
-} as const satisfies Record<InsightKind, string>
-
 export type Insight = {
   id: string
   kind: InsightKind
@@ -30,10 +18,10 @@ export type Insight = {
   author?: string
   authorSlug?: string
   image?: string
-  /** Where the item lives: its own article page, or its entry on the Speaking/Publications page. */
+  /** Where the item lives: its own article page, or its entry on the Insights page. */
   href:
     | { to: '/insights/news/$slug/'; params: { slug: string } }
-    | { to: '/insights/talks/' | '/insights/publications/'; hash: string }
+    | { to: '/insights/'; hash: string }
 }
 
 const yearOf = (s: string) => s.match(/(19|20)\d{2}(?!.*(19|20)\d{2})/)?.[0] ?? '0000'
@@ -69,7 +57,7 @@ function build(): Insight[] {
         topics: inferTopics(t.title, t.event),
         author,
         authorSlug: p.slug,
-        href: { to: '/insights/talks/', hash: id },
+        href: { to: '/insights/', hash: id },
       })
     })
     // Published works only. Unpublished theses stay on the profile under "Education & research".
@@ -89,7 +77,7 @@ function build(): Insight[] {
         topics: inferTopics(b.title, b.detail),
         author,
         authorSlug: p.slug,
-        href: { to: '/insights/publications/', hash: id },
+        href: { to: '/insights/', hash: id },
       })
     })
   }

@@ -65,7 +65,7 @@ export function Footer() {
           <ul className="mt-3 text-sm sm:mt-5 sm:space-y-3">
             {insightTabs.slice(1).map((n) => (
               <li key={n.label}>
-                <Link to={n.to} search={n.search} className="block py-2.5 hover:text-paper sm:inline sm:py-0">
+                <Link to={n.to} search={n.search} hash={n.hash} className="block py-2.5 hover:text-paper sm:inline sm:py-0">
                   {n.label}
                 </Link>
               </li>

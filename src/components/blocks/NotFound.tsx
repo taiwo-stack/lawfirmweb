@@ -5,12 +5,15 @@ import { ButtonLink } from '~/components/ui/Button'
 import { Container } from '~/components/ui/Container'
 import { site, type NavChild } from '~/content/site'
 
-// Pages merged into the single About page. The build also writes redirect stubs for these;
+// Pages merged into the single About and Insights pages. The build also writes redirect stubs for these;
 // forwarding here covers the dev server and any URL variant the stubs miss.
-const moved: Record<string, string> = {
-  '/about/history': 'history',
-  '/about/facilities': 'facilities',
-  '/about/community': 'community',
+const moved: Record<string, { to: '/about/' | '/insights/'; hash: string }> = {
+  '/about/history': { to: '/about/', hash: 'history' },
+  '/about/facilities': { to: '/about/', hash: 'facilities' },
+  '/about/community': { to: '/about/', hash: 'community' },
+  '/insights/news': { to: '/insights/', hash: 'news' },
+  '/insights/talks': { to: '/insights/', hash: 'talks' },
+  '/insights/publications': { to: '/insights/', hash: 'publications' },
 }
 
 const suggestions: NavChild[] = [
@@ -21,13 +24,14 @@ const suggestions: NavChild[] = [
 ]
 
 export function NotFound() {
-  const { pathname } = useLocation()
+  const { pathname, hash: oldHash } = useLocation()
   const navigate = useNavigate()
-  const hash = moved[pathname.replace(/\/$/, '')]
+  const target = moved[pathname.replace(/\/$/, '')]
 
   useEffect(() => {
-    if (hash) navigate({ to: '/about/', hash, replace: true })
-  }, [hash, navigate])
+    // Keep an old deep link such as /insights/talks/#talk-… pointing at the same entry.
+    if (target) navigate({ to: target.to, hash: oldHash || target.hash, replace: true })
+  }, [target, oldHash, navigate])
 
   useEffect(() => {
     document.title = 'Page not found | Zest Partners'
@@ -39,7 +43,7 @@ export function NotFound() {
   }, [])
 
   // Blank while forwarding, so the 404 message does not flash.
-  if (hash) return <div className="min-h-[60vh]" />
+  if (target) return <div className="min-h-[60vh]" />
 
   return (
     <Container className="py-24 sm:py-32">

@@ -91,9 +91,10 @@ function About() {
     <>
       <PageHeader
         eyebrow="The firm"
+        image="/images/brand/library-wide.jpg"
         title={
           <>
-            Established {site.founded}. <span className="text-muted">Corporate practice and litigation.</span>
+            Established {site.founded}. <span className="text-paper/60">Corporate practice and litigation.</span>
           </>
         }
         intro="Zest Partners is a full-service corporate practice and litigation law firm established in Nigeria, with a selection of lawyers of outstanding training and experience."

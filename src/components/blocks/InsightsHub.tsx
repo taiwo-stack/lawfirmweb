@@ -1,67 +1,62 @@
 import { Link } from '@tanstack/react-router'
 import { cardMuted, cardSurface } from '~/lib/card'
 import { ScrollRow } from '~/components/ui/ChipRow'
-import { ArrowUpRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Section } from '~/components/ui/Container'
-import { ButtonLink } from '~/components/ui/Button'
 import { Img } from '~/components/ui/Img'
 import { PageHeader } from './PageHeader'
-import { SectionTabs } from './SectionTabs'
 import { InsightCard } from './InsightCard'
 import { PublicationList, TalkTimeline } from './InsightLists'
 import { CTASection } from './CTASection'
-import { byKind, insights, kindLabels, kindRoutes, type InsightKind } from '~/content/insights'
+import { byKind } from '~/content/insights'
 import { news } from '~/content/news'
-import { insightTabs } from '~/content/site'
 import { topics, type Topic } from '~/content/topics'
 import { cn } from '~/lib/utils'
-import type { Crumb } from './Breadcrumbs'
 
 export const validateTopic = (s: { topic?: unknown }): { topic?: Topic } => ({
   topic: typeof s.topic === 'string' && s.topic in topics ? (s.topic as Topic) : undefined,
 })
 
-const intro: Record<InsightKind | 'all', { title: string; intro: string }> = {
-  all: {
-    title: 'News & insights.',
-    intro: `${byKind('news').length} firm announcements, ${byKind('publication').length} published works and ${byKind('talk').length} papers presented at conferences and trainings.`,
-  },
-  news: { title: 'Firm news.', intro: 'Appointments, events and publications from Zest Partners.' },
-  talk: { title: 'Speaking.', intro: `${byKind('talk').length} papers presented at conferences, retreats and training programmes since 2007.` },
-  publication: { title: 'Publications.', intro: 'Books, journal articles and chapters.' },
-}
-
-/** "View all" shown after the content on phones (it sits in the heading on larger screens). */
-function MobileViewAll({ to, count }: { to: (typeof kindRoutes)[InsightKind]; count: number }) {
+function Heading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
   return (
-    <ButtonLink to={to} variant="ghost" className="mt-8 md:hidden">
-      View all {count}
-    </ButtonLink>
-  )
-}
-
-function Heading({ title, to, count }: { title: string; to: (typeof kindRoutes)[InsightKind]; count: number }) {
-  return (
-    <div className="flex flex-col justify-between gap-4 border-b border-line pb-6 sm:flex-row sm:items-end">
-      <h2 className="text-3xl sm:text-4xl">{title}</h2>
-      <div className="hidden md:block">
-        <ButtonLink to={to} variant="ghost">
-          View all {count}
-        </ButtonLink>
-      </div>
+    <div className="border-b border-line pb-6">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2 className="mt-6 text-3xl sm:text-4xl">{title}</h2>
+      <p className="mt-4 max-w-2xl text-muted">{intro}</p>
     </div>
   )
 }
 
-/** Landing page: featured news, then each collection with a link to its full page. */
-function Landing() {
+/**
+ * The single Insights page: firm news, publications and speaking, each a section (#news, #publications, #talks).
+ * `topic` comes from the URL and filters the talks; it is applied after hydration.
+ */
+export function InsightsHub({ topic: urlTopic }: { topic?: Topic }) {
+  // Pages are prerendered without a topic; apply the URL filter only after hydration so markup matches.
+  const [hydrated, setHydrated] = useState(false)
+  useEffect(() => setHydrated(true), [])
+  const topic = hydrated ? urlTopic : undefined
+
   const [featured, ...moreNews] = byKind('news')
   const featuredItem = news.find((n) => `news-${n.slug}` === featured.id)!
+  const publications = byKind('publication')
+  const talks = byKind('talk')
+  const shownTalks = talks.filter((i) => !topic || i.topics.includes(topic))
+  const usedTopics = (Object.keys(topics) as Topic[]).filter((t) => talks.some((i) => i.topics.includes(t)))
+  const chip = (active: boolean) =>
+    cn('rounded-full border px-4 py-1.5 text-sm transition-colors', active ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink')
+
   return (
     <>
-      <Section>
-        <div className="grid gap-6 lg:grid-cols-12">
+      <PageHeader
+        eyebrow="Insights"
+        title="News & insights."
+        intro={`${byKind('news').length} firm announcements, ${publications.length} published works and ${talks.length} papers presented at conferences and trainings.`}
+      />
+
+      <Section id="news">
+        <Heading eyebrow="Firm news" title="Appointments, events and announcements." intro="News from Zest Partners and our people." />
+        <div className="mt-10 grid gap-6 lg:grid-cols-12">
           <Link {...featured.href} className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper lg:col-span-7">
             {featuredItem.image && (
               <Img
@@ -74,7 +69,7 @@ function Landing() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
             <div className="relative">
               <p className="text-xs font-semibold tracking-[0.15em] text-brass uppercase">Latest · {featured.when}</p>
-              <h2 className="mt-4 max-w-2xl font-display text-3xl leading-snug">{featured.title}</h2>
+              <h3 className="mt-4 max-w-2xl font-display text-3xl leading-snug">{featured.title}</h3>
               <p className="mt-4 max-w-xl text-paper/75">{featured.detail}</p>
             </div>
           </Link>
@@ -87,92 +82,61 @@ function Landing() {
                 </span>
               </Link>
             ))}
-            <Link to="/insights/news/" className="inline-flex items-center gap-2 py-2 text-sm font-semibold hover:text-green">
-              All firm news <ArrowUpRight className="size-4" aria-hidden />
-            </Link>
           </div>
         </div>
+        {moreNews.length > 3 && (
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {moreNews.slice(3).map((i) => (
+              <InsightCard key={i.id} item={i} />
+            ))}
+          </div>
+        )}
       </Section>
 
-      <Section tone="deep">
-        <Heading title="Publications" to="/insights/publications/" count={byKind('publication').length} />
+      <Section id="publications" tone="deep">
+        <Heading eyebrow="Publications" title="Books, journal articles and chapters." intro={`${publications.length} published works by our lawyers.`} />
         <div className="mt-10">
-          <PublicationList items={byKind('publication')} />
+          <PublicationList items={publications} />
         </div>
-        <MobileViewAll to="/insights/publications/" count={byKind('publication').length} />
       </Section>
 
-      <Section>
-        <Heading title="Recent speaking" to="/insights/talks/" count={byKind('talk').length} />
-        <div className="mt-10">
-          <TalkTimeline items={byKind('talk').slice(0, 6)} showSpeaker />
-        </div>
-        <MobileViewAll to="/insights/talks/" count={byKind('talk').length} />
-      </Section>
-    </>
-  )
-}
-
-/** Listing page for one collection. `topic` comes from the URL and is applied after hydration. */
-export function InsightsHub({ kind, topic: urlTopic }: { kind?: InsightKind; topic?: Topic }) {
-  // Pages are prerendered without a topic; apply the URL filter only after hydration so markup matches.
-  const [hydrated, setHydrated] = useState(false)
-  useEffect(() => setHydrated(true), [])
-  const topic = hydrated ? urlTopic : undefined
-
-  const here = insightTabs.find((t) => t.to === (kind ? kindRoutes[kind] : '/insights/'))!
-  const crumbs: Crumb[] | undefined = kind ? [{ label: 'Insights', to: '/insights/' }, { label: here.label }] : undefined
-  const copy = intro[kind ?? 'all']
-
-  const pool = kind ? byKind(kind) : insights
-  const list = pool.filter((i) => !topic || i.topics.includes(topic))
-  const usedTopics = (Object.keys(topics) as Topic[]).filter((t) => pool.some((i) => i.topics.includes(t)))
-  const chip = (active: boolean) =>
-    cn('rounded-full border px-4 py-1.5 text-sm transition-colors', active ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink')
-
-  return (
-    <>
-      <PageHeader crumbs={crumbs} eyebrow={kind ? kindLabels[kind] : 'Insights'} title={copy.title} intro={copy.intro} />
-      <SectionTabs items={insightTabs} label="Insights" />
-
-      {!kind && !topic ? (
-        <Landing />
-      ) : (
-        <Section>
-          {/* Topic filters only where there is enough to filter: talks, and the all-insights view once a topic is chosen. */}
-          {(kind === 'talk' || !kind) && usedTopics.length > 1 && (
-            <div className="mb-12">
-              <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-muted uppercase">Filter by topic</p>
-              <ScrollRow label="Filter by topic">
-              <Link to={here.to} search={{ topic: undefined }} activeOptions={{ explicitUndefined: true }} className={chip(!topic)}>
+      <Section id="talks">
+        <Heading
+          eyebrow="Speaking"
+          title="Papers presented locally and internationally."
+          intro={`${talks.length} papers presented at conferences, retreats and training programmes since 2007.`}
+        />
+        {usedTopics.length > 1 && (
+          <div className="mt-10">
+            <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-muted uppercase">Filter by topic</p>
+            <ScrollRow label="Filter by topic">
+              <Link
+                to="/insights/"
+                search={{ topic: undefined }}
+                hash="talks"
+                resetScroll={false}
+                activeOptions={{ explicitUndefined: true }}
+                className={chip(!topic)}
+              >
                 All topics
               </Link>
               {usedTopics.map((t) => (
-                <Link key={t} to={here.to} search={{ topic: t }} className={chip(topic === t)}>
+                <Link key={t} to="/insights/" search={{ topic: t }} hash="talks" resetScroll={false} className={chip(topic === t)}>
                   {topics[t]}
                 </Link>
               ))}
-              </ScrollRow>
-            </div>
-          )}
-          <h2 className="sr-only">{topic ? `${topics[topic]}: ${list.length} items` : `${list.length} items`}</h2>
-          {topic && (
-            <p className="mb-8 text-sm text-muted" aria-live="polite">
-              {list.length} {kind !== 'talk' ? (list.length === 1 ? 'item' : 'items') : list.length === 1 ? 'paper' : 'papers'} on{' '}
-              {topics[topic]}
-            </p>
-          )}
-          {(kind === 'news' || !kind) && (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((i) => (
-                <InsightCard key={i.id} item={i} />
-              ))}
-            </div>
-          )}
-          {kind === 'talk' && <TalkTimeline items={list} showSpeaker />}
-          {kind === 'publication' && <PublicationList items={list} />}
-        </Section>
-      )}
+            </ScrollRow>
+          </div>
+        )}
+        {topic && (
+          <p className="mt-8 text-sm text-muted" aria-live="polite">
+            {shownTalks.length} {shownTalks.length === 1 ? 'paper' : 'papers'} on {topics[topic]}
+          </p>
+        )}
+        <div className="mt-10">
+          <TalkTimeline items={shownTalks} showSpeaker />
+        </div>
+      </Section>
 
       <CTASection />
     </>
