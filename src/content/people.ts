@@ -295,34 +295,6 @@ export const people: Person[] = [
       'Kumawuese is passionate about legal research and writing and has authored several papers. She has also participated as a facilitator in professional training programmes for corporate institutions. Her professional approach is founded on diligence, integrity, empathy and a strong commitment to those she serves. Kumawuese believes in using the law as a positive instrument for humanity.',
     ],
   },
-  {
-    slug: 'chinagorom-oluchi-uwandu',
-    name: 'Chinagorom Oluchi Uwandu',
-    role: 'Senior Associate',
-    group: 'Senior Associates',
-    // docs/sources/chinagorom-oluchi-uwandu-profile.md. Practice pages matching her stated areas; Labour Law has no
-    // practice page, so it appears in the bio only.
-    practices: ['litigation-adr', 'company-law', 'contracts-commercial', 'property-real-estate'],
-    memberships: ['Associate, Institute of Chartered Mediators and Conciliators (AICMC)', 'Certified Mediator and Conciliator', 'Called to the Nigerian Bar'],
-    photo: '/images/people/chinagorom-oluchi-uwandu.jpg',
-    credentials: ['MIAD', 'AICMC'],
-    focus: ['Alternative dispute resolution', 'Corporate & commercial', 'Property', 'Labour law'],
-    // Profile re-supplied by the firm (23 Oct 2026), structured like the Principal's.
-    highlights: [
-      { value: 'Counsel', label: 'Contentious and non-contentious matters' },
-      { value: 'MIAD', label: 'International Affairs and Diplomacy, Ahmadu Bello University' },
-      { value: 'AICMC', label: 'Institute of Chartered Mediators and Conciliators' },
-      { value: 'ADR', label: 'Certified Mediator and Conciliator' },
-    ],
-    academic: [
-      { title: 'Professional Master’s Degree in International Affairs and Diplomacy (MIAD)', detail: 'Ahmadu Bello University' },
-    ],
-    bio: [
-      'Chinagorom Oluchi Uwandu is a Senior Associate at Zest Partners, a firm of Legal Practitioners based in Abuja. She has practised for a number of years, acting as Counsel for individuals, businesses and corporate institutions in contentious and non-contentious matters. She also advises on alternative dispute resolution, corporate and commercial law, property, labour law and general legal matters.',
-      'She is called to the Nigerian Bar and holds a Professional Master’s Degree in International Affairs and Diplomacy (MIAD) from Ahmadu Bello University. She is a Certified Mediator and Conciliator and an Associate of the Institute of Chartered Mediators and Conciliators (AICMC). Her interest is in how law, advocacy and diplomacy work together to resolve difficult disputes.',
-      'She has participated in facilitating professional training sessions for corporate institutions. Chinagorom brings thorough research, careful drafting and strong advocacy, and aims for excellence in every matter she handles. Her approach is built on diligence, integrity and sound judgment, with a clear focus on securing the best possible outcome for clients.',
-    ],
-  },
 ]
 
 export const personBySlug = (slug: string) => people.find((p) => p.slug === slug)

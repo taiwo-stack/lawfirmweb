@@ -7,8 +7,6 @@ Every factual statement on the site comes from one of these sources:
 | **OLD** | The old WordPress site, zestpartnersng.com (scraped 1 Oct 2026, kept in `docs/legacy-site-content.md`) |
 | **CV** | *DR CHINEDU FOR WEBSITE.pdf*, the Managing Partner's profile supplied by the firm |
 | **NENCHI** | Kumawuese Ruth Nenchi's profile, supplied by the firm (`docs/sources/kumawuese-ruth-nenchi-profile.md`) |
-| Chinagorom Oluchi Uwandu's profile, memberships and portrait (Senior Associate) | `people.ts`, `public/images/people/` | **UWANDU**: profile and studio portrait supplied by the firm, 9 Oct 2026. Her practice-page links follow her stated areas of practice |
-| **UWANDU** | Chinagorom Oluchi Uwandu's profile, supplied by the firm (`docs/sources/chinagorom-oluchi-uwandu-profile.md`) |
 | **PHOTO** | Photos supplied by the firm, or real photos from the old site's media library (library shelves, office building, AFBA podium) |
 
 ## Where each piece of content comes from
