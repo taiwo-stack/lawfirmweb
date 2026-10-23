@@ -37,16 +37,20 @@ const redirects: Record<string, string> = {
   'our-team': 'people/',
   blog: '',
   'sample-page': '',
+  // The Firm pages were merged into one scrolling About page.
+  'about/history': 'about/#history',
+  'about/facilities': 'about/#facilities',
+  'about/community': 'about/#community',
 }
 for (const p of practices) for (const old of p.legacy) redirects[old] = `practice-areas/${p.slug}/`
 
 const page = (to: string) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Redirecting…</title>
-<link rel="canonical" href="https://zestpartnersng.com/${to}">
+<link rel="canonical" href="https://zestpartnersng.com/${to.replace(/#.*/, '')}">
 <meta name="robots" content="noindex">
 <meta http-equiv="refresh" content="0; url=${base}${to}">
-<script>location.replace(${JSON.stringify(base + to)} + location.hash)</script>
+<script>location.replace(${JSON.stringify(base + to)}${to.includes('#') ? '' : ' + location.hash'})</script>
 </head><body><a href="${base}${to}">This page has moved.</a></body></html>
 `
 

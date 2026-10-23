@@ -31,7 +31,7 @@ export const site = {
 } as const
 
 export type RoutePath = NonNullable<LinkProps['to']>
-export type NavChild = { label: string; to: RoutePath; description: string; search?: Record<string, string> }
+export type NavChild = { label: string; to: RoutePath; description: string; search?: Record<string, string>; hash?: string }
 export type NavItem = { label: string; to: RoutePath; children?: NavChild[]; mega?: boolean }
 
 export const nav: NavItem[] = [
@@ -40,9 +40,9 @@ export const nav: NavItem[] = [
     to: '/about/',
     children: [
       { label: 'About the firm', to: '/about/', description: 'Who we are, our vision and mission' },
-      { label: 'Our history', to: '/about/history/', description: 'Milestones since 2006' },
-      { label: 'Facilities & library', to: '/about/facilities/', description: 'Our office, law library and technology' },
-      { label: 'Pro bono & community', to: '/about/community/', description: 'Legal aid, public interest and service to the Bar' },
+      { label: 'Our history', to: '/about/', hash: 'history', description: 'Milestones since 2006' },
+      { label: 'Facilities & library', to: '/about/', hash: 'facilities', description: 'Our office, law library and technology' },
+      { label: 'Pro bono & community', to: '/about/', hash: 'community', description: 'Legal aid, public interest and service to the Bar' },
     ],
   },
   { label: 'Expertise', to: '/practice-areas/', mega: true },

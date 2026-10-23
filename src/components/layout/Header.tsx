@@ -91,7 +91,8 @@ function DesktopItem({ item }: { item: NavItem }) {
                 <Link
                   to={c.to}
                   search={c.search}
-                  activeOptions={{ exact: true, includeSearch: !!c.search }}
+                  hash={c.hash}
+                  activeOptions={{ exact: true, includeSearch: !!c.search, includeHash: true }}
                   className="block rounded px-4 py-3 transition-colors hover:bg-paper-deep"
                   activeProps={{ className: 'bg-paper-deep' }}
                 >
@@ -156,7 +157,7 @@ function MobileNav() {
                 <ul>
                   {item.children!.map((c) => (
                     <li key={c.label}>
-                      <Link to={c.to} search={c.search} className={sub}>
+                      <Link to={c.to} search={c.search} hash={c.hash} className={sub}>
                         {c.label}
                       </Link>
                     </li>

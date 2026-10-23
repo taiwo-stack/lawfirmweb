@@ -325,7 +325,7 @@ function Home() {
               Our in-house library holds Nigerian and English law reports and authorities, and our modern IT facilities let us
               deliver legal services in real time.
             </p>
-            <ButtonLink to="/about/facilities/" variant="ghost" className="mt-8">
+            <ButtonLink to="/about/" hash="facilities" variant="ghost" className="mt-8">
               Facilities & library
             </ButtonLink>
           </Reveal>

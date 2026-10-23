@@ -14,9 +14,6 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ShellRouteImport } from './routes/shell'
 import { Route as AboutIndexRouteImport } from './routes/about.index'
-import { Route as AboutCommunityRouteImport } from './routes/about.community'
-import { Route as AboutFacilitiesRouteImport } from './routes/about.facilities'
-import { Route as AboutHistoryRouteImport } from './routes/about.history'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as InsightsPublicationsRouteImport } from './routes/insights.publications'
 import { Route as InsightsTalksRouteImport } from './routes/insights.talks'
@@ -50,21 +47,6 @@ const ShellRoute = ShellRouteImport.update({
 const AboutIndexRoute = AboutIndexRouteImport.update({
   id: '/about/',
   path: '/about/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutCommunityRoute = AboutCommunityRouteImport.update({
-  id: '/about/community',
-  path: '/about/community',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutFacilitiesRoute = AboutFacilitiesRouteImport.update({
-  id: '/about/facilities',
-  path: '/about/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutHistoryRoute = AboutHistoryRouteImport.update({
-  id: '/about/history',
-  path: '/about/history',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
@@ -118,9 +100,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/shell': typeof ShellRoute
-  '/about/community': typeof AboutCommunityRoute
-  '/about/facilities': typeof AboutFacilitiesRoute
-  '/about/history': typeof AboutHistoryRoute
   '/insights/publications': typeof InsightsPublicationsRoute
   '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
@@ -137,9 +116,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/shell': typeof ShellRoute
-  '/about/community': typeof AboutCommunityRoute
-  '/about/facilities': typeof AboutFacilitiesRoute
-  '/about/history': typeof AboutHistoryRoute
   '/insights/publications': typeof InsightsPublicationsRoute
   '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
@@ -157,9 +133,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/shell': typeof ShellRoute
-  '/about/community': typeof AboutCommunityRoute
-  '/about/facilities': typeof AboutFacilitiesRoute
-  '/about/history': typeof AboutHistoryRoute
   '/insights/publications': typeof InsightsPublicationsRoute
   '/insights/talks': typeof InsightsTalksRoute
   '/people/$slug': typeof PeopleSlugRoute
@@ -178,9 +151,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/privacy'
     | '/shell'
-    | '/about/community'
-    | '/about/facilities'
-    | '/about/history'
     | '/insights/publications'
     | '/insights/talks'
     | '/people/$slug'
@@ -197,9 +167,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/privacy'
     | '/shell'
-    | '/about/community'
-    | '/about/facilities'
-    | '/about/history'
     | '/insights/publications'
     | '/insights/talks'
     | '/people/$slug'
@@ -216,9 +183,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/privacy'
     | '/shell'
-    | '/about/community'
-    | '/about/facilities'
-    | '/about/history'
     | '/insights/publications'
     | '/insights/talks'
     | '/people/$slug'
@@ -236,9 +200,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
   ShellRoute: typeof ShellRoute
-  AboutCommunityRoute: typeof AboutCommunityRoute
-  AboutFacilitiesRoute: typeof AboutFacilitiesRoute
-  AboutHistoryRoute: typeof AboutHistoryRoute
   InsightsPublicationsRoute: typeof InsightsPublicationsRoute
   InsightsTalksRoute: typeof InsightsTalksRoute
   PeopleSlugRoute: typeof PeopleSlugRoute
@@ -286,27 +247,6 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about/'
       preLoaderRoute: typeof AboutIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about/community': {
-      id: '/about/community'
-      path: '/about/community'
-      fullPath: '/about/community'
-      preLoaderRoute: typeof AboutCommunityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about/facilities': {
-      id: '/about/facilities'
-      path: '/about/facilities'
-      fullPath: '/about/facilities'
-      preLoaderRoute: typeof AboutFacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about/history': {
-      id: '/about/history'
-      path: '/about/history'
-      fullPath: '/about/history'
-      preLoaderRoute: typeof AboutHistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights/': {
@@ -380,9 +320,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
   ShellRoute: ShellRoute,
-  AboutCommunityRoute: AboutCommunityRoute,
-  AboutFacilitiesRoute: AboutFacilitiesRoute,
-  AboutHistoryRoute: AboutHistoryRoute,
   InsightsPublicationsRoute: InsightsPublicationsRoute,
   InsightsTalksRoute: InsightsTalksRoute,
   PeopleSlugRoute: PeopleSlugRoute,
