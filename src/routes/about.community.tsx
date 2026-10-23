@@ -78,10 +78,10 @@ function Community() {
             <h2 className="mt-6 text-4xl leading-tight">Leadership positions held.</h2>
             <figure className="mt-10">
               <Img
-                src={'/images/events/nba-abuja-law-week-2026-1.jpg'}
-                alt="Guests arriving at the NBA Abuja Branch 2026 Law Week"
+                src={'/images/events/nba-abuja-law-week-2026-stage.jpg'}
+                alt="Guests on stage at the NBA Abuja Branch 2026 Law Week"
                 sizes="(min-width: 1024px) 30vw, 100vw"
-                className="aspect-[4/5] w-full object-cover object-top"
+                className="aspect-[3/2] w-full object-cover"
               />
               <figcaption className="mt-3 text-sm text-muted">
                 NBA Abuja Branch 2026 Law Week. Dr. Chinedu Obienu chaired the Law Week Planning Committee.{' '}
