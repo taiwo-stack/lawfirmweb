@@ -363,13 +363,12 @@ function Home() {
               params={{ slug: featuredNews.slug }}
               className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden bg-ink p-8 text-paper"
             >
-              {featuredNews.image && (
-                <Img
-                  src={featuredNews.image}
-                  alt=""
-                  className="absolute inset-0 size-full object-cover object-top opacity-60 transition duration-700 group-hover:scale-[1.03]"
-                />
-              )}
+              {/* Photo chosen by the firm for this card (Dr. Obienu at the Law Week podium); the article keeps its own. */}
+              <Img
+                src="/images/events/about-principal-podium.jpg"
+                alt=""
+                className="absolute inset-0 size-full object-cover object-[35%_center] opacity-60 transition duration-700 group-hover:scale-[1.03]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
               <div className="relative">
                 <p className="text-xs font-semibold tracking-[0.15em] text-brass-soft uppercase">Featured</p>
