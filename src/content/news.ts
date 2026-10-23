@@ -32,7 +32,7 @@ export const news: NewsItem[] = [
       'Through its Human Rights and Public Interest Litigation department, Zest Partners offers free legal services to poor and indigent citizens whose rights have been grossly infringed.',
       'Dr. Obienu also chairs the NBA Abuja Branch 2026 Law Week Planning Committee.',
     ],
-    image: '/images/people/chinedu-obienu.jpg',
+    image: '/images/people/chinedu-obienu-profile.jpg',
     imageAlt: 'Dr. Chinedu Obienu',
     topics: ['profession', 'policy'],
     people: ['chinedu-obienu'],

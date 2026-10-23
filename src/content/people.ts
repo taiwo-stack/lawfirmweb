@@ -72,10 +72,9 @@ export const people: Person[] = [
       'Accredited Management Trainer and Consultant, Nigeria Council for Management Development (NCMD)',
       'Alumnus, Haggai Leadership Institute, Hawaii, USA',
     ],
-    // Studio portrait supplied by the firm (23 Oct 2026).
+    // Studio portrait supplied by the firm (23 Oct 2026), used everywhere he appears.
     photo: '/images/people/chinedu-obienu-profile.jpg',
-    // Match the studio portrait supplied for the profile and home feature.
-    featurePhoto: '/images/people/chinedu-obienu-feature.jpg',
+    featurePhoto: '/images/people/chinedu-obienu-profile.jpg',
     email: 'chineduobienu@zestpartnersng.com',
     credentials: ['PhD (Law)', 'MCIArb (UK)', 'FICMC'],
     focus: ['Corporate & commercial', 'Energy', 'Taxation', 'Government compliance', 'Litigation', 'Dispute resolution'],
