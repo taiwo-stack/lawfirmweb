@@ -13,7 +13,7 @@ export function PersonCard({ person, compact = false }: { person: Person; compac
           src={person.photo}
           alt={displayName(person)}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="size-full object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+          className="size-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
         />
       </div>
       {!compact && <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-brass uppercase">{person.role}</p>}

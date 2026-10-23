@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-import { HeadContent, Outlet, Scripts, createRootRoute, useRouter } from '@tanstack/react-router'
+import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import appCss from '~/styles/app.css?url'
 import { Header } from '~/components/layout/Header'
@@ -54,9 +54,9 @@ export const Route = createRootRoute({
   notFoundComponent: NotFound,
 })
 
-// The SPA shell is published as 404.html, so it renders the not-found page directly.
+// Render the active route normally. The shell/not-found fallback is only for true missing routes.
 function RootOutlet() {
-  return useRouter().isShell() ? <NotFound /> : <Outlet />
+  return <Outlet />
 }
 
 function RootDocument({ children }: { children: ReactNode }) {
