@@ -29,7 +29,7 @@ function People() {
               </p>
             )}
           </div>
-          {s.group === 'Principal' ? (
+          {s.group === 'Principal' || s.group === 'Partners' ? (
             <div className="mt-12 space-y-16">
               {s.list.map((p) => (
                 <PrincipalFeature key={p.slug} person={p} />

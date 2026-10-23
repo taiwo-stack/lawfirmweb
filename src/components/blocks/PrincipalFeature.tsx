@@ -3,8 +3,9 @@ import { Email } from '~/components/ui/Email'
 import { ButtonLink } from '~/components/ui/Button'
 import { Img } from '~/components/ui/Img'
 import { displayName, type Person } from '~/content/people'
+import { site } from '~/content/site'
 
-/** The head of the firm, presented as a feature block above the rest of the directory. */
+/** A senior lawyer (the Principal, or a Partner), presented as a feature block above the rest of the directory. */
 export function PrincipalFeature({ person }: { person: Person }) {
   const name = displayName(person)
   return (
@@ -18,7 +19,7 @@ export function PrincipalFeature({ person }: { person: Person }) {
         />
       </div>
       <div className="flex flex-col justify-center md:col-span-7">
-        <p className="eyebrow">{person.role}</p>
+        <p className="eyebrow">{`${person.role}, ${site.name}`}</p>
         <h3 className="mt-6 text-4xl leading-tight lg:text-5xl">{name}</h3>
         {person.credentials && <p className="mt-4 text-lg tracking-wide text-muted">{person.credentials.join(' · ')}</p>}
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/80">{person.bio[0]}</p>

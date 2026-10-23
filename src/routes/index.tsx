@@ -417,11 +417,19 @@ function Home() {
             .map((s) => (
               <div key={s.group}>
                 <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">{s.group}</h3>
-                <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                  {s.list.map((p) => (
-                    <PersonCard key={p.slug} person={p} />
-                  ))}
-                </div>
+                {s.group === 'Partners' ? (
+                  <div className="mt-10 space-y-16">
+                    {s.list.map((p) => (
+                      <PrincipalFeature key={p.slug} person={p} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                    {s.list.map((p) => (
+                      <PersonCard key={p.slug} person={p} />
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
         </div>
