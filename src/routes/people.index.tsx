@@ -1,8 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Section } from '~/components/ui/Container'
-import { Reveal } from '~/components/ui/Reveal'
 import { PageHeader } from '~/components/blocks/PageHeader'
-import { PersonCard } from '~/components/blocks/PersonCard'
 import { PrincipalFeature } from '~/components/blocks/PrincipalFeature'
 import { CTASection } from '~/components/blocks/CTASection'
 import { people, personGroups } from '~/content/people'
@@ -29,21 +27,12 @@ function People() {
               </p>
             )}
           </div>
-          {s.group === 'Principal' || s.group === 'Partners' ? (
-            <div className="mt-12 space-y-16">
-              {s.list.map((p) => (
-                <PrincipalFeature key={p.slug} person={p} />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-              {s.list.map((p, j) => (
-                <Reveal key={p.slug} delay={j * 0.08}>
-                  <PersonCard person={p} />
-                </Reveal>
-              ))}
-            </div>
-          )}
+          {/* Everyone gets the full feature layout here; the home page keeps cards for associates. */}
+          <div className="mt-12 space-y-16">
+            {s.list.map((p) => (
+              <PrincipalFeature key={p.slug} person={p} />
+            ))}
+          </div>
         </Section>
       ))}
       <CTASection />
