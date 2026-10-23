@@ -85,10 +85,11 @@ function About() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
             <Img
-              src={'/images/office/library-4.jpg'}
-              alt="Inside the Zest Partners law library"
+              src={'/images/events/about-principal-podium.jpg'}
+              alt="Dr. Chinedu Obienu speaking at the podium"
               sizes="(min-width: 1024px) 40vw, 100vw"
-              className="aspect-[4/5] w-full object-cover lg:sticky lg:top-40"
+              // He stands left of centre in the landscape photo; keep him in the portrait crop.
+              className="aspect-[4/5] w-full object-cover object-[35%_center] lg:sticky lg:top-40"
             />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-7">

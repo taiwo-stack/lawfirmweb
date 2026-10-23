@@ -247,9 +247,15 @@ export const people: Person[] = [
     group: 'Partners',
     office: 'Lagos',
     photo: '/images/people/edwin-nneamaka-uzoma.jpg',
-    // Old website, About page ("Our Team").
+    // Profile supplied by the firm (23 Oct 2026).
     bio: [
-      'Edwin Nneamaka Uzoma has worked with BOMS and BOMS, a firm of Legal Practitioners based in Port Harcourt, and Equatorial Trust Bank before joining Zest Partners. She personally runs the Lagos office.',
+      'Nneamaka is a seasoned legal and business professional with over 25 years of post-call experience spanning legal practice, banking, financial services, corporate administration and management.',
+      'She began her legal career in Port Harcourt with the distinguished law firm of Boms & Boms, where she gained valuable experience in legal practice and developed a strong foundation in professional legal services.',
+      'Nneamaka transitioned into the banking sector and joined the then Equatorial Trust Bank, where she built significant experience in banking operations and management. She rose through the ranks and was eventually appointed Operations Manager of the Lagos State University Branch, a position which further strengthened her expertise in financial services, operational management, client relations, and institutional administration.',
+      'She subsequently joined Mayfield Microfinance Bank, where she served as the Managing Director, providing strategic and operational leadership and contributing to the growth and development of the institution.',
+      'Nneamaka currently serves as the General Manager of SPDC West Multipurpose Cooperative Society Limited. Her extensive experience across the legal, banking, financial and cooperative sectors gives her a unique understanding of the regulatory, commercial and operational considerations that shape modern organisations.',
+      'As a Partner at Zest Partners, Nneamaka brings her considerable professional experience, leadership capabilities and practical understanding of business and institutional management to the firm. Her background enables her to approach legal and business matters with a strong appreciation of both the legal and commercial realities of clients.',
+      'She is committed to professional excellence, sound leadership, integrity, and the delivery of practical solutions that create value for clients and organisations.',
     ],
   },
   {
