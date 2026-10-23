@@ -12,7 +12,7 @@ import { PrincipalFeature } from '~/components/blocks/PrincipalFeature'
 import { InsightCard } from '~/components/blocks/InsightCard'
 import { RotatingText } from '~/components/blocks/RotatingText'
 import { groupId, groups, practices } from '~/content/practices'
-import { people, personGroups } from '~/content/people'
+import { groupHeading, people, personGroups } from '~/content/people'
 import { insights } from '~/content/insights'
 import { featuredNews } from '~/content/news'
 import { site } from '~/content/site'
@@ -96,7 +96,7 @@ function Home() {
               Nigeria from Abuja and Lagos.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <ButtonLink to="/contact/" variant="light">
+              <ButtonLink to="/contact/" hash="message" variant="light">
                 Book a consultation
               </ButtonLink>
               <ButtonLink
@@ -416,7 +416,7 @@ function Home() {
             .filter((s) => s.list.length)
             .map((s) => (
               <div key={s.group}>
-                <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">{s.group}</h3>
+                <h3 className="border-b border-line pb-4 font-sans text-xs font-semibold tracking-[0.2em] text-muted uppercase">{groupHeading(s.group, s.list.length)}</h3>
                 {s.group === 'Partners' ? (
                   <div className="mt-10 space-y-16">
                     {s.list.map((p) => (

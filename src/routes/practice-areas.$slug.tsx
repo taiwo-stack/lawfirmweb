@@ -145,7 +145,7 @@ function PracticePage() {
                     <Mail className="size-4 shrink-0 text-brass" aria-hidden /> <Email value={contacts[0]?.email ?? site.emails[0]} />
                   </a>
                 </div>
-                <ButtonLink to="/contact/" className="mt-6 w-full justify-center">
+                <ButtonLink to="/contact/" hash="message" className="mt-6 w-full justify-center">
                   Book a consultation
                 </ButtonLink>
               </div>

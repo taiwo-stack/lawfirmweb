@@ -13,6 +13,9 @@ export type Talk = {
 export const personGroups = ['Principal', 'Partners', 'Senior Associates', 'Associates'] as const
 export type PersonGroup = (typeof personGroups)[number]
 
+/** Section heading: "Partner" for one person, "Partners" once there are more. */
+export const groupHeading = (g: PersonGroup, count: number) => (count === 1 ? g.replace(/s$/, '') : g)
+
 export type Person = {
   slug: string
   name: string

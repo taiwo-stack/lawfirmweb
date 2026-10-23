@@ -4,7 +4,7 @@ import { cn } from '~/lib/utils'
 
 const accessKey = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
 
-type Status = 'idle' | 'sending' | 'sent' | 'error'
+type Status = 'idle' | 'sending' | 'sent' | 'error' | 'mailto'
 
 const field =
   'w-full border-0 border-b border-line bg-transparent px-0 py-3 text-base placeholder:text-muted/70 focus:border-ink focus:outline-none'
@@ -26,6 +26,8 @@ export function ContactForm() {
       const subject = encodeURIComponent(String(data.get('subject') || 'Enquiry from website'))
       const body = encodeURIComponent(`${data.get('message')}\n\n${data.get('name')}\n${data.get('email')}\n${data.get('phone')}`)
       window.location.href = `mailto:${site.emails.join(',')}?subject=${subject}&body=${body}`
+      // Many devices have no mail app set up, so the link may do nothing; say how else to reach us.
+      setStatus('mailto')
       return
     }
 
@@ -88,6 +90,19 @@ export function ContactForm() {
           {status === 'sending' ? 'Sending…' : 'Send message'}
         </button>
       </div>
+      {status === 'mailto' && (
+        <p className="text-sm text-muted sm:col-span-2" role="status">
+          Your email app should open with this message ready to send. If nothing happened, email{' '}
+          <a href={`mailto:${site.emails[0]}`} className="font-semibold text-ink underline underline-offset-4">
+            {site.emails[0]}
+          </a>{' '}
+          or call{' '}
+          <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="font-semibold text-ink underline underline-offset-4">
+            {site.phones[0]}
+          </a>
+          .
+        </p>
+      )}
       {status === 'error' && (
         <p className="text-sm text-oxblood sm:col-span-2" role="alert">
           Something went wrong. Please email {site.emails[0]} or call {site.phones[0]}.

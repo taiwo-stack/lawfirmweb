@@ -57,7 +57,7 @@ function Contact() {
       <Section>
         <div className="grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
-            <h2 className="text-3xl">Send a message</h2>
+            <h2 id="message" className="text-3xl">Send a message</h2>
             <div className="mt-10">
               <ContactForm />
             </div>

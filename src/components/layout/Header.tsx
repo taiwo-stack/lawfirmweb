@@ -254,10 +254,9 @@ export function Header() {
           >
             <Search className="size-4" aria-hidden />
             <span className="hidden text-xs text-muted lg:inline">Search</span>
-            <kbd className="hidden rounded border border-line px-1.5 text-xs text-muted lg:inline">Ctrl K</kbd>
           </button>
           <div className="hidden xl:block">
-            <ButtonLink to="/contact/" className="px-5 py-2.5">
+            <ButtonLink to="/contact/" hash="message" className="px-5 py-2.5">
               Book a consultation
             </ButtonLink>
           </div>
@@ -278,7 +277,7 @@ export function Header() {
         <div id="mobile-nav" className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-paper sm:h-[calc(100dvh-4.5rem)] lg:hidden">
           <Container className="pt-4 pb-12">
             <MobileNav />
-            <ButtonLink to="/contact/" className="mt-8 w-full justify-center">
+            <ButtonLink to="/contact/" hash="message" className="mt-8 w-full justify-center">
               Book a consultation
             </ButtonLink>
           </Container>

@@ -3,7 +3,7 @@ import { Section } from '~/components/ui/Container'
 import { PageHeader } from '~/components/blocks/PageHeader'
 import { PrincipalFeature } from '~/components/blocks/PrincipalFeature'
 import { CTASection } from '~/components/blocks/CTASection'
-import { people, personGroups } from '~/content/people'
+import { groupHeading, people, personGroups } from '~/content/people'
 import { seo } from '~/lib/utils'
 
 export const Route = createFileRoute('/people/')({
@@ -20,7 +20,7 @@ function People() {
       {sections.map((s, i) => (
         <Section key={s.group} tone={i % 2 ? 'deep' : 'paper'}>
           <div className="flex items-end justify-between gap-6 border-b border-line pb-6">
-            <h2 className="text-3xl sm:text-4xl">{s.group === 'Principal' ? 'Leadership' : s.group}</h2>
+            <h2 className="text-3xl sm:text-4xl">{s.group === 'Principal' ? 'Leadership' : groupHeading(s.group, s.list.length)}</h2>
             {s.group !== 'Principal' && (
               <p className="text-sm text-muted">
                 {s.list.length} {s.list.length === 1 ? 'person' : 'people'}
